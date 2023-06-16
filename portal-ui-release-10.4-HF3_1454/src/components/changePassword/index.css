@@ -1,0 +1,38 @@
+.change__password__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    min-height: calc(100vh - 173px);
+}
+.change__password__form .info__icon{
+    color: #888;
+    margin-left: 10px;
+}
+.change__password__form .new__password__container {
+    position: relative;
+    display: grid;
+}
+.change__password__form .new__password__container .password__strength__icon{
+    position: absolute;
+    top: 35px;
+    right: -35px;
+}
+.change__password__form .d-form__label{
+    padding-top: 10px;
+}
+.change__password__form .login__div{
+    padding-top: 20px !important;
+}
+
+.change__password__container .form__group {
+    display: grid;
+}
+
+.change__password__container .form__error {
+    padding-top: 10px;
+}
+.change__password__container .form__label {
+    padding-top: 10px;
+}

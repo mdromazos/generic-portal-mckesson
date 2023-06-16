@@ -1,0 +1,93 @@
+.card_section {
+    position: relative;
+    margin: 0 20px 20px 2px !important;
+    width: 22.5%;
+}
+ 
+.card_section .d-card__body {
+    min-height: 131px;
+}
+ 
+.card_section .d-card__header__title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+ 
+.card_section .d-card__header {
+    justify-content: space-between;
+}
+ 
+.portal__card__body__table {
+    width : 100%;
+}
+ 
+.info__icon {
+    color: #9c9c9c;
+}
+ 
+.portal__card__info__icon {
+    padding-bottom: 0px !important;
+}
+ 
+.d-menu .d-menu__item{
+    padding: 3px 5px;
+    font-weight: bold;
+}
+.d-menu__separator{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+ .d-menu .d-menu__item button{
+    padding:0.5rem;
+    padding-left: 0;
+    font-weight: bold;
+}
+ .import_dialog .d-panel{
+    height: 250px;
+}
+ 
+.status__icon {
+    vertical-align: middle;
+    padding: 0px 10px;
+    height: 20px;
+}
+ 
+.first__status__icon {
+    padding-left: 0px;
+}
+ 
+.status__seperator {
+    vertical-align: middle;
+}
+ 
+.status__label {
+    vertical-align: middle;
+}
+ 
+.menu__icon {
+    padding-right: 6.5px;
+}
+ 
+.portal__status__row {
+    padding-top: 5px;
+}
+
+.portal__config__panel .dialog__content__body { 
+    /*specially for discard_draft, delete_portal message box spacing*/
+    margin-top: 13px !important;
+    margin-bottom: 13px !important;
+}
+
+.file-group-field {
+    display: inline-flex;
+    align-items: center;
+}
+.file-group-label {
+    padding-right: 0.625em;
+}
+
+.file-group-error {
+    display: block; 
+    margin-left: 2.625em;
+}

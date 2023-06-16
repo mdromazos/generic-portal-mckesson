@@ -1,0 +1,12 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+  <title>portal</title>
+  <rect width="20" height="16.2" rx="0.38" fill="#bbb"/>
+  <rect x="2" y="2.07" width="16" height="12.2" fill="#eaeaea"/>
+  <path d="M16.7,19H13.11v-.8a1,1,0,0,0-1-1H7.89a1,1,0,0,0-1,1V19H3.3a.5.5,0,0,0-.5.5.5.5,0,0,0,.5.5H16.7a.5.5,0,0,0,.5-.5A.5.5,0,0,0,16.7,19Z" transform="translate(0 0)" fill="#bbb"/>
+  <g>
+    <rect x="3.46" y="3.46" width="3.58" height="2.5" fill="#39f"/>
+    <rect x="3.46" y="6.92" width="3.58" height="2.5" fill="#39f"/>
+    <rect x="3.46" y="10.38" width="3.58" height="2.5" fill="#39f"/>
+    <rect x="8.27" y="3.46" width="8.27" height="9.42" fill="#85c2ff"/>
+  </g>
+</svg>

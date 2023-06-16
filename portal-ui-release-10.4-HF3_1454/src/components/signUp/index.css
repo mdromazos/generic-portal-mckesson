@@ -1,0 +1,271 @@
+.signup__box__content{
+    background-color: white;
+    padding: 1px 50px 10px;
+}
+.signup__box__header{
+    height: 50px;
+    text-align: center;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    padding-left: 25px;
+    border-bottom : 1px solid #ff800E;
+    z-index: 9;
+    position: sticky;
+    top: 0;
+}
+.signup__button{
+    width: 130px;
+    height: 30px;
+    color: #fff!important;
+    font-family: Roboto!important;
+    font-size: 14px!important;
+    line-height: 14px!important;
+    text-align: center!important;
+    border-radius: 3px!important;
+    border-color: #0a4fc7!important;
+    background-color: #0a4fc7!important;
+}
+.signup__button:hover{
+    box-shadow: none!important;
+    background-color: #3399FF!important;
+}
+
+.signup__links{
+    padding-top: 20px;
+    font-size: 12px;
+    font-family: roboto;
+    text-align: center;
+}
+.signup__check__account
+{
+   padding-right: 5px;
+}
+.signup__links__fp{
+    padding-top: 20px;
+    font-size: 12px;
+    font-family: roboto;
+    text-align: center;
+}
+.link__color{
+    color: #3399ff;
+    cursor: pointer;
+}
+.signup__link__forgot{
+    float: left;
+}
+.error__msg{
+    color: red;
+}
+.loader__signup{
+    position: relative;
+    height: 100px ;
+}
+.signup__header__div{
+    padding-right: 12px;
+    margin-top: 10px ;
+}
+.signup__header__content {
+    line-height: 50px;
+    padding-left: .5em;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: roboto light;
+    color: black;
+}
+.copyright__style{
+    font-size: x-small;
+    padding-top: 20px;
+    text-align: center;
+    color: #9c9c9c;
+}
+.signup__panel{
+    width: 100%;
+}
+.logo{
+     max-width: 150px;
+}
+.form__field__signup_title{
+
+    font-size: 12px;
+    color: black;
+    font-family: roboto;
+}
+.form__field__title{
+   
+    font-size: 12px;
+    color: black;
+    font-family: roboto;
+}
+.form__field__title__signup__password{
+   
+    font-size: 12px;
+    color: black;
+    font-family: roboto;
+   
+}
+.signup__div{
+    text-align:center;
+    padding-top: 30px;
+}
+.form__remember .state label{
+    font-weight: bold;
+    font-size: small;
+}
+.signup__button__center{
+    text-align:center;
+}
+.signup__link__signup{
+    float: right;
+}
+.locale__holder__signup .d-dropdown__search{
+    font-family: roboto;
+    font-weight: 300;
+}
+.signup__user{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 10px;
+}
+.signup__form__title{
+    padding: 30px 0px 30px 0px;
+    font-size: 22px;
+    text-align: center;
+    color: black;
+    font-family: roboto;
+}
+.signup__form__welcome__title{
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+}
+.locale__holder__signup{
+    padding-top: 26px;
+    width: 12%;
+    margin-left: 435px;
+}
+.signup__header__logo
+{
+    height:30px
+}
+.locale__holder__signup div:nth-child(1){
+    border: 0px !important;
+    outline: 0px !important;
+}
+.locale__holder__signup .d-dropdown__button{
+    border: none !important ;
+    background: none !important;
+}
+.signup__page{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-size: cover;
+    background-position: 50%;
+    justify-content: center;
+}
+.signup__error__color{
+    color: red;
+}
+.signup__error{
+    margin-left: 27.4em;
+    margin-top: 1em;
+    height: 2.05em;
+}
+.signup__error__close{
+    width: 16px;
+    height: 16px;
+}
+.login__error__btn{
+    padding-top:0em !important;
+    padding-bottom:0em !important;
+    padding-right:0.4em !important;
+}
+.form__field__signup{
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-size: 12px;
+}
+.signup_1_row{
+    flex: 100% 1;
+}
+.signup_1_row__show__password{
+     flex: 100% 1;
+     padding-left: 161px;
+}
+.signup_2_row{
+    flex: 50% 1;
+}
+.signup_2_row__show__password{
+     flex: 50% 1;
+     padding-left: 161px;
+}
+.signup__section .d-section__header{
+    margin: 0 10px;
+    border-bottom: 1px solid #ddd;
+    min-height: 50px;
+}
+.signup__section .d-section__header__container {
+    font-weight: 400;
+    font-size: 16px;
+}
+.signup__section .d-section__content {
+    padding-top: 10px !important;
+}
+.error__box .d-input input {
+    border-color: #ec1c24 !important;
+}
+.portal_page__not__found{
+    text-align: center;
+}
+
+.signup__user .form__label__signup {
+    font-size: 13px;
+    line-height: 1.5;
+    padding-top: 0.125em;
+    padding-right: .625em;
+    width: 150px;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.signup__user .form__field__signup {
+    width: 250px;
+    position: relative;
+    display: inline-flex;
+    margin-bottom: .625em;
+}
+
+.signup__user .form__group__signup {
+    display: table-row;
+}
+
+.signup__user .field__error {
+    vertical-align: middle;
+    height: 20px;
+    margin-bottom: .9375em;
+    line-height: 1.5;   
+}
+
+
+.signup__box__inner {
+    z-index: 100;
+    width: 1100px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 6px;
+    border-color:#eee;
+}
+  
+.signup__box__outer {
+    height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+  

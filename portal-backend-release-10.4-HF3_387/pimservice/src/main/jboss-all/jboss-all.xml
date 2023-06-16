@@ -1,0 +1,5 @@
+<jboss umlns="urn:jboss:1.0">
+    <jboss-deployment-dependencies xmlns="urn:jboss:deployment-dependencies:1.0">
+        <dependency name="siperian-mrm.ear"/>
+    </jboss-deployment-dependencies>
+</jboss>

@@ -1,0 +1,122 @@
+.portal__header {
+    height: 59px;
+    border-bottom: 1px solid #ff800e;
+    background-color: #fff;
+    position: relative;
+    z-index: 100;
+}
+.portal__header__name {
+    font-size: 18px;
+    padding: 21px 0 0 10px;
+    display: inline-block;
+    position: relative;
+    font-family: Roboto;
+    font-weight: 300;
+    line-height: 18px;
+}
+.portal__header__user__icon {
+    font-size: 16px;
+}
+.input__container {
+    position:relative;
+    padding-right: 28px;
+}
+.search__field {
+    height:28px;
+    margin:0;
+    padding-right: 30px;
+    width: 100%;
+}
+.user__icon__div {
+    margin-top: 10px;
+}
+.input__img {
+    position: absolute;
+    top: 4px;
+    right: 30px;
+    width: 24px;
+    height: 24px;
+}
+
+.vertical__line {
+    border-left: 1px solid #dddddd;
+    height: 30px;
+    padding-left: 28px;
+    margin-top: 5px;
+}
+
+.profile__section {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    min-width: 35px;
+    min-height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.portal__header .menu__trigger {
+    cursor: pointer;
+    float: right;
+    padding: 20px 30px 20px 20px;
+}
+.portal__header__outer__image {
+    padding-left: 25px;
+    float: left;
+}
+.portal__header__logo {
+    position: relative;
+    top: 13px;
+    max-height: 34px;
+}
+
+.change__password {
+    color: #000;
+}
+
+.change__password:hover {
+    text-decoration: #000;
+}
+
+.d-menu {
+    background-color: #FFF!important;
+    padding: 0px!important;
+}
+
+.d-menu__item {
+    height: 28px!important;
+    padding: 0 20px!important;
+}
+
+.d-menu__item:last-child{
+   margin-bottom: 10px!important;
+}
+.d-menu__item:first-child{
+    margin-top: 10px!important;
+ }
+.d-menu__item:hover {
+    background-color: #E3F1FF!important;
+    border-color: #E3F1FF!important;
+}
+
+.d-menu__item--disabled {
+    color: black!important;
+    border: none!important;
+}
+
+.d-menu__separator {
+    margin-left: 20px!important;
+    background-color: #ccc!important;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    margin-right: 20px!important;
+}
+
+.shell-header-close-icon {
+    float: right;
+    padding: 0 1.5em;
+}
+
+.close__change__password {
+    float: right !important;
+}

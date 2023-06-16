@@ -1,0 +1,12 @@
+com\informatica\mdm\portal\metadata\auth\service\AuthServiceTest.class
+com\informatica\mdm\portal\metadata\rest\PortalLoginControllerApiDocumentationTest.class
+com\informatica\mdm\portal\metadata\auth\util\AuthUtilTest.class
+com\informatica\mdm\portal\metadata\rest\ChangePasswordControllerApiDocumentationTest.class
+com\informatica\mdm\portal\metadata\rest\SamlConfigControllerApiDocumentationTest.class
+com\informatica\mdm\portal\metadata\rest\RuntimeControllerApiDocumentationTest.class
+com\informatica\mdm\portal\metadata\rest\GlobalConfigControllerApiDocumentationTest.class
+com\informatica\mdm\portal\metadata\rest\ProxyControllerApiDocumentationTest.class
+com\informatica\mdm\portal\metadata\auth\service\impl\PortalProxyServiceImplTest.class
+com\informatica\mdm\portal\metadata\rest\PortalConfigLoginControllerApiDocumentationTest.class
+com\informatica\mdm\portal\metadata\rest\PortalConfigControllerApiDocumentationTest.class
+com\informatica\mdm\portal\metadata\rest\PortalUIControllerApiDocumentationTest.class

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+    <parent>
+		<groupId>com.informatica.mdm.portal</groupId>
+		<artifactId>portal-metadata-main</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../</relativePath> <!-- lookup parent from repository -->
+	</parent>
+	<artifactId>portal-metadata-ecore</artifactId>
+	<description>Demo project for Spring Boot</description>
+
+	<dependencies>
+        <dependency>
+            <groupId>org.eclipse.emf</groupId>
+            <artifactId>org.eclipse.emf.common</artifactId>
+            <version>${emf-common-version}</version>
+        </dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>ecore-xmi</artifactId>
+			<version>2.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.emfjson</groupId>
+			<artifactId>emfjson-jackson</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0.2</version>
+		</dependency> -->
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<delimiters>
+						<delimiter>@</delimiter>
+					</delimiters>
+				</configuration>
+				<executions>
+					<execution>
+						<id>copy-portal-metamodels</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/classes/ecore</outputDirectory>
+							<resources>
+								<resource>
+									<includes>
+										<include>*.ecore</include>
+									</includes>
+									<directory>src/main/resource/ecore</directory>
+									<filtering>false</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,52 @@
+{
+    "name": "portal-config",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@blueprintjs/core": "^3.2.0",
+        "@blueprintjs/icons": "^3.0.0",
+        "@informatica/archipelago-icons": "1.3.2",
+        "@informatica/droplets-core": "2.60.2",
+        "@informatica/droplets-themes": "35.3.2",
+        "axios": "0.19.2",
+        "file-saver": "2.0.2",
+        "formik": "2.2.6",
+        "i18next": "19.0.3",
+        "i18next-browser-languagedetector": "4.0.1",
+        "react": "16.8.6",
+        "react-color": "2.18.0",
+        "react-dom": "16.8.6",
+        "react-i18next": "11.3.1",
+        "react-router-dom": "5.1.2",
+        "react-scripts": "2.1.8",
+        "yup": "0.28.0",
+        "lodash.clonedeep": "4.5.0"
+    },
+    "scripts": {
+        "start": "react-scripts --openssl-legacy-provider start",
+        "build": "react-scripts --openssl-legacy-provider build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ],
+    "guppy": {
+        "id": "37c0da00-5524-11e9-af1a-b75adcfe6314",
+        "name": "Portal Config UI",
+        "type": "create-react-app",
+        "icon": "./static/media/icon_squirrel.8294dcfe.jpg",
+        "color": "#00bfb5",
+        "createdAt": 1554194965409
+    },
+    "devDependencies": {
+        "@testing-library/react": "9.4.0",
+        "@testing-library/jest-dom": "5.11.0"
+    }
+}

@@ -1,0 +1,17 @@
+.metadata__validation__message_icon {
+    height: 20px;
+    vertical-align: sub;
+    padding: 0 10px;
+}
+.metadata__validation__message{
+    color: red;
+}
+.import__portal__dialog .d-panel{
+    height: 400px;
+}
+.portal__name__input{
+    width: 246px;
+}
+.import__portal__dialog .d-file-picker__dropzone{
+    margin-bottom: 0.625em;
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<project name="common" default="build" basedir=".">
+
+    <property file="../../../mrm/Projects/build.properties"/>
+    <property environment="env" />
+
+    <path id="classpath.compile">
+    	<pathelement path="lib/siperian-common.jar" />
+    	<pathelement path="lib/siperian-api.jar" />
+    	<pathelement path="lib/siperian-server.jar" />
+    	<pathelement path="lib/siperian-server-pkiutil.jar" />
+    </path>
+
+    <target name="init">
+    	<mkdir dir="build/classes" />
+    </target>
+
+    <target name="compile" unless="eclipse.running">
+        <javac srcdir="source/java" destdir="build/classes" includes="com/**" debug="true" optimize="false" deprecation="off">
+            <classpath refid="classpath.compile" />
+        </javac>
+    </target>
+
+    <target name="build_jar" depends="compile">
+    	<copy file="source/resources/providers.properties" tofile="build/META-INF/providers.properties"/>
+        <jar jarfile="build/PortalLoginProvider.jar">
+            <fileset dir="build/classes" includes="com/informatica/solutions/portal/**" />
+            <fileset dir="build" includes="META-INF/providers.properties" />
+            
+            <manifest>
+                <attribute name="Created-By" value="${sip.copyright}" /> 
+                <attribute name="Class-Path" value="" />
+            </manifest>
+        </jar>
+        <delete file="build/META-INF/providers.properties"/>
+    </target>
+
+    <target name="clean" description="Cleans up all files created by the build">
+        <delete dir="build" quiet="false" failonerror="true" />
+    </target>
+
+    <target name="build" depends="init, compile, build_jar" description="Package build">
+        <touch file="build/lastbuild.touch" />
+    </target>
+
+</project>

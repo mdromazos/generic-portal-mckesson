@@ -1,0 +1,132 @@
+.layout__section {
+    display: flex;  
+    flex-flow: column;  
+    margin-bottom: 20px;
+}
+
+.layout__section__controls {
+   display:flex;
+   flex-direction: row-reverse;
+   min-height:30px;
+}
+
+.layout__section__body {
+    min-height: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+.layout__section__add {
+    text-align:center;
+    min-height:35px;
+}
+
+.layout__section__add__label, .layout__container__add__component__label {
+    float: right;
+    padding-left: 10px;
+    color: #0080ff;
+}
+
+.layout__section__container{
+    display:flex;
+    border: 1px dashed gray;
+    flex-direction: column;
+}
+
+
+.layout__container__add__component{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: row;
+    color: #0080ff;
+}
+
+.layout__section .aicon {
+    color: #0080ff;
+}
+
+.layout__section .layout__section__controls__active .aicon__move-up-down:hover {
+    color: #0080ff !important;
+}
+
+.layout__section .aicon__move-up-down,
+.layout__section .layout__ctrl__icon__disabled {
+    color: #808080 !important;
+}
+
+.layout__section .layout__ctrl__icon__disabled:hover {
+  cursor: not-allowed;
+}
+
+.layout__ctrl__icon__movedown {
+    transform: rotate(180deg);
+}
+
+.layout__section__controls .menu {
+    display:flex;
+}
+
+.layout__section__template__controls {
+    display:flex;
+    padding-left: 0px;   
+
+}
+
+.layout__section__template__controls li {
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 1px;
+    padding: 5px 5px;
+    height: 24px;
+    line-height: 1.5em;
+    display:flex;
+}
+
+.template__menu__container {
+    background-color: #eee;
+    border-radius: 4px;
+    box-shadow: 1px 1px 4px 1px #9c9c9c;
+    list-style-type: none;
+    margin: 0;
+    padding: 0px;
+    position: relative;
+    z-index: 1000;
+}
+
+/*temperory for template dummy icons */ 
+.template__restore{
+    transform: rotate(90deg);
+}
+.template__maximize{
+    transform: rotate(90deg);
+}
+.template__grid-view{
+    transform: rotate(90deg);
+}
+.template__restore{
+    transform: rotate(90deg);
+}
+.template__new-window{
+    transform: rotate(90deg);
+}
+.template__rectangle{
+    background-image: url(icons/Rectangle.svg);
+    width: 12px;
+    height: 12px;
+    background-size: cover;
+}
+/*temperory for template dummy icons */ 
+
+.layout__section .aicon__expand-collapse {
+    padding-left: 4px;
+    font-size: 8px;
+}
+
+.template__menu__button {
+    display:flex;
+    align-items: center;
+}

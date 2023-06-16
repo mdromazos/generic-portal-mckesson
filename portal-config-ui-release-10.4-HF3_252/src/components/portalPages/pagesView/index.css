@@ -1,0 +1,28 @@
+.panel__body {
+    height: 100%;
+}
+
+.sourceShuttle {
+    display: none;
+}
+
+.visible_pages {
+    display: none;
+}
+
+.page__name {
+    color: #2373E4;
+    cursor: pointer;
+}
+
+.table__column__page span {
+    overflow: visible !important;
+}
+
+.page__name:hover {
+    border-bottom: 1px solid #2373E4;
+}
+
+.bold__text span {
+    font-weight: 700;
+}

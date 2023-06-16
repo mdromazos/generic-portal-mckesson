@@ -1,0 +1,44 @@
+.portal-color-palette {
+    margin-bottom: 10px;
+    display: table;
+}
+
+.validateState {
+    color: #39f;
+    cursor:pointer;
+}
+.default_message{
+    padding-bottom: 14px;
+    padding-top: 14px;
+}
+.display__block{
+    display: block;
+}
+.validate__role > .d-form__group{
+    display: block !important;
+}
+.validate__state > .d-form__group{
+    display: block !important;
+}
+
+.message__box__content{
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.radio-form-label {
+    line-height: 1.5;
+    padding-top: .125em;
+    padding-right: .625em;
+    display: table-cell;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.radio-form-group {
+    display: flex;
+}
+
+.radio-form-field {
+    flex: 1;
+}

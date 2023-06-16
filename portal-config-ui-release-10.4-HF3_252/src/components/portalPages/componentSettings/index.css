@@ -1,0 +1,9 @@
+.component__settings__dialog {
+    height: calc(100vh - 100px);
+    width: calc(100vw - 160px) !important;
+}
+.component__container {
+    margin-top: 20px;
+    height: calc(100vh - 295px);
+    overflow: auto;
+}

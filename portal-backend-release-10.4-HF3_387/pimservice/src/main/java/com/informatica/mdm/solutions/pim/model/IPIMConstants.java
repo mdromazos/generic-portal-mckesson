@@ -1,0 +1,64 @@
+package com.informatica.mdm.solutions.pim.model;
+
+public interface IPIMConstants {
+
+	public static final String SUPPLIER_ADMIN_ROLE = "Supplier Administrators";
+	public static final String SUPPLIER_USER_ROLE = "Supplier Users";
+	public static final String HSX_SUPPLIER_ID = "hsx-supplierid";
+	public static final String HSX_NAME = "hsx-name";
+	public static final String HSX_EXTERNAL_IDENTIFIER = "externalid";
+	public static final String HSX_USER_EMAIL_ID = "hsx-email";
+	public static final String SUPPLIER_DELETE_SUCCESS_MESSAGE = "supplier deleted successfully";
+	public static final String SUPPLIER_DEACTIVATE_SUCCESS_MESSAGE = "supplier deactivated successfully";
+	public static final String HSX_ROLE = "hsx-roles";
+	public static final String HSX_FIRST_NAME = "hsx-firstname";
+	public static final String HSX_LAST_NAME = "hsx-lastname";
+	public static final String USER_ADD_SUCCESS_MESSAGE = "new user added successfully";
+	public static final String USER_DELETE_SUCCESS_MESSAGE = "user deleted successfully";
+	public static final String SUPPLIER_UPDATE_SUCCESS_MESSAGE = "supplier updated successfully";
+	public static final String HSX_ORG_NAME = "hsx-organizationname";
+	public static final String HSX_PASSWORD = "hsx-password";
+	public static final String ACTIVATION_SUCCESS = "Supplier activated successfully";
+	public static final String HSX_UILOCALE = "hsx-locale";
+	public static final String USER = "user";
+	public static final String CREDENTIAL = "credential";
+	public static final String MESSAGE = "message";
+	public static final String HSX_USER_ID = "hsx-userid";
+	public static final String CONN_TYPE_EXTERNAL = "ExternalApp";
+	public static final String CATALOG_ID = "catalogids";
+	public static final String CATALOG_NAME = "catalogname";
+	public static final String EMAIL_SENT = "email sent";
+	public static final String HAS_ITEM_EDITOR_PERMISSION = "hasitemeditorpermission";
+	public static final String MASTER_SUPPLIER_ID = "hsx-mastersupplierid";
+	public static final String NEW_NAME = "hsx-newname";
+	public static final String VICTIM_SUPPLIER_IDS = "hsx-victimsupplierids";
+	public static final String SUPPLIERS_MERGED_SUCCESSFULLY = "suppliers merged successfully";
+	public static final String IS_HTTPS_ENABLED = "IsPimHttpsEnabled";
+	public static final String HTTPS = "https";
+	public static final String HTTP = "http";
+	public static final String Y = "Y";
+	public static final String ORGANIZTION = "organization";
+	public static final String CATALOGS = "catalogs";
+	public static final String USER_TYPE = "userType";
+	public static final String SERVER_URL = "serverUrl"; 
+	public static final String ADD = "add";
+	public static final String UPDATE = "update";
+	public static final String ACTIVATE = "activate";
+	public static final String DEACTIVATE = "deactivate";
+	public static final String DELETE = "delete";
+	public static final String HARD_DELETE = "hardDelete";
+	public static final String FIND = "find";
+	public final static String MDM_CSRF_TOKEN_HEADER = "ICT";
+	public final static String MDM_CSRF_TOKEN_UI = "ict-ui";
+	public static final String CONTENT_TYPE = "Content-Type";
+	public static final String APPLICATION_JSON = "application/json";
+	public static final String MDM_SESSION_ID_COOKIE = "mdmsessionid";
+	public final static String MDM_SESSION_URL = "%s/cmx/session/%s";
+	public static final String SESSION_VALIDATE_ACTION = "validate";
+	public static final String CMX_PROPERTIES = "resources/cmxserver.properties";
+	public static final String SIPERIAN = "siperian";
+	public static final String SIPERIAN_HOME = "home";
+	public static final String EMPTY_PATH = "emptyPath";
+	public static final String EMPTY_PSWD = "emptyPswd";
+	
+}

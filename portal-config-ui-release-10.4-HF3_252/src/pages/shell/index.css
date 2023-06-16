@@ -1,0 +1,155 @@
+.profile__section {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    min-width: 35px;
+    min-height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-icon{
+    font-size: 20px;
+}
+
+.portal-header-user-icon{
+    background-color: #000;
+    color: #fff;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.portal-header-user-icon:hover{
+    background-color: #3399ff;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.user__info__menu {
+    color: #000000;
+}
+
+.user_name {
+    text-transform: capitalize;
+}
+
+.help-img-container{
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 15px;
+}
+.help-img-container:hover{
+    background-color: #3399ff;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.help-img{
+    height: 20px;
+    width: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.selected-nav-link {
+    background-color: #000000;
+}
+
+.breadcrumb-icon{
+    width: 20px;
+    height: 20px;
+    vertical-align: sub;
+}
+
+.d-shell__page__title__breadcrumbs__breadcrumb:not(:last-child):after {
+    content: ":";
+}
+
+ul.d-shell__page__title__breadcrumbs > li:first-child {
+    margin-right: -0.06em;
+}
+ul.d-shell__page__title__breadcrumbs > li:first-child {
+    line-height: 18px;
+}
+
+ul.d-shell__page__title__breadcrumbs > li:first-child::after {
+    content: '';
+}
+
+.shell-header-close-icon{
+    padding: 0em;
+    padding-left:0.6em;
+    vertical-align: middle;
+}
+
+.close-icon{
+    font-size:20px;
+}
+
+.shell__action__icon{
+    font-size: 20px;
+}
+
+.discard__draft{
+    background-color: #d6ebfc;
+    font-weight: bold;
+    background: none !important
+}
+
+.shell__header__separator{
+    border-right: 1px solid #bbbbbb;
+    font-size: 20px;
+    padding-left: 10px;
+    margin: 0px;
+    vertical-align: middle;
+}
+
+.d-section__header__container {
+    font-weight: 700;
+}
+
+.breadcrumb__icon{
+    height: 16px;
+    vertical-align: middle;
+    padding:0px 10px;
+}
+
+.breadcrumb__label{
+    max-width: 320px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: sub;
+    padding-right: 2.5em !important;
+}
+
+.portal__config__panel {
+    min-height: 100%;
+}
+
+.label__breadcrumb {
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+.breadcrumb__info {
+    vertical-align: middle;
+}
+
+.shell__action__menu{
+    vertical-align: sub;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.portal__setting__icon:hover{
+    color: #3399ff;
+}
+
+.d-loader{
+    z-index:1002 !important;
+}

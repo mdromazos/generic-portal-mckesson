@@ -1,0 +1,2015 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpel:process xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+              xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"
+              xmlns:ns="http://Customer360Process/Customer360Process"
+              xmlns:htd="http://www.example.org/WS-HT"
+              xmlns:abxht="http://schemas.active-endpoints.com/b4p/wshumantask/2007/10/abxht"
+              xmlns:cfgx="http://informatica.com/modules/configuration/1.0/xquery"
+              xmlns:b4p="http://www.example.org/BPEL4People"
+              xmlns:solution="http://custom.functions/CustomJavafunctions"
+              xmlns:mdm_avos_pl="http://www.informatica.com/activevos/mdmworkflow/wsdl/mdmavospl"
+              xmlns:aei="http://www.activebpel.org/2009/02/bpel/extension/ignorable"
+              xmlns:ext="http://www.activebpel.org/2006/09/bpel/extension/query_handling"
+              xmlns:ns2="urn:co-base.informatica.mdm"
+              xmlns:ns1="urn:cs-base.informatica.mdm"
+              xmlns:ns4="urn:co-ors.informatica.mdm"
+              xmlns:ext1="http://www.activebpel.org/2009/06/bpel/extension/links"
+              xmlns:ext2="http://www.activebpel.org/2011/08/bpel/extension/script"
+              xmlns:abx="http://www.activebpel.org/bpel/extension"
+              xmlns:mdmavxsd="urn:informatica.mdm.av.xsd"
+              xmlns:aeREST="http://www.activebpel.org/REST/2007/12/01/aeREST.wsdl"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:mdm_avos="urn:informatica.mdm.av"
+              xmlns:rest="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"
+              xmlns:cfg="http://www.informatica.com/schema/1.0/av_config.xsd"
+              xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+              aei:editStyle="BPMN"
+              ext1:linksAreTransitions="yes"
+              ext:createTargetXPath="yes"
+              ext:disableSelectionFailure="yes"
+              name="MDMAppsDirectSaveProcess"
+              suppressJoinFailure="yes"
+              targetNamespace="http://MDMAppsDirectSaveProcess">
+   <b4p:humanInteractions>
+      <htd:logicalPeopleGroups>
+         <htd:logicalPeopleGroup xmlns:solutions="http://informatica.com/modules/solutions/1.0/xquery"
+                                 xmlns:ns5="http://www.informatica.com/schema/1.0/av_config.xsd"
+                                 xmlns:ns3="urn:co-types.informatica.mdm"
+                                 xmlns:json="http://schemas.activebpel.org/JSON/2013/10/10/aeJSON.xsd"
+                                 name="abAdmin"/>
+      </htd:logicalPeopleGroups>
+      <htd:tasks/>
+      <htd:notifications/>
+   </b4p:humanInteractions>
+   <bpmndi:BPMNDiagram xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+                       xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+                       aei:bpelDigest=""
+                       aei:editStyle="BPMN"
+                       aei:layoutNeeded="false"
+                       aei:modelVersion="5"
+                       aei:objectId="1590323036856501694"
+                       aei:processInitiatorSim=""
+                       isHorizontal="false">
+      <bpmndi:BPMNPlane>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="1590323103113511881"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="1590323103113511881"/>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="1590323103114511894"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="1590323103114511894"/>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="1590323103114511897"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="1590323103114511897"/>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="1590323103114511904"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="1590323103114511904"/>
+         <bpmndi:BPMNShape aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:objectId="1590323103116511934"
+                           aei:type="PARTNER_LINK"
+                           aei:visible="false,false,false,false,false,"
+                           bpmnElement="1590323103116511934"/>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {355,45}" aei:absoluteSize="DIM {215,1733}"
+                           aei:objectId="1590323103107511477"
+                           aei:type="SEQUENCE"
+                           bpmnElement="1590323103107511477"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="345" y="35"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {427,55}" aei:absoluteSize="DIM {70,60}"
+                           aei:attachments=""
+                           aei:name="Start"
+                           aei:objectId="1590323103107511478"
+                           aei:principal=""
+                           aei:type="RECEIVE"
+                           bpmnElement="1590323103107511478">
+            <dc:Bounds height="60" width="70" x="462" y="140"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {453,112}" aei:absoluteSize="DIM {24,32}"
+                              aei:anchor.location="1"
+                              aei:anchor.objectId="139022951720423045"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103107511479"
+                              aei:relative.location="LOC {-19,47}"
+                              aei:text="Start"
+                              bpmnElement="1590323103107511478label">
+               <dc:Bounds height="13" width="24" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {427,140}" aei:absoluteSize="DIM {70,60}"
+                           aei:name="Reply with Process id "
+                           aei:objectId="1590323103107511480"
+                           aei:type="REPLY"
+                           bpmnElement="1590323103107511480">
+            <dc:Bounds height="60" width="70" x="653" y="172"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {419,131}" aei:absoluteSize="DIM {120,34}"
+                              aei:anchor.location="1"
+                              aei:anchor.objectId="139022953260523859"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103107511481"
+                              aei:relative.location="LOC {-53,-19}"
+                              aei:text="Reply with Process id "
+                              bpmnElement="1590323103107511480label">
+               <dc:Bounds height="34" width="120" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {400,225}" aei:absoluteSize="DIM {125,53}"
+                           aei:name="Initialze Data"
+                           aei:objectId="1590323103107511482"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103107511482">
+            <dc:Bounds height="53" width="125" x="1" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {400,303}" aei:absoluteSize="DIM {125,53}"
+                           aei:name="Prepare Encrypt"
+                           aei:objectId="1590323103107511489"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103107511489">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {400,381}" aei:absoluteSize="DIM {125,53}"
+                           aei:attachments=""
+                           aei:name="Encrypt Security"
+                           aei:objectId="1590323103107511491"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103107511491">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {400,459}" aei:absoluteSize="DIM {125,53}"
+                           aei:name="Read Business Entity"
+                           aei:objectId="1590323103107511492"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103107511492">
+            <dc:Bounds height="-1" width="-1" x="675" y="347"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {400,537}" aei:absoluteSize="DIM {125,53}"
+                           aei:attachments=""
+                           aei:name="Read Business Entity"
+                           aei:objectId="1590323103107511494"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103107511494">
+            <dc:Bounds height="-1" width="-1" x="546" y="530"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {400,615}" aei:absoluteSize="DIM {125,53}"
+                           aei:name="Initilize Data"
+                           aei:objectId="1590323103107511495"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103107511495">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {365,693}" aei:absoluteSize="DIM {195,397}"
+                           aei:objectId="1590323103107511500"
+                           aei:type="IF"
+                           bpmnElement="1590323103107511500"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {478,696}" aei:absoluteSize="DIM {8,16}"
+                              aei:anchor.location="4"
+                              aei:anchor.objectId="158940124056873949"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103107511501"
+                              aei:relative.location="LOC {6,-21}"
+                              aei:text="If"
+                              bpmnElement="1590323103107511500label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="boolean($portalId)"
+                           aei:IF_EXPR_LANG="urn:active-endpoints:expression-language:xquery1.0"
+                           aei:absoluteLocation="LOC {365,753}"
+                           aei:absoluteSize="DIM {145,277}"
+                           aei:objectId="1590323103107511502"
+                           aei:type="ELSE_IF"
+                           bpmnElement="1590323103107511500ifDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {415,761}" aei:absoluteSize="DIM {65,16}"
+                              aei:anchor.location="4"
+                              aei:anchor.objectId="158940124056973953"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103108511511"
+                              aei:relative.location="LOC {-32,-16}"
+                              aei:text="If Condition"
+                              bpmnElement="1590323103107511500ifDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {365,782}" aei:absoluteSize="DIM {145,229}"
+                           aei:objectId="1590323103107511503"
+                           aei:type="SEQUENCE"
+                           bpmnElement="1590323103107511503"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {375,792}" aei:absoluteSize="DIM {125,53}"
+                           aei:name="Get Portal Config"
+                           aei:objectId="1590323103107511504"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103107511504">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {375,870}" aei:absoluteSize="DIM {125,53}"
+                           aei:attachments=""
+                           aei:name="Get Portal Config"
+                           aei:objectId="1590323103107511506"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103107511506">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {375,948}" aei:absoluteSize="DIM {125,53}"
+                           aei:name="Initialize Portal Data"
+                           aei:objectId="1590323103107511507"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103107511507">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {535,753}" aei:absoluteSize="DIM {25,277}"
+                           aei:objectId="1590323103108511512"
+                           aei:type="ELSE"
+                           bpmnElement="1590323103107511500elseDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {546,761}" aei:absoluteSize="DIM {23,16}"
+                              aei:anchor.location="4"
+                              aei:anchor.objectId="158940124057173959"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103108511514"
+                              aei:relative.location="LOC {-11,-16}"
+                              aei:text="Else"
+                              bpmnElement="1590323103107511500elseDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {537,782}" aei:absoluteSize="DIM {21,36}"
+                           aei:objectId="1590323103108511513"
+                           aei:type="SEQUENCE"
+                           bpmnElement="1590323103108511513"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {400,1115}" aei:absoluteSize="DIM {125,53}"
+                           aei:name="Security Provider Request"
+                           aei:objectId="1590323103109511608"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103109511608">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {400,1193}" aei:absoluteSize="DIM {125,53}"
+                           aei:attachments=""
+                           aei:name="Security Provider"
+                           aei:objectId="1590323103109511610"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103109511610">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {400,1271}" aei:absoluteSize="DIM {125,53}"
+                           aei:name="Promote Pending Request"
+                           aei:objectId="1590323103109511611"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103109511611">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {400,1349}" aei:absoluteSize="DIM {125,53}"
+                           aei:attachments=""
+                           aei:name="Promote Pending"
+                           aei:objectId="1590323103109511613"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103109511613">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {365,1427}" aei:absoluteSize="DIM {195,256}"
+                           aei:objectId="1590323103109511616"
+                           aei:type="IF"
+                           bpmnElement="1590323103109511616"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {478,1430}" aei:absoluteSize="DIM {8,16}"
+                              aei:anchor.location="4"
+                              aei:anchor.objectId="1590228999701492768"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103109511617"
+                              aei:relative.location="LOC {6,-21}"
+                              aei:text="If"
+                              bpmnElement="1590323103109511616label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="boolean($portalId)"
+                           aei:IF_EXPR_LANG="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0"
+                           aei:absoluteLocation="LOC {365,1487}"
+                           aei:absoluteSize="DIM {145,136}"
+                           aei:objectId="1590323103109511618"
+                           aei:type="ELSE_IF"
+                           bpmnElement="1590323103109511616ifDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {415,1495}" aei:absoluteSize="DIM {65,16}"
+                              aei:anchor.location="4"
+                              aei:anchor.objectId="1590228999705492772"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103109511619"
+                              aei:relative.location="LOC {-32,-16}"
+                              aei:text="If Condition"
+                              bpmnElement="1590323103109511616ifDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {375,1526}" aei:absoluteSize="DIM {125,68}"
+                           aei:expanded="false"
+                           aei:expandedSize="DIM {100,176}"
+                           aei:name="User Management"
+                           aei:objectId="1590323103109511621"
+                           aei:showTerminationHandler="false"
+                           aei:type="SCOPE"
+                           bpmnElement="1590323103109511621"
+                           isHorizontal="false">
+            <dc:Bounds height="176" width="100" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="11" aei:anchor.objectId="158983092020983689"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103111511773"
+                              aei:relative.location="LOC {0,5}"
+                              aei:text="User Management"
+                              bpmnElement="1590323103109511621label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103109511626" aei:type="SEQUENCE"
+                           bpmnElement="1590323103109511626"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {0,0}" aei:absoluteSize="DIM {-1,-1}"
+                           aei:backgroundColor="RGB {226,226,226}"
+                           aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:borderColor="RGB {0,0,255}"
+                           aei:bpmNotation="NoneEvent"
+                           aei:collapsed="false"
+                           aei:drawBorder="false"
+                           aei:font="${system.default}"
+                           aei:fontColor="RGB {0,0,0}"
+                           aei:imageDisplay="true"
+                           aei:imageTextGap="4"
+                           aei:joinCondition=""
+                           aei:joinConditionLang=""
+                           aei:name=""
+                           aei:objectId="1590323103109511627"
+                           aei:scaleImage="false"
+                           aei:sizeToFit="true"
+                           aei:text=""
+                           aei:textAlignment="1"
+                           aei:textFormat="1"
+                           aei:textPlacement="16"
+                           aei:transparent="true"
+                           aei:type="NONE_EVENT"
+                           bpmnElement="1590323103109511627">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Initialize data" aei:objectId="1590323103109511628" aei:type="ASSIGN"
+                           bpmnElement="1590323103109511628">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Security Provider" aei:objectId="1590323103109511633"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103109511633">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Security Provider"
+                           aei:objectId="1590323103109511635"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103109511635">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Read BE View" aei:objectId="1590323103109511636" aei:type="ASSIGN"
+                           bpmnElement="1590323103109511636">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Read BE View" aei:objectId="1590323103109511638"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103109511638">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103109511639" aei:type="IF"
+                           bpmnElement="1590323103109511639"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052373285365935"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103109511640"
+                              aei:relative.location="LOC {6,-21}"
+                              aei:text="If"
+                              bpmnElement="1590323103109511639label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="boolean( $ContactChildName )"
+                           aei:IF_EXPR_LANG="urn:active-endpoints:expression-language:xquery1.0"
+                           aei:objectId="1590323103109511641"
+                           aei:type="ELSE_IF"
+                           bpmnElement="1590323103109511639ifDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052373287365939"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103109511642"
+                              aei:relative.location="LOC {-32,-16}"
+                              aei:text="If Condition"
+                              bpmnElement="1590323103109511639ifDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:drilldownLocation="LOC {45,0}" aei:expanded="false"
+                           aei:expandedSize="DIM {595,1640}"
+                           aei:name="User Management for one to many Child"
+                           aei:objectId="1590323103109511644"
+                           aei:showTerminationHandler="false"
+                           aei:type="SCOPE"
+                           bpmnElement="1590323103109511644"
+                           isHorizontal="false">
+            <dc:Bounds height="1640" width="595" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="11" aei:anchor.objectId="1590052426593371429"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103111511716"
+                              aei:relative.location="LOC {0,5}"
+                              aei:text="User Management for one to many Child"
+                              bpmnElement="1590323103109511644label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103109511649" aei:type="SEQUENCE"
+                           bpmnElement="1590323103109511649"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {0,0}" aei:absoluteSize="DIM {-1,-1}"
+                           aei:backgroundColor="RGB {226,226,226}"
+                           aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:borderColor="RGB {0,0,255}"
+                           aei:bpmNotation="NoneEvent"
+                           aei:collapsed="false"
+                           aei:drawBorder="false"
+                           aei:font="${system.default}"
+                           aei:fontColor="RGB {0,0,0}"
+                           aei:imageDisplay="true"
+                           aei:imageTextGap="4"
+                           aei:joinCondition=""
+                           aei:joinConditionLang=""
+                           aei:name=""
+                           aei:objectId="1590323103109511650"
+                           aei:scaleImage="false"
+                           aei:sizeToFit="true"
+                           aei:text=""
+                           aei:textAlignment="1"
+                           aei:textFormat="1"
+                           aei:textPlacement="16"
+                           aei:transparent="true"
+                           aei:type="NONE_EVENT"
+                           bpmnElement="1590323103109511650">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Get Contact child" aei:objectId="1590323103109511651"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103109511651">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511655" aei:type="IF"
+                           bpmnElement="1590323103110511655"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052453559378857"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103110511656"
+                              aei:relative.location="LOC {6,-21}"
+                              aei:text="If"
+                              bpmnElement="1590323103110511655label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="boolean( $ContactChildXML )"
+                           aei:IF_EXPR_LANG="urn:active-endpoints:expression-language:xquery1.0"
+                           aei:objectId="1590323103110511657"
+                           aei:type="ELSE_IF"
+                           bpmnElement="1590323103110511655ifDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052453560378861"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103110511658"
+                              aei:relative.location="LOC {-32,-16}"
+                              aei:text="If Condition"
+                              bpmnElement="1590323103110511655ifDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511660" aei:type="IF"
+                           bpmnElement="1590323103110511660"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052456397380097"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103110511661"
+                              aei:relative.location="LOC {6,-21}"
+                              aei:text="If"
+                              bpmnElement="1590323103110511660label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="$ContactsCount &gt; 0"
+                           aei:IF_EXPR_LANG="urn:active-endpoints:expression-language:xquery1.0"
+                           aei:objectId="1590323103110511662"
+                           aei:type="ELSE_IF"
+                           bpmnElement="1590323103110511660ifDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052456399380101"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103110511663"
+                              aei:relative.location="LOC {-32,-16}"
+                              aei:text="If Condition"
+                              bpmnElement="1590323103110511660ifDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511665" aei:repeatCondition="$ContactsCount = 0"
+                           aei:repeatFlipped="false"
+                           aei:type="REPEAT_UNTIL"
+                           bpmnElement="1590323103110511665">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="11" aei:anchor.objectId="1590052541224384955"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103110511666"
+                              aei:relative.location="LOC {5,2}"
+                              aei:text="Repeat Until"
+                              bpmnElement="1590323103110511665label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511667" aei:type="SEQUENCE"
+                           bpmnElement="1590323103110511667"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Initialize User Data" aei:objectId="1590323103110511668"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103110511668">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Security Provider" aei:objectId="1590323103110511674"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103110511674">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Security Provider"
+                           aei:objectId="1590323103110511676"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103110511676">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Find User" aei:objectId="1590323103110511677" aei:type="ASSIGN"
+                           bpmnElement="1590323103110511677">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Find User Service"
+                           aei:objectId="1590323103110511679"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103110511679">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511680" aei:type="IF"
+                           bpmnElement="1590323103110511680"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052668440396692"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103110511681"
+                              aei:relative.location="LOC {6,-21}"
+                              aei:text="If"
+                              bpmnElement="1590323103110511680label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="boolean($portalUserIndPath) and $portalUserInd = 'true' and not(boolean($RESTResponse/rest:payload/text()))"
+                           aei:IF_EXPR_LANG="urn:active-endpoints:expression-language:xquery1.0"
+                           aei:objectId="1590323103110511682"
+                           aei:type="ELSE_IF"
+                           bpmnElement="1590323103110511680ifDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052668442396696"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103110511683"
+                              aei:relative.location="LOC {-32,-16}"
+                              aei:text="If Condition"
+                              bpmnElement="1590323103110511680ifDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511684" aei:type="SEQUENCE"
+                           bpmnElement="1590323103110511684"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Security Provider" aei:objectId="1590323103110511685"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103110511685">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Security Provider"
+                           aei:objectId="1590323103110511687"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103110511687">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Create User" aei:objectId="1590323103110511688" aei:type="ASSIGN"
+                           bpmnElement="1590323103110511688">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Create User Service"
+                           aei:objectId="1590323103110511690"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103110511690">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="boolean($portalUserIndPath) and $portalUserInd = 'false' and boolean($RESTResponse/rest:payload/text())"
+                           aei:IF_EXPR_LANG="urn:active-endpoints:expression-language:xquery1.0"
+                           aei:objectId="1590323103110511691"
+                           aei:type="ELSE_IF"
+                           bpmnElement="1590323103110511691">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052673282396750"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103110511692"
+                              aei:relative.location="LOC {-32,-16}"
+                              aei:text="If Condition"
+                              bpmnElement="1590323103110511691label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511693" aei:type="SEQUENCE"
+                           bpmnElement="1590323103110511693"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Security Provider" aei:objectId="1590323103110511694"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103110511694">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Security Provider"
+                           aei:objectId="1590323103110511696"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103110511696">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Delete User" aei:objectId="1590323103110511697" aei:type="ASSIGN"
+                           bpmnElement="1590323103110511697">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Delete User" aei:objectId="1590323103110511699"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103110511699">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="not(boolean($portalUserIndPath)) and not(boolean($RESTResponse/rest:payload/text()))"
+                           aei:IF_EXPR_LANG="urn:active-endpoints:expression-language:xquery1.0"
+                           aei:objectId="159103142566358921"
+                           aei:type="ELSE_IF"
+                           bpmnElement="159103142566358921">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="159103142566358921"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="159103142566458923"
+                              aei:relative.location="LOC {-42,-19}"
+                              aei:text="If Condition"
+                              bpmnElement="159103142566358921label">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="159103142566458925" aei:type="SEQUENCE"
+                           bpmnElement="159103142566458925"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Security Provider" aei:objectId="159102811064934425"
+                           aei:type="ASSIGN"
+                           bpmnElement="159102811064934425">
+            <dc:Bounds height="-1" width="-1" x="10" y="10"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Security Provider"
+                           aei:objectId="159102811064934424"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="159102811064934424">
+            <dc:Bounds height="-1" width="-1" x="10" y="10"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Create User" aei:objectId="159102811064934427" aei:type="ASSIGN"
+                           bpmnElement="159102811064934427">
+            <dc:Bounds height="-1" width="-1" x="10" y="10"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Create User Service"
+                           aei:objectId="159102811064934429"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="159102811064934429">
+            <dc:Bounds height="-1" width="-1" x="10" y="10"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511700" aei:type="ELSE"
+                           bpmnElement="1590323103110511680elseDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052668444396702"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103110511701"
+                              aei:relative.location="LOC {-11,-16}"
+                              aei:text="Else"
+                              bpmnElement="1590323103110511680elseDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511702" aei:type="SEQUENCE"
+                           bpmnElement="1590323103110511702"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Decrement Count" aei:objectId="1590323103110511703" aei:type="ASSIGN"
+                           bpmnElement="1590323103110511703">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:actySimState="0" aei:bpelName="" aei:joinConditionComp=""
+                           aei:objectId="1590323103110511664"
+                           aei:type="Sequence"
+                           bpmnElement="1590323103110511665wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511705" aei:type="ELSE"
+                           bpmnElement="1590323103110511660elseDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052456402380107"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103110511706"
+                              aei:relative.location="LOC {-11,-16}"
+                              aei:text="Else"
+                              bpmnElement="1590323103110511660elseDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511707" aei:type="SEQUENCE"
+                           bpmnElement="1590323103110511707"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:actySimState="0" aei:bpelName="" aei:joinConditionComp=""
+                           aei:objectId="1590323103110511659"
+                           aei:type="Sequence"
+                           bpmnElement="1590323103110511660wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511708" aei:type="ELSE"
+                           bpmnElement="1590323103110511655elseDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052453563378867"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103110511709"
+                              aei:relative.location="LOC {-11,-16}"
+                              aei:text="Else"
+                              bpmnElement="1590323103110511655elseDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103110511710" aei:type="SEQUENCE"
+                           bpmnElement="1590323103110511710"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {0,0}" aei:absoluteSize="DIM {-1,-1}"
+                           aei:backgroundColor="RGB {226,226,226}"
+                           aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:borderColor="RGB {0,0,255}"
+                           aei:bpmNotation="NoneEvent"
+                           aei:collapsed="false"
+                           aei:drawBorder="false"
+                           aei:font="${system.default}"
+                           aei:fontColor="RGB {0,0,0}"
+                           aei:imageDisplay="true"
+                           aei:imageTextGap="4"
+                           aei:joinCondition=""
+                           aei:joinConditionLang=""
+                           aei:name=""
+                           aei:objectId="1590323103111511711"
+                           aei:scaleImage="false"
+                           aei:sizeToFit="true"
+                           aei:text=""
+                           aei:textAlignment="1"
+                           aei:textFormat="1"
+                           aei:textPlacement="16"
+                           aei:transparent="true"
+                           aei:type="NONE_EVENT"
+                           bpmnElement="1590323103111511711">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:actySimState="0" aei:bpelName="" aei:joinConditionComp=""
+                           aei:objectId="1590323103109511643"
+                           aei:type="Sequence"
+                           bpmnElement="1590323103109511644wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103111511717" aei:type="ELSE"
+                           bpmnElement="1590323103109511639elseDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590052373290365945"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103111511718"
+                              aei:relative.location="LOC {-11,-16}"
+                              aei:text="Else"
+                              bpmnElement="1590323103109511639elseDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:expanded="false" aei:expandedSize="DIM {100,176}"
+                           aei:name="User Management for one to one child"
+                           aei:objectId="1590323103111511720"
+                           aei:showTerminationHandler="false"
+                           aei:type="SCOPE"
+                           bpmnElement="1590323103111511720"
+                           isHorizontal="false">
+            <dc:Bounds height="176" width="100" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="11" aei:anchor.objectId="1590053168701410992"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103111511767"
+                              aei:relative.location="LOC {0,5}"
+                              aei:text="User Management for one to one child"
+                              bpmnElement="1590323103111511720label">
+               <dc:Bounds height="19" width="271" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103111511725" aei:type="SEQUENCE"
+                           bpmnElement="1590323103111511725"
+                           isHorizontal="false">
+            <dc:Bounds height="1055" width="555" x="5" y="5"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {0,0}" aei:absoluteSize="DIM {-1,-1}"
+                           aei:backgroundColor="RGB {226,226,226}"
+                           aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:borderColor="RGB {0,0,255}"
+                           aei:bpmNotation="NoneEvent"
+                           aei:collapsed="false"
+                           aei:drawBorder="false"
+                           aei:font="${system.default}"
+                           aei:fontColor="RGB {0,0,0}"
+                           aei:imageDisplay="true"
+                           aei:imageTextGap="4"
+                           aei:joinCondition=""
+                           aei:joinConditionLang=""
+                           aei:name=""
+                           aei:objectId="1590323103111511726"
+                           aei:scaleImage="false"
+                           aei:sizeToFit="true"
+                           aei:text=""
+                           aei:textAlignment="1"
+                           aei:textFormat="1"
+                           aei:textPlacement="16"
+                           aei:transparent="true"
+                           aei:type="NONE_EVENT"
+                           bpmnElement="1590323103111511726">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Initialize User Data" aei:objectId="1590323103111511727"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103111511727">
+            <dc:Bounds height="53" width="125" x="10" y="10"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Security Provider" aei:objectId="1590323103111511733"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103111511733">
+            <dc:Bounds height="53" width="125" x="20" y="20"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Security Provider"
+                           aei:objectId="1590323103111511735"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103111511735">
+            <dc:Bounds height="53" width="125" x="20" y="20"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Find User" aei:objectId="1590323103111511736" aei:type="ASSIGN"
+                           bpmnElement="1590323103111511736">
+            <dc:Bounds height="53" width="125" x="20" y="20"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Find User Service"
+                           aei:objectId="1590323103111511738"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103111511738">
+            <dc:Bounds height="53" width="125" x="20" y="20"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103111511739" aei:type="IF"
+                           bpmnElement="1590323103111511739"
+                           isHorizontal="false">
+            <dc:Bounds height="475" width="535" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590053818134431578"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103111511740"
+                              aei:relative.location="LOC {6,-21}"
+                              aei:text="If"
+                              bpmnElement="1590323103111511739label">
+               <dc:Bounds height="19" width="11" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="boolean($portalUserIndPath) and $portalUserInd = 'true' and not(boolean($RESTResponse/rest:payload/text()))"
+                           aei:IF_EXPR_LANG="urn:active-endpoints:expression-language:xquery1.0"
+                           aei:objectId="1590323103111511741"
+                           aei:type="ELSE_IF"
+                           bpmnElement="1590323103111511739ifDef">
+            <dc:Bounds height="355" width="145" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590053818135431582"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103111511742"
+                              aei:relative.location="LOC {-32,-16}"
+                              aei:text="If Condition"
+                              bpmnElement="1590323103111511739ifDeflabel">
+               <dc:Bounds height="19" width="144" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103111511743" aei:type="SEQUENCE"
+                           bpmnElement="1590323103111511743"
+                           isHorizontal="false">
+            <dc:Bounds height="312" width="150" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Security Provider" aei:objectId="1590323103111511744"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103111511744">
+            <dc:Bounds height="53" width="125" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Security Provider"
+                           aei:objectId="1590323103111511746"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103111511746">
+            <dc:Bounds height="53" width="125" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Create User" aei:objectId="1590323103111511747" aei:type="ASSIGN"
+                           bpmnElement="1590323103111511747">
+            <dc:Bounds height="53" width="125" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Create User Service"
+                           aei:objectId="1590323103111511749"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103111511749">
+            <dc:Bounds height="53" width="125" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="boolean($portalUserIndPath) and $portalUserInd = 'false' and boolean($RESTResponse/rest:payload/text())"
+                           aei:IF_EXPR_LANG="urn:active-endpoints:expression-language:xquery1.0"
+                           aei:objectId="1590323103111511750"
+                           aei:type="ELSE_IF"
+                           bpmnElement="1590323103111511750">
+            <dc:Bounds height="355" width="145" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590053833285431642"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103111511751"
+                              aei:relative.location="LOC {-32,-16}"
+                              aei:text="If Condition"
+                              bpmnElement="1590323103111511750label">
+               <dc:Bounds height="19" width="148" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103111511752" aei:type="SEQUENCE"
+                           bpmnElement="1590323103111511752"
+                           isHorizontal="false">
+            <dc:Bounds height="312" width="150" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Security Provider" aei:objectId="1590323103111511753"
+                           aei:type="ASSIGN"
+                           bpmnElement="1590323103111511753">
+            <dc:Bounds height="53" width="125" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Security Provider"
+                           aei:objectId="1590323103111511755"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103111511755">
+            <dc:Bounds height="53" width="125" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Delete User" aei:objectId="1590323103111511756" aei:type="ASSIGN"
+                           bpmnElement="1590323103111511756">
+            <dc:Bounds height="53" width="125" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Delete User" aei:objectId="1590323103111511758"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="1590323103111511758">
+            <dc:Bounds height="53" width="125" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:IF_EXPRESSION="not(boolean($portalUserIndPath)) and not(boolean($RESTResponse/rest:payload/text()))"
+                           aei:IF_EXPR_LANG="urn:active-endpoints:expression-language:xquery1.0"
+                           aei:objectId="159103192764667909"
+                           aei:type="ELSE_IF"
+                           bpmnElement="159103192764667909">
+            <dc:Bounds height="87" width="25" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="159103192764667909"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="159103192764667911"
+                              aei:relative.location="LOC {-42,-19}"
+                              aei:text="If Condition"
+                              bpmnElement="159103192764667909label">
+               <dc:Bounds height="19" width="216" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="159103192764667913" aei:type="SEQUENCE"
+                           bpmnElement="159103192764667913"
+                           isHorizontal="false">
+            <dc:Bounds height="39" width="25" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Security Provider" aei:objectId="159102855356438000"
+                           aei:type="ASSIGN"
+                           bpmnElement="159102855356438000">
+            <dc:Bounds height="53" width="125" x="10" y="10"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Security Provider"
+                           aei:objectId="159102855356438002"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="159102855356438002">
+            <dc:Bounds height="53" width="125" x="10" y="10"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:name="Create User" aei:objectId="159102855356438003" aei:type="ASSIGN"
+                           bpmnElement="159102855356438003">
+            <dc:Bounds height="53" width="125" x="10" y="10"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:attachments="" aei:name="Create User Service"
+                           aei:objectId="159102855356438005"
+                           aei:subprocessPath=""
+                           aei:type="INVOKE"
+                           bpmnElement="159102855356438005">
+            <dc:Bounds height="53" width="125" x="10" y="10"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103111511759" aei:type="ELSE"
+                           bpmnElement="1590323103111511739elseDef">
+            <dc:Bounds height="355" width="145" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:anchor.location="4" aei:anchor.objectId="1590053818137431588"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103111511760"
+                              aei:relative.location="LOC {-11,-16}"
+                              aei:text="Else"
+                              bpmnElement="1590323103111511739elseDeflabel">
+               <dc:Bounds height="19" width="28" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:objectId="1590323103111511761" aei:type="SEQUENCE"
+                           bpmnElement="1590323103111511761"
+                           isHorizontal="false">
+            <dc:Bounds height="312" width="150" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {0,0}" aei:absoluteSize="DIM {-1,-1}"
+                           aei:backgroundColor="RGB {226,226,226}"
+                           aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:borderColor="RGB {0,0,255}"
+                           aei:bpmNotation="NoneEvent"
+                           aei:collapsed="false"
+                           aei:drawBorder="false"
+                           aei:font="${system.default}"
+                           aei:fontColor="RGB {0,0,0}"
+                           aei:imageDisplay="true"
+                           aei:imageTextGap="4"
+                           aei:joinCondition=""
+                           aei:joinConditionLang=""
+                           aei:name=""
+                           aei:objectId="1590323103111511762"
+                           aei:scaleImage="false"
+                           aei:sizeToFit="true"
+                           aei:text=""
+                           aei:textAlignment="1"
+                           aei:textFormat="1"
+                           aei:textPlacement="16"
+                           aei:transparent="true"
+                           aei:type="NONE_EVENT"
+                           bpmnElement="1590323103111511762">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:actySimState="0" aei:bpelName="" aei:joinConditionComp=""
+                           aei:objectId="1590323103111511719"
+                           aei:type="Sequence"
+                           bpmnElement="1590323103111511720wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {0,0}" aei:absoluteSize="DIM {-1,-1}"
+                           aei:backgroundColor="RGB {226,226,226}"
+                           aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:borderColor="RGB {0,0,255}"
+                           aei:bpmNotation="NoneEvent"
+                           aei:collapsed="false"
+                           aei:drawBorder="false"
+                           aei:font="${system.default}"
+                           aei:fontColor="RGB {0,0,0}"
+                           aei:imageDisplay="true"
+                           aei:imageTextGap="4"
+                           aei:joinCondition=""
+                           aei:joinConditionLang=""
+                           aei:name=""
+                           aei:objectId="1590323103111511768"
+                           aei:scaleImage="false"
+                           aei:sizeToFit="true"
+                           aei:text=""
+                           aei:textAlignment="1"
+                           aei:textFormat="1"
+                           aei:textPlacement="16"
+                           aei:transparent="true"
+                           aei:type="NONE_EVENT"
+                           bpmnElement="1590323103111511768">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {365,1516}" aei:absoluteSize="DIM {145,88}"
+                           aei:actySimState="0"
+                           aei:bpelName=""
+                           aei:joinConditionComp=""
+                           aei:objectId="1590323103109511620"
+                           aei:type="Sequence"
+                           bpmnElement="1590323103109511621wrappingSequence"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {535,1487}" aei:absoluteSize="DIM {25,136}"
+                           aei:objectId="1590323103111511774"
+                           aei:type="ELSE"
+                           bpmnElement="1590323103109511616elseDef">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            <bpmndi:BPMNLabel aei:absoluteLocation="LOC {546,1495}" aei:absoluteSize="DIM {23,16}"
+                              aei:anchor.location="4"
+                              aei:anchor.objectId="1590228999716492778"
+                              aei:backgroundColor="RGB {255,255,255}"
+                              aei:objectId="1590323103111511775"
+                              aei:relative.location="LOC {-11,-16}"
+                              aei:text="Else"
+                              bpmnElement="1590323103109511616elseDeflabel">
+               <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+            </bpmndi:BPMNLabel>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {537,1516}" aei:absoluteSize="DIM {21,36}"
+                           aei:objectId="1590323103111511776"
+                           aei:type="SEQUENCE"
+                           bpmnElement="1590323103111511776"
+                           isHorizontal="false">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape aei:absoluteLocation="LOC {427,1708}" aei:absoluteSize="DIM {70,60}"
+                           aei:backgroundColor="RGB {226,226,226}"
+                           aei:backgroundImageLocation="icons/bpmn/activity/ActivityBlock.png"
+                           aei:borderColor="RGB {0,0,255}"
+                           aei:bpmNotation="NoneEvent"
+                           aei:collapsed="false"
+                           aei:drawBorder="false"
+                           aei:font="${system.default}"
+                           aei:fontColor="RGB {0,0,0}"
+                           aei:imageDisplay="true"
+                           aei:imageTextGap="4"
+                           aei:joinCondition=""
+                           aei:joinConditionLang=""
+                           aei:name=""
+                           aei:objectId="1590323103113511861"
+                           aei:scaleImage="false"
+                           aei:sizeToFit="true"
+                           aei:text=""
+                           aei:textAlignment="1"
+                           aei:textFormat="1"
+                           aei:textPlacement="16"
+                           aei:transparent="true"
+                           aei:type="NONE_EVENT"
+                           bpmnElement="1590323103113511861">
+            <dc:Bounds height="-1" width="-1" x="0" y="0"/>
+         </bpmndi:BPMNShape>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+   <bpel:extensions>
+      <bpel:extension mustUnderstand="no"
+                      namespace="http://www.activebpel.org/2009/02/bpel/extension/ignorable"/>
+      <bpel:extension mustUnderstand="no" namespace="http://www.omg.org/spec/BPMN/20100524/DI"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2006/09/bpel/extension/query_handling"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2009/06/bpel/extension/links"/>
+      <bpel:extension mustUnderstand="yes" namespace="http://www.example.org/WS-HT"/>
+      <bpel:extension mustUnderstand="yes" namespace="http://www.example.org/BPEL4People"/>
+      <bpel:extension mustUnderstand="yes"
+                      namespace="http://www.activebpel.org/2011/08/bpel/extension/script"/>
+   </bpel:extensions>
+   <bpel:import importType="http://schemas.xmlsoap.org/wsdl/"
+                location="../wsdl/mdm_avos_pl.wsdl"
+                namespace="http://www.informatica.com/activevos/mdmworkflow/wsdl/mdmavospl"/>
+   <bpel:import importType="http://schemas.xmlsoap.org/wsdl/" location="../wsdl/mdm_avos.wsdl"
+                namespace="urn:informatica.mdm.av"/>
+   <bpel:import importType="http://www.w3.org/2001/XMLSchema"
+                location="../schema/av_config.xsd"
+                namespace="http://www.informatica.com/schema/1.0/av_config.xsd"/>
+   <bpel:import importType="http://modules.active-endpoints.com/2009/07/xquery"
+                location="../xquery/infa-configuration.xq"
+                namespace="http://informatica.com/modules/configuration/1.0/xquery"/>
+   <bpel:import importType="http://schemas.xmlsoap.org/wsdl/"
+                location="../wsdl/SecurityPayloadGeneratorInterface/securitypayloadgeneratorinterface.wsdl"
+                namespace="urn:security:payload:securitypayloadgeneratorinterface"/>
+   <bpel:import importType="http://schemas.xmlsoap.org/wsdl/"
+                namespace="http://www.activebpel.org/REST/2007/12/01/aeREST.wsdl"/>
+   <bpel:partnerLinks>
+      <bpel:partnerLink aei:id="1590323103113511881" myRole="Provider" name="MDMAppsDirectSave"
+                        partnerLinkType="mdm_avos_pl:IDDWorkflowPLT"/>
+      <bpel:partnerLink aei:id="1590323103114511894" name="SecurityProvider"
+                        partnerLinkType="securitypayloadgeneratorinterface:SecurityPayloadGeneratorInterfacePLT"
+                        partnerRole="java"/>
+      <bpel:partnerLink aei:id="1590323103114511897" name="CSRest" partnerLinkType="aeREST:RESTPLT"
+                        partnerRole="process"/>
+      <bpel:partnerLink aei:id="1590323103114511904" name="PortalRestProvider"
+                        partnerLinkType="aeREST:RESTPLT"
+                        partnerRole="process"/>
+      <bpel:partnerLink aei:id="1590323103116511934" name="UserRestProvider"
+                        partnerLinkType="aeREST:RESTPLT"
+                        partnerRole="process"/>
+   </bpel:partnerLinks>
+   <bpel:variables>
+      <bpel:variable element="mdmavxsd:startProcessRequest" name="startProcessRequest"/>
+      <bpel:variable name="InfaTask" type="mdmavxsd:INFATask"/>
+      <bpel:variable element="mdmavxsd:processTaskResponse" name="ProcessTaskResponse"/>
+      <bpel:variable name="TaskRecordsCount" type="xsd:int"/>
+      <bpel:variable element="cfg:configuration" name="getConfig"/>
+      <bpel:variable name="AdminHubUserName" type="xsd:string"/>
+      <bpel:variable element="securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest"
+                     name="getEncryptedSecurityPayloadRest"/>
+      <bpel:variable element="securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRestResponse"
+                     name="getEncryptedSecurityPayloadRestResponse"/>
+      <bpel:variable element="rest:RESTRequest" name="RESTRequest"/>
+      <bpel:variable element="rest:RESTResponse" name="ReadBERESTResponse"/>
+      <bpel:variable name="isUpdate" type="xsd:boolean">
+         <bpel:from>false()</bpel:from>
+      </bpel:variable>
+      <bpel:variable name="portalId" type="xsd:string"/>
+      <bpel:variable element="rest:RESTResponse" name="PortalConfigResponse"/>
+      <bpel:variable name="PortalConfigXMLString" type="xsd:string"/>
+      <bpel:variable name="PortalConfigResponseXML" type="xsd:anyType"/>
+      <bpel:variable name="isStateEnabled" type="xsd:boolean">
+         <bpel:from>false()</bpel:from>
+      </bpel:variable>
+      <bpel:variable element="mdmavxsd:processTaskRequest" name="ProcessTaskRequest"/>
+      <bpel:variable element="rest:RESTResponse" name="RESTResponse"/>
+      <bpel:variable element="rest:RESTResponse" name="AssignableUsersResponse"/>
+      <bpel:variable name="BCancelApprovedOrReject" type="xsd:boolean">
+         <bpel:from>
+            <bpel:literal>false</bpel:literal>
+         </bpel:from>
+      </bpel:variable>
+      <bpel:variable name="BEViewName" type="xsd:string"/>
+      <bpel:variable name="ContactChildName" type="xsd:string"/>
+      <bpel:variable name="PasswordPolicy" type="xsd:string"/>
+      <bpel:variable name="portalUserIndPath" type="xsd:string"/>
+      <bpel:variable element="rest:RESTResponse" name="ReadBEViewResponse"/>
+      <bpel:variable name="ContactChildXMLString" type="xsd:string"/>
+      <bpel:variable name="ContactChildXML" type="xsd:anyType"/>
+      <bpel:variable name="ContactsCount" type="xsd:int">
+         <bpel:from>
+            <bpel:literal>0</bpel:literal>
+         </bpel:from>
+      </bpel:variable>
+      <bpel:variable name="firstName" type="xsd:string"/>
+      <bpel:variable name="lastName" type="xsd:string"/>
+      <bpel:variable name="userName" type="xsd:string"/>
+      <bpel:variable name="email" type="xsd:string"/>
+      <bpel:variable name="portalUserInd" type="xsd:string"/>
+      <bpel:variable name="_peopleActivityAttachments" type="xsd:anyType"/>
+   </bpel:variables>
+   <bpel:sequence aei:id="1590323103107511477">
+      <bpel:receive aei:id="1590323103107511478" createInstance="yes" name="Start"
+                    operation="start"
+                    partnerLink="MDMAppsDirectSave"
+                    variable="startProcessRequest"/>
+      <bpel:scope aei:implicit="true" name="Reply_with_Process_id_">
+         <bpel:variables>
+            <bpel:variable messageType="mdm_avos:startProcessResponse" name="parameters"/>
+         </bpel:variables>
+         <bpel:sequence>
+            <bpel:assign aei:assignType="XQUERY" aei:id="1577001567147392575">
+               <bpel:copy>
+                  <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;types1:startProcessResponse xmlns:types1="urn:informatica.mdm.av.xsd"&gt;
+   &lt;types1:processId&gt;{ abx:getProcessId() }&lt;/types1:processId&gt;
+&lt;/types1:startProcessResponse&gt;
+</bpel:from>
+                  <bpel:to part="startProcessResponse" variable="parameters"/>
+               </bpel:copy>
+            </bpel:assign>
+            <bpel:reply aei:id="1590323103107511480" name="Reply_with_Process_id_" operation="start"
+                        partnerLink="MDMAppsDirectSave"
+                        variable="parameters"/>
+         </bpel:sequence>
+      </bpel:scope>
+      <bpel:assign aei:id="1590323103107511482" name="Initialze_Data">
+         <bpel:copy>
+            <bpel:from variable="startProcessRequest">
+               <bpel:query>mdmavxsd:INFATask</bpel:query>
+            </bpel:from>
+            <bpel:to variable="InfaTask"/>
+         </bpel:copy>
+         <bpel:copy>
+            <bpel:from variable="startProcessRequest">
+               <bpel:query>mdmavxsd:INFATask</bpel:query>
+            </bpel:from>
+            <bpel:to variable="ProcessTaskResponse">
+               <bpel:query>mdmavxsd:INFATask</bpel:query>
+            </bpel:to>
+         </bpel:copy>
+         <bpel:copy>
+            <bpel:from variable="startProcessRequest">
+               <bpel:query>count(mdmavxsd:INFATask/mdmavxsd:taskData/mdmavxsd:taskRecords/mdmavxsd:INFARecordKey)</bpel:query>
+            </bpel:from>
+            <bpel:to variable="TaskRecordsCount"/>
+         </bpel:copy>
+         <bpel:extensionAssignOperation>
+            <ext2:script>abx:copyAllAttachments( 'startProcessRequest' , '_peopleActivityAttachments' )</ext2:script>
+         </bpel:extensionAssignOperation>
+         <bpel:copy>
+            <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">abx:getCatalogResource("project:/InfaPortalWorkflows/config/configuration.xml")</bpel:from>
+            <bpel:to variable="getConfig"/>
+         </bpel:copy>
+         <bpel:copy>
+            <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">cfgx:getPropertyValue( $getConfig,'hub.admin.user')</bpel:from>
+            <bpel:to variable="AdminHubUserName"/>
+         </bpel:copy>
+      </bpel:assign>
+      <bpel:assign aei:id="1590323103107511489" name="Prepare_Encrypt">
+         <bpel:copy>
+            <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"&gt;
+   &lt;arg1_string&gt;{ $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:taskData/mdmavxsd:interactionId/text() }&lt;/arg1_string&gt;
+   &lt;arg2_string&gt;{ $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:orsId/text() }&lt;/arg2_string&gt;
+   &lt;arg3_string&gt;{ "previewPromoteUsingGET" }&lt;/arg3_string&gt;
+   &lt;arg4_string&gt;{ "avos" }&lt;/arg4_string&gt;
+   &lt;arg5_string&gt;{ $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:hubUsername/text() }&lt;/arg5_string&gt;
+&lt;/securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest&gt;</bpel:from>
+            <bpel:to variable="getEncryptedSecurityPayloadRest"/>
+         </bpel:copy>
+      </bpel:assign>
+      <bpel:invoke aei:id="1590323103107511491" inputVariable="getEncryptedSecurityPayloadRest"
+                   name="Encrypt_Security"
+                   operation="getEncryptedSecurityPayloadRest"
+                   outputVariable="getEncryptedSecurityPayloadRestResponse"
+                   partnerLink="SecurityProvider"/>
+      <bpel:assign aei:id="1590323103107511492" name="Read_Business_Entity">
+         <bpel:copy>
+            <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;GET&lt;/ns:method&gt;
+   &lt;!--Optional:--&gt;&lt;ns:pathInfo&gt;{concat($InfaTask/mdmavxsd:orsId/text(),'/',$InfaTask/mdmavxsd:taskData/mdmavxsd:subjectAreaUID/text(),'/', $InfaTask/mdmavxsd:taskData/mdmavxsd:taskRecords/mdmavxsd:INFARecordKey[1]/mdmavxsd:rowId/text())}&lt;/ns:pathInfo&gt;
+   &lt;rest:params&gt;  
+&lt;!--Optional:--&gt;
+&lt;rest:param name="readSystemFields" value="true"/&gt;
+&lt;rest:param name="recordStates" value="ACTIVE,PENDING"/&gt;
+&lt;rest:param name="addFieldsToOriginal" value="true"/&gt;
+&lt;rest:param name="depth" value="10"/&gt;
+&lt;rest:param name="action" value="previewPromote"/&gt;
+&lt;rest:param name="interactionId" value="{$InfaTask/mdmavxsd:taskData/mdmavxsd:interactionId/text()}"/&gt;
+&lt;/rest:params&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt;
+&lt;!--Optional:--&gt;&lt;ns:header name="cookie" value="{$getEncryptedSecurityPayloadRestResponse/string/text()}"/&gt;
+&lt;ns:header name="Content-Type" value="application/json"/&gt; 
+&lt;/ns:headers&gt;
+   &lt;!--Optional:--&gt;&lt;ns:ssl&gt;false&lt;/ns:ssl&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+            <bpel:to variable="RESTRequest"/>
+         </bpel:copy>
+      </bpel:assign>
+      <bpel:invoke aei:id="1590323103107511494" inputVariable="RESTRequest"
+                   name="Read_Business_Entity"
+                   operation="requestResponse"
+                   outputVariable="ReadBERESTResponse"
+                   partnerLink="CSRest"/>
+      <bpel:assign aei:id="1590323103107511495" name="Initilize_Data">
+         <bpel:copy>
+            <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">if ($ReadBERESTResponse/rest:payload/*/ns2:hubStateInd/text()='1') then ( true() ) else ( false() )</bpel:from>
+            <bpel:to variable="isUpdate"/>
+         </bpel:copy>
+         <bpel:copy>
+            <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getTextValue(abx:elementToXMLString($ReadBERESTResponse/rest:payload),cfgx:getPropertyValue( $getConfig,"portal.portalId.path" ))</bpel:from>
+            <bpel:to variable="portalId"/>
+         </bpel:copy>
+      </bpel:assign>
+      <bpel:if aei:id="1590323103107511500">
+         <bpel:condition expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">boolean($portalId)</bpel:condition>
+         <bpel:sequence aei:id="1590323103107511503">
+            <bpel:assign aei:id="1590323103107511504" name="Get_Portal_Config">
+               <bpel:copy>
+                  <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;GET&lt;/ns:method&gt;
+   &lt;!--Optional:--&gt;&lt;ns:pathInfo&gt;{concat("infa-portal/global/portals/",$portalId,"?projections=generalSettings")}&lt;/ns:pathInfo&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt;
+&lt;ns:header name="X-INFA-ORS" value="{$InfaTask/mdmavxsd:orsId/text()}"/&gt; 
+&lt;/ns:headers&gt;
+   &lt;!--Optional:--&gt;&lt;ns:ssl&gt;false&lt;/ns:ssl&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+                  <bpel:to variable="RESTRequest"/>
+               </bpel:copy>
+            </bpel:assign>
+            <bpel:invoke aei:id="1590323103107511506" inputVariable="RESTRequest"
+                         name="Get_Portal_Config"
+                         operation="requestResponse"
+                         outputVariable="PortalConfigResponse"
+                         partnerLink="PortalRestProvider"/>
+            <bpel:assign aei:id="1590323103107511507" name="Initialize_Portal_Data">
+               <bpel:copy>
+                  <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:jsonToXML( string($PortalConfigResponse/rest:payload/text()) )</bpel:from>
+                  <bpel:to variable="PortalConfigXMLString"/>
+               </bpel:copy>
+               <bpel:copy>
+                  <bpel:from>abx:xmlStringToElement( $PortalConfigXMLString )</bpel:from>
+                  <bpel:to variable="PortalConfigResponseXML"/>
+               </bpel:copy>
+               <bpel:copy>
+                  <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">$PortalConfigResponseXML/isStateEnabled</bpel:from>
+                  <bpel:to variable="isStateEnabled"/>
+               </bpel:copy>
+            </bpel:assign>
+         </bpel:sequence>
+         <bpel:else aei:id="1590323103108511512">
+            <bpel:empty aei:id="1590323103108511513" aei:implicit="yes"/>
+         </bpel:else>
+      </bpel:if>
+      <bpel:assign aei:id="1590323103109511608" name="Security_Provider_Request">
+         <bpel:copy>
+            <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"&gt;
+   &lt;arg1_string&gt;{ $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:taskData/mdmavxsd:interactionId/text() }&lt;/arg1_string&gt;
+   &lt;arg2_string&gt;{ $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:orsId/text() }&lt;/arg2_string&gt;
+   &lt;arg3_string&gt;{ "promoteUsingPost" }&lt;/arg3_string&gt;
+   &lt;arg4_string&gt;{ "avos" }&lt;/arg4_string&gt;
+   &lt;arg5_string&gt;{ $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:hubUsername/text() }&lt;/arg5_string&gt;
+&lt;/securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest&gt;</bpel:from>
+            <bpel:to variable="getEncryptedSecurityPayloadRest"/>
+         </bpel:copy>
+      </bpel:assign>
+      <bpel:invoke aei:id="1590323103109511610" inputVariable="getEncryptedSecurityPayloadRest"
+                   name="Security_Provider"
+                   operation="getEncryptedSecurityPayloadRest"
+                   outputVariable="getEncryptedSecurityPayloadRestResponse"
+                   partnerLink="SecurityProvider"/>
+      <bpel:assign aei:id="1590323103109511611" name="Promote_Pending_Request">
+         <bpel:copy>
+            <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;POST&lt;/ns:method&gt;
+  &lt;ns:pathInfo&gt;{concat($InfaTask/mdmavxsd:orsId/text(),'/',$InfaTask/mdmavxsd:taskData/mdmavxsd:subjectAreaUID/text(),'/', $InfaTask/mdmavxsd:taskData/mdmavxsd:taskRecords/mdmavxsd:INFARecordKey[1]/mdmavxsd:rowId/text(),'?action=promote','&amp;amp;','interactionId=',$ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:taskData/mdmavxsd:interactionId/text())}&lt;/ns:pathInfo&gt;
+   &lt;rest:params&gt;  
+&lt;!--Optional:--&gt;
+&lt;rest:param name="action" value="promote"/&gt;
+&lt;rest:param name="interactionId" value="{$ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:taskData/mdmavxsd:interactionId/text()}"/&gt;
+&lt;/rest:params&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt;
+&lt;!--Optional:--&gt;&lt;ns:header name="cookie" value="{$getEncryptedSecurityPayloadRestResponse/string/text()}"/&gt;
+&lt;ns:header name="Content-Type" value="application/json"/&gt; 
+&lt;/ns:headers&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+            <bpel:to variable="RESTRequest"/>
+         </bpel:copy>
+      </bpel:assign>
+      <bpel:invoke aei:id="1590323103109511613" inputVariable="RESTRequest" name="Promote_Pending"
+                   operation="requestResponse"
+                   outputVariable="RESTResponse"
+                   partnerLink="CSRest"/>
+      <bpel:if aei:id="1590323103109511616">
+         <bpel:condition>boolean($portalId)</bpel:condition>
+         <bpel:scope aei:id="1590323103109511621" name="User_Management">
+            <bpel:sequence aei:id="1590323103109511626">
+               <bpel:empty aei:id="1590323103109511627"/>
+               <bpel:assign aei:id="1590323103109511628" name="Initialize_data">
+                  <bpel:copy>
+                     <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">$PortalConfigResponseXML/userManagement/bevName/text()</bpel:from>
+                     <bpel:to variable="BEViewName"/>
+                  </bpel:copy>
+                  <bpel:copy>
+                     <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">if( contains($PortalConfigResponseXML/userManagement/fieldMapping/userName/code/text(),".") ) then (tokenize($PortalConfigResponseXML/userManagement/fieldMapping/userName/code/text(),"\.")[1]) else (string(''))</bpel:from>
+                     <bpel:to variable="ContactChildName"/>
+                  </bpel:copy>
+                  <bpel:copy>
+                     <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">concat('"passwordPolicy":{"maximumPasswordLength":',cfgx:getPropertyValue( $getConfig,'portal.passwordpolicy.maximumPasswordLength' ) ,',"minimumPasswordLength":',cfgx:getPropertyValue( $getConfig,'portal.passwordpolicy.minimumPasswordLength' ),',"minimumUniqueCharacters":',cfgx:getPropertyValue( $getConfig,'portal.passwordpolicy.minimumUniqueCharacters'),',"patternValidationEnabled":',cfgx:getPropertyValue( $getConfig,'portal.passwordpolicy.patternValidationEnabled' ),',"passwordBeginningPattern":"',cfgx:getPropertyValue( $getConfig,'portal.passwordpolicy.passwordBeginningPattern' ),'","passwordMiddlePattern":"',cfgx:getPropertyValue( $getConfig,'portal.passwordpolicy.passwordMiddlePattern' ),'","passwordEndPattern":"',cfgx:getPropertyValue( $getConfig,'portal.passwordpolicy.passwordEndPattern' ),'"}')</bpel:from>
+                     <bpel:to variable="PasswordPolicy"/>
+                  </bpel:copy>
+                  <bpel:copy>
+                     <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">cfgx:getPropertyValue( $getConfig,concat('portal.', $BEViewName,'.userInd.path') )</bpel:from>
+                     <bpel:to variable="portalUserIndPath"/>
+                  </bpel:copy>
+               </bpel:assign>
+               <bpel:assign aei:id="1590323103109511633" name="Security_Provider">
+                  <bpel:copy>
+                     <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"&gt;
+   &lt;arg1_string&gt;&lt;/arg1_string&gt;
+   &lt;arg2_string&gt;{ $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:orsId/text() }&lt;/arg2_string&gt;
+   &lt;arg3_string&gt;{ "readEntityUsingGET" }&lt;/arg3_string&gt;
+   &lt;arg4_string&gt;{ "avos" }&lt;/arg4_string&gt;
+   &lt;arg5_string&gt;{ $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:hubUsername/text() }&lt;/arg5_string&gt;
+&lt;/securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest&gt;</bpel:from>
+                     <bpel:to variable="getEncryptedSecurityPayloadRest"/>
+                  </bpel:copy>
+               </bpel:assign>
+               <bpel:invoke aei:id="1590323103109511635" inputVariable="getEncryptedSecurityPayloadRest"
+                            name="Security_Provider"
+                            operation="getEncryptedSecurityPayloadRest"
+                            outputVariable="getEncryptedSecurityPayloadRestResponse"
+                            partnerLink="SecurityProvider"/>
+               <bpel:assign aei:id="1590323103109511636" name="Read_BE_View">
+                  <bpel:copy>
+                     <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;GET&lt;/ns:method&gt;
+   &lt;!--Optional:--&gt;&lt;ns:pathInfo&gt;{concat($InfaTask/mdmavxsd:orsId/text(),'/', $BEViewName ,'/', $InfaTask/mdmavxsd:taskData/mdmavxsd:taskRecords/mdmavxsd:INFARecordKey[1]/mdmavxsd:rowId/text())}&lt;/ns:pathInfo&gt;
+   &lt;rest:params&gt;  
+&lt;!--Optional:--&gt;
+&lt;rest:param name="readSystemFields" value="true"/&gt;
+&lt;rest:param name="recordStates" value="ACTIVE,PENDING"/&gt;
+&lt;rest:param name="depth" value="10"/&gt;
+&lt;/rest:params&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt;
+&lt;!--Optional:--&gt;&lt;ns:header name="cookie" value="{$getEncryptedSecurityPayloadRestResponse/string/text()}"/&gt;
+&lt;ns:header name="Content-Type" value="application/json"/&gt; 
+&lt;/ns:headers&gt;
+   &lt;!--Optional:--&gt;&lt;ns:ssl&gt;false&lt;/ns:ssl&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+                     <bpel:to variable="RESTRequest"/>
+                  </bpel:copy>
+               </bpel:assign>
+               <bpel:invoke aei:id="1590323103109511638" inputVariable="RESTRequest" name="Read_BE_View"
+                            operation="requestResponse"
+                            outputVariable="ReadBEViewResponse"
+                            partnerLink="CSRest"/>
+               <bpel:if aei:id="1590323103109511639">
+                  <bpel:condition expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">boolean( $ContactChildName )</bpel:condition>
+                  <bpel:scope aei:id="1590323103109511644" name="User_Management_for_one_to_many_Child">
+                     <bpel:sequence aei:id="1590323103109511649">
+                        <bpel:empty aei:id="1590323103109511650"/>
+                        <bpel:assign aei:id="1590323103109511651" name="Get_Contact_child">
+                           <bpel:copy>
+                              <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getNodeValue( abx:elementToXMLString($ReadBEViewResponse/rest:payload), $ContactChildName )</bpel:from>
+                              <bpel:to variable="ContactChildXMLString"/>
+                           </bpel:copy>
+                           <bpel:copy>
+                              <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">abx:xmlStringToElement( $ContactChildXMLString )</bpel:from>
+                              <bpel:to variable="ContactChildXML"/>
+                           </bpel:copy>
+                           <bpel:copy>
+                              <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">count($ContactChildXML/ns4:item)</bpel:from>
+                              <bpel:to variable="ContactsCount"/>
+                           </bpel:copy>
+                        </bpel:assign>
+                        <bpel:if aei:id="1590323103110511655">
+                           <bpel:condition expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">boolean( $ContactChildXML )</bpel:condition>
+                           <bpel:if aei:id="1590323103110511660">
+                              <bpel:condition expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">$ContactsCount &gt; 0</bpel:condition>
+                              <bpel:repeatUntil aei:id="1590323103110511665">
+                                 <bpel:condition>$ContactsCount = 0</bpel:condition>
+                                 <bpel:sequence aei:id="1590323103110511667">
+                                    <bpel:assign aei:id="1590323103110511668" name="Initialize_User_Data">
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getTextValue( abx:elementToXMLString($ContactChildXML/ns4:item[ $ContactsCount ]) , solution:getUserDataPath( string( $PortalConfigResponseXML/userManagement/fieldMapping/firstName/code/text()), $ContactChildName ), false() )</bpel:from>
+                                          <bpel:to variable="firstName"/>
+                                       </bpel:copy>
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getTextValue( abx:elementToXMLString($ContactChildXML/ns4:item[ $ContactsCount ]) , solution:getUserDataPath(string($PortalConfigResponseXML/userManagement/fieldMapping/lastName/code/text()), $ContactChildName), false() )</bpel:from>
+                                          <bpel:to variable="lastName"/>
+                                       </bpel:copy>
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getTextValue( abx:elementToXMLString($ContactChildXML/ns4:item[ $ContactsCount ]) , solution:getUserDataPath(string($PortalConfigResponseXML/userManagement/fieldMapping/userName/code/text()), $ContactChildName ), false() )</bpel:from>
+                                          <bpel:to variable="userName"/>
+                                       </bpel:copy>
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getTextValue( abx:elementToXMLString($ContactChildXML/ns4:item[ $ContactsCount ]) , solution:getUserDataPath(string($PortalConfigResponseXML/userManagement/fieldMapping/email/code/text()), $ContactChildName ) , false() )</bpel:from>
+                                          <bpel:to variable="email"/>
+                                       </bpel:copy>
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getTextValue( abx:elementToXMLString($ContactChildXML/ns4:item[ $ContactsCount ]) , solution:getUserDataPath( string( $portalUserIndPath ), $ContactChildName ), false() )</bpel:from>
+                                          <bpel:to variable="portalUserInd"/>
+                                       </bpel:copy>
+                                    </bpel:assign>
+                                    <bpel:assign aei:id="1590323103110511674" name="Security_Provider">
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"&gt;
+   &lt;arg1_string&gt;&lt;/arg1_string&gt;
+   &lt;arg2_string&gt;{ $InfaTask/mdmavxsd:orsId/text() }&lt;/arg2_string&gt;
+   &lt;arg3_string&gt;&lt;/arg3_string&gt;
+   &lt;arg4_string&gt;{ "avos" }&lt;/arg4_string&gt;
+   &lt;arg5_string&gt;{ $AdminHubUserName }&lt;/arg5_string&gt;
+&lt;/securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest&gt;</bpel:from>
+                                          <bpel:to variable="getEncryptedSecurityPayloadRest"/>
+                                       </bpel:copy>
+                                    </bpel:assign>
+                                    <bpel:invoke aei:id="1590323103110511676" inputVariable="getEncryptedSecurityPayloadRest"
+                                                 name="Security_Provider"
+                                                 operation="getEncryptedSecurityPayloadRest"
+                                                 outputVariable="getEncryptedSecurityPayloadRestResponse"
+                                                 partnerLink="SecurityProvider"/>
+                                    <bpel:assign aei:id="1590323103110511677" name="Find_User">
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;GET&lt;/ns:method&gt;
+   &lt;!--Optional:--&gt;&lt;ns:pathInfo&gt;{concat("infa-portal/portals/entities/", $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:taskData/mdmavxsd:subjectAreaUID/text() ,"/users?username=",$userName)}&lt;/ns:pathInfo&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt;
+&lt;ns:header name="X-INFA-ORS" value="{$InfaTask/mdmavxsd:orsId/text()}"/&gt; 
+&lt;ns:header name="X-MDM-AUTH-PAYLOAD" value="{ $getEncryptedSecurityPayloadRestResponse/string/text() }"/&gt;
+&lt;/ns:headers&gt;
+   &lt;!--Optional:--&gt;&lt;ns:ssl&gt;false&lt;/ns:ssl&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+                                          <bpel:to variable="RESTRequest"/>
+                                       </bpel:copy>
+                                    </bpel:assign>
+                                    <bpel:invoke aei:id="1590323103110511679" inputVariable="RESTRequest"
+                                                 name="Find_User_Service"
+                                                 operation="requestResponse"
+                                                 outputVariable="RESTResponse"
+                                                 partnerLink="PortalRestProvider"/>
+                                    <bpel:if aei:id="1590323103110511680">
+                                       <bpel:condition expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">boolean($portalUserIndPath) and $portalUserInd = 'true' and not(boolean($RESTResponse/rest:payload/text()))</bpel:condition>
+                                       <bpel:sequence aei:id="1590323103110511684">
+                                          <bpel:assign aei:id="1590323103110511685" name="Security_Provider">
+                                             <bpel:copy>
+                                                <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"&gt;
+   &lt;arg1_string&gt;&lt;/arg1_string&gt;
+   &lt;arg2_string&gt;&lt;/arg2_string&gt;
+   &lt;arg3_string&gt;{ "createUserUsingPost" }&lt;/arg3_string&gt;
+   &lt;arg4_string&gt;{ "avos" }&lt;/arg4_string&gt;
+   &lt;arg5_string&gt;{ $AdminHubUserName }&lt;/arg5_string&gt;
+&lt;/securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest&gt;</bpel:from>
+                                                <bpel:to variable="getEncryptedSecurityPayloadRest"/>
+                                             </bpel:copy>
+                                          </bpel:assign>
+                                          <bpel:invoke aei:id="1590323103110511687" inputVariable="getEncryptedSecurityPayloadRest"
+                                                       name="Security_Provider"
+                                                       operation="getEncryptedSecurityPayloadRest"
+                                                       outputVariable="getEncryptedSecurityPayloadRestResponse"
+                                                       partnerLink="SecurityProvider"/>
+                                          <bpel:assign aei:id="1590323103110511688" name="Create_User">
+                                             <bpel:copy>
+                                                <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;POST&lt;/ns:method&gt;
+   &lt;!--Optional:--&gt;&lt;ns:pathInfo&gt;{concat("infa-portal/portals/entities/", $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:taskData/mdmavxsd:subjectAreaUID/text() ,"/users?systemName=Admin")}&lt;/ns:pathInfo&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt;
+&lt;ns:header name="X-INFA-ORS" value="{$InfaTask/mdmavxsd:orsId/text()}"/&gt; 
+&lt;ns:header name="X-INFA-PORTALID" value="{$portalId}"/&gt;
+&lt;ns:header name="X-MDM-AUTH-PAYLOAD" value="{ $getEncryptedSecurityPayloadRestResponse/string/text() }"/&gt;
+&lt;/ns:headers&gt;
+&lt;rest:payload contentType="application/json"&gt;{{"userData": {{"userName": "{ $userName }","orsId": "{$InfaTask/mdmavxsd:orsId/text()}","email": "{ $email }","firstName": "{ $firstName }","lastName": "{ $lastName }"}}, {$PasswordPolicy},"forgotPasswordUrl":"{abx:resolveURN("urn:forgot:password:url")}" }}&lt;/rest:payload&gt;
+   &lt;!--Optional:--&gt;&lt;ns:ssl&gt;false&lt;/ns:ssl&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+                                                <bpel:to variable="RESTRequest"/>
+                                             </bpel:copy>
+                                          </bpel:assign>
+                                          <bpel:invoke aei:id="1590323103110511690" inputVariable="RESTRequest"
+                                                       name="Create_User_Service"
+                                                       operation="requestResponse"
+                                                       outputVariable="RESTResponse"
+                                                       partnerLink="PortalRestProvider"/>
+                                       </bpel:sequence>
+                                       <!-- portalUserIndPath path defefined in configuration xml file and indicator value is false --><bpel:elseif aei:id="1590323103110511691">
+                                          <bpel:condition expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">boolean($portalUserIndPath) and $portalUserInd = 'false' and boolean($RESTResponse/rest:payload/text())</bpel:condition>
+                                          <bpel:sequence aei:id="1590323103110511693">
+                                             <bpel:assign aei:id="1590323103110511694" name="Security_Provider">
+                                                <bpel:copy>
+                                                   <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"&gt;
+   &lt;arg1_string&gt;&lt;/arg1_string&gt;
+   &lt;arg2_string&gt;&lt;/arg2_string&gt;
+   &lt;arg3_string&gt;{ "deleteUserUsingDELETE" }&lt;/arg3_string&gt;
+   &lt;arg4_string&gt;{ "avos" }&lt;/arg4_string&gt;
+   &lt;arg5_string&gt;{ $AdminHubUserName }&lt;/arg5_string&gt;
+&lt;/securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest&gt;</bpel:from>
+                                                   <bpel:to variable="getEncryptedSecurityPayloadRest"/>
+                                                </bpel:copy>
+                                             </bpel:assign>
+                                             <bpel:invoke aei:id="1590323103110511696" inputVariable="getEncryptedSecurityPayloadRest"
+                                                          name="Security_Provider"
+                                                          operation="getEncryptedSecurityPayloadRest"
+                                                          outputVariable="getEncryptedSecurityPayloadRestResponse"
+                                                          partnerLink="SecurityProvider"/>
+                                             <bpel:assign aei:id="1590323103110511697" name="Delete_User">
+                                                <bpel:copy>
+                                                   <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;DELETE&lt;/ns:method&gt;
+   &lt;!--Optional:--&gt;&lt;ns:pathInfo&gt;{$userName}&lt;/ns:pathInfo&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt; 
+&lt;ns:header name="X-MDM-AUTH-PAYLOAD" value="{ $getEncryptedSecurityPayloadRestResponse/string/text() }"/&gt;
+&lt;/ns:headers&gt;
+   &lt;!--Optional:--&gt;&lt;ns:ssl&gt;false&lt;/ns:ssl&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+                                                   <bpel:to variable="RESTRequest"/>
+                                                </bpel:copy>
+                                             </bpel:assign>
+                                             <bpel:invoke aei:id="1590323103110511699" inputVariable="RESTRequest" name="Delete_User"
+                                                          operation="requestResponse"
+                                                          outputVariable="RESTResponse"
+                                                          partnerLink="UserRestProvider"/>
+                                          </bpel:sequence>
+                                       </bpel:elseif>
+                                       <bpel:elseif aei:id="159103142566358921">
+                                          <bpel:condition expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">not(boolean($portalUserIndPath)) and not(boolean($RESTResponse/rest:payload/text()))</bpel:condition>
+                                          <bpel:sequence aei:id="159103142566458925">
+                                             <bpel:assign aei:id="159102811064934425" name="Security_Provider">
+                                                <bpel:copy>
+                                                   <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"&gt;
+   &lt;arg1_string&gt;&lt;/arg1_string&gt;
+   &lt;arg2_string&gt;&lt;/arg2_string&gt;
+   &lt;arg3_string&gt;{ "createUserUsingPost" }&lt;/arg3_string&gt;
+   &lt;arg4_string&gt;{ "avos" }&lt;/arg4_string&gt;
+   &lt;arg5_string&gt;{ $AdminHubUserName }&lt;/arg5_string&gt;
+&lt;/securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest&gt;</bpel:from>
+                                                   <bpel:to variable="getEncryptedSecurityPayloadRest"/>
+                                                </bpel:copy>
+                                             </bpel:assign>
+                                             <bpel:invoke aei:id="159102811064934424" inputVariable="getEncryptedSecurityPayloadRest"
+                                                          name="Security_Provider"
+                                                          operation="getEncryptedSecurityPayloadRest"
+                                                          outputVariable="getEncryptedSecurityPayloadRestResponse"
+                                                          partnerLink="SecurityProvider"/>
+                                             <bpel:assign aei:id="159102811064934427" name="Create_User">
+                                                <bpel:copy>
+                                                   <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;POST&lt;/ns:method&gt;
+   &lt;!--Optional:--&gt;&lt;ns:pathInfo&gt;{concat("infa-portal/portals/entities/", $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:taskData/mdmavxsd:subjectAreaUID/text() ,"/users?systemName=Admin")}&lt;/ns:pathInfo&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt;
+&lt;ns:header name="X-INFA-ORS" value="{$InfaTask/mdmavxsd:orsId/text()}"/&gt; 
+&lt;ns:header name="X-INFA-PORTALID" value="{$portalId}"/&gt;
+&lt;ns:header name="X-MDM-AUTH-PAYLOAD" value="{ $getEncryptedSecurityPayloadRestResponse/string/text() }"/&gt;
+&lt;/ns:headers&gt;
+&lt;rest:payload contentType="application/json"&gt;{{"userData": {{"userName": "{ $userName }","orsId": "{$InfaTask/mdmavxsd:orsId/text()}","email": "{ $email }","firstName": "{ $firstName }","lastName": "{ $lastName }"}}, {$PasswordPolicy},"forgotPasswordUrl":"{abx:resolveURN("urn:forgot:password:url")}" }}&lt;/rest:payload&gt;
+   &lt;!--Optional:--&gt;&lt;ns:ssl&gt;false&lt;/ns:ssl&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+                                                   <bpel:to variable="RESTRequest"/>
+                                                </bpel:copy>
+                                             </bpel:assign>
+                                             <bpel:invoke aei:id="159102811064934429" inputVariable="RESTRequest"
+                                                          name="Create_User_Service"
+                                                          operation="requestResponse"
+                                                          outputVariable="RESTResponse"
+                                                          partnerLink="PortalRestProvider"/>
+                                          </bpel:sequence>
+                                       </bpel:elseif>
+                                       <!-- portalUserIndPath path is not defefined in configuration xml --><bpel:else aei:id="1590323103110511700">
+                                          <bpel:empty aei:id="1590323103110511702" aei:implicit="yes"/>
+                                       </bpel:else>
+                                    </bpel:if>
+                                    <bpel:assign aei:id="1590323103110511703" name="Decrement_Count">
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">$ContactsCount - 1</bpel:from>
+                                          <bpel:to variable="ContactsCount"/>
+                                       </bpel:copy>
+                                    </bpel:assign>
+                                 </bpel:sequence>
+                              </bpel:repeatUntil>
+                              <bpel:else aei:id="1590323103110511705">
+                                 <bpel:empty aei:id="1590323103110511707" aei:implicit="yes"/>
+                              </bpel:else>
+                           </bpel:if>
+                           <bpel:else aei:id="1590323103110511708">
+                              <bpel:empty aei:id="1590323103110511710" aei:implicit="yes"/>
+                           </bpel:else>
+                        </bpel:if>
+                        <bpel:empty aei:id="1590323103111511711"/>
+                     </bpel:sequence>
+                  </bpel:scope>
+                  <bpel:else aei:id="1590323103111511717">
+                     <bpel:scope aei:id="1590323103111511720" name="User_Management_for_one_to_one_child">
+                        <bpel:sequence aei:id="1590323103111511725">
+                           <bpel:empty aei:id="1590323103111511726"/>
+                           <bpel:assign aei:id="1590323103111511727" name="Initialize_User_Data">
+                              <bpel:copy>
+                                 <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getTextValue( abx:elementToXMLString( $ReadBEViewResponse/rest:payload ) , string($PortalConfigResponseXML/userManagement/fieldMapping/firstName/code/text()) )</bpel:from>
+                                 <bpel:to variable="firstName"/>
+                              </bpel:copy>
+                              <bpel:copy>
+                                 <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getTextValue( abx:elementToXMLString( $ReadBEViewResponse/rest:payload ) , string($PortalConfigResponseXML/userManagement/fieldMapping/lastName/code/text()) )</bpel:from>
+                                 <bpel:to variable="lastName"/>
+                              </bpel:copy>
+                              <bpel:copy>
+                                 <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getTextValue( abx:elementToXMLString( $ReadBEViewResponse/rest:payload ) , string($PortalConfigResponseXML/userManagement/fieldMapping/userName/code/text()) )</bpel:from>
+                                 <bpel:to variable="userName"/>
+                              </bpel:copy>
+                              <bpel:copy>
+                                 <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getTextValue( abx:elementToXMLString( $ReadBEViewResponse/rest:payload ) , string($PortalConfigResponseXML/userManagement/fieldMapping/email/code/text()) )</bpel:from>
+                                 <bpel:to variable="email"/>
+                              </bpel:copy>
+                              <bpel:copy>
+                                 <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">solution:getTextValue( abx:elementToXMLString( $ReadBEViewResponse/rest:payload ) , string($portalUserIndPath) )</bpel:from>
+                                 <bpel:to variable="portalUserInd"/>
+                              </bpel:copy>
+                           </bpel:assign>
+                           <bpel:assign aei:id="1590323103111511733" name="Security_Provider">
+                              <bpel:copy>
+                                 <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"&gt;
+   &lt;arg1_string&gt;&lt;/arg1_string&gt;
+   &lt;arg2_string&gt;{ $InfaTask/mdmavxsd:orsId/text() }&lt;/arg2_string&gt;
+   &lt;arg3_string&gt;&lt;/arg3_string&gt;
+   &lt;arg4_string&gt;{ "avos" }&lt;/arg4_string&gt;
+   &lt;arg5_string&gt;{ $AdminHubUserName }&lt;/arg5_string&gt;
+&lt;/securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest&gt;</bpel:from>
+                                 <bpel:to variable="getEncryptedSecurityPayloadRest"/>
+                              </bpel:copy>
+                           </bpel:assign>
+                           <bpel:invoke aei:id="1590323103111511735" inputVariable="getEncryptedSecurityPayloadRest"
+                                        name="Security_Provider"
+                                        operation="getEncryptedSecurityPayloadRest"
+                                        outputVariable="getEncryptedSecurityPayloadRestResponse"
+                                        partnerLink="SecurityProvider"/>
+                           <bpel:assign aei:id="1590323103111511736" name="Find_User">
+                              <bpel:copy>
+                                 <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;GET&lt;/ns:method&gt;
+   &lt;!--Optional:--&gt;&lt;ns:pathInfo&gt;{concat("infa-portal/portals/entities/", $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:taskData/mdmavxsd:subjectAreaUID/text() ,"/users?username=",$userName)}&lt;/ns:pathInfo&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt;
+&lt;ns:header name="X-INFA-ORS" value="{$InfaTask/mdmavxsd:orsId/text()}"/&gt; 
+&lt;ns:header name="X-MDM-AUTH-PAYLOAD" value="{ $getEncryptedSecurityPayloadRestResponse/string/text() }"/&gt;
+&lt;/ns:headers&gt;
+   &lt;!--Optional:--&gt;&lt;ns:ssl&gt;false&lt;/ns:ssl&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+                                 <bpel:to variable="RESTRequest"/>
+                              </bpel:copy>
+                           </bpel:assign>
+                           <bpel:invoke aei:id="1590323103111511738" inputVariable="RESTRequest"
+                                        name="Find_User_Service"
+                                        operation="requestResponse"
+                                        outputVariable="RESTResponse"
+                                        partnerLink="PortalRestProvider"/>
+                           <bpel:if aei:id="1590323103111511739">
+                              <bpel:condition expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">boolean($portalUserIndPath) and $portalUserInd = 'true' and not(boolean($RESTResponse/rest:payload/text()))</bpel:condition>
+                              <bpel:sequence aei:id="1590323103111511743">
+                                 <bpel:assign aei:id="1590323103111511744" name="Security_Provider">
+                                    <bpel:copy>
+                                       <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"&gt;
+   &lt;arg1_string&gt;&lt;/arg1_string&gt;
+   &lt;arg2_string&gt;&lt;/arg2_string&gt;
+   &lt;arg3_string&gt;{ "createUserUsingPost" }&lt;/arg3_string&gt;
+   &lt;arg4_string&gt;{ "avos" }&lt;/arg4_string&gt;
+   &lt;arg5_string&gt;{ $AdminHubUserName }&lt;/arg5_string&gt;
+&lt;/securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest&gt;</bpel:from>
+                                       <bpel:to variable="getEncryptedSecurityPayloadRest"/>
+                                    </bpel:copy>
+                                 </bpel:assign>
+                                 <bpel:invoke aei:id="1590323103111511746" inputVariable="getEncryptedSecurityPayloadRest"
+                                              name="Security_Provider"
+                                              operation="getEncryptedSecurityPayloadRest"
+                                              outputVariable="getEncryptedSecurityPayloadRestResponse"
+                                              partnerLink="SecurityProvider"/>
+                                 <bpel:assign aei:id="1590323103111511747" name="Create_User">
+                                    <bpel:copy>
+                                       <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;POST&lt;/ns:method&gt;
+   &lt;!--Optional:--&gt;&lt;ns:pathInfo&gt;{concat("infa-portal/portals/entities/", $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:taskData/mdmavxsd:subjectAreaUID/text() ,"/users?systemName=Admin")}&lt;/ns:pathInfo&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt;
+&lt;ns:header name="X-INFA-ORS" value="{$InfaTask/mdmavxsd:orsId/text()}"/&gt; 
+&lt;ns:header name="X-INFA-PORTALID" value="{$portalId}"/&gt;
+&lt;ns:header name="X-MDM-AUTH-PAYLOAD" value="{ $getEncryptedSecurityPayloadRestResponse/string/text() }"/&gt;
+&lt;/ns:headers&gt;
+&lt;rest:payload contentType="application/json"&gt;{{"userData": {{"userName": "{ $userName }","orsId": "{$InfaTask/mdmavxsd:orsId/text()}","email": "{ $email }","firstName": "{ $firstName }","lastName": "{ $lastName }"}}, {$PasswordPolicy},"forgotPasswordUrl":"{abx:resolveURN("urn:forgot:password:url")}" }}&lt;/rest:payload&gt;
+   &lt;!--Optional:--&gt;&lt;ns:ssl&gt;false&lt;/ns:ssl&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+                                       <bpel:to variable="RESTRequest"/>
+                                    </bpel:copy>
+                                 </bpel:assign>
+                                 <bpel:invoke aei:id="1590323103111511749" inputVariable="RESTRequest"
+                                              name="Create_User_Service"
+                                              operation="requestResponse"
+                                              outputVariable="RESTResponse"
+                                              partnerLink="PortalRestProvider"/>
+                              </bpel:sequence>
+                              <!-- portalUserIndPath path defefined in configuration xml file and indicator value is false --><bpel:elseif aei:id="1590323103111511750">
+                                 <bpel:condition expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">boolean($portalUserIndPath) and $portalUserInd = 'false' and boolean($RESTResponse/rest:payload/text())</bpel:condition>
+                                 <bpel:sequence aei:id="1590323103111511752">
+                                    <bpel:assign aei:id="1590323103111511753" name="Security_Provider">
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"&gt;
+   &lt;arg1_string&gt;&lt;/arg1_string&gt;
+   &lt;arg2_string&gt;&lt;/arg2_string&gt;
+   &lt;arg3_string&gt;{ "deleteUserUsingDELETE" }&lt;/arg3_string&gt;
+   &lt;arg4_string&gt;{ "avos" }&lt;/arg4_string&gt;
+   &lt;arg5_string&gt;{ $AdminHubUserName }&lt;/arg5_string&gt;
+&lt;/securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest&gt;</bpel:from>
+                                          <bpel:to variable="getEncryptedSecurityPayloadRest"/>
+                                       </bpel:copy>
+                                    </bpel:assign>
+                                    <bpel:invoke aei:id="1590323103111511755" inputVariable="getEncryptedSecurityPayloadRest"
+                                                 name="Security_Provider"
+                                                 operation="getEncryptedSecurityPayloadRest"
+                                                 outputVariable="getEncryptedSecurityPayloadRestResponse"
+                                                 partnerLink="SecurityProvider"/>
+                                    <bpel:assign aei:id="1590323103111511756" name="Delete_User">
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;DELETE&lt;/ns:method&gt;
+   &lt;!--Optional:--&gt;&lt;ns:pathInfo&gt;{$userName}&lt;/ns:pathInfo&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt; 
+&lt;ns:header name="X-MDM-AUTH-PAYLOAD" value="{ $getEncryptedSecurityPayloadRestResponse/string/text() }"/&gt;
+&lt;/ns:headers&gt;
+   &lt;!--Optional:--&gt;&lt;ns:ssl&gt;false&lt;/ns:ssl&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+                                          <bpel:to variable="RESTRequest"/>
+                                       </bpel:copy>
+                                    </bpel:assign>
+                                    <bpel:invoke aei:id="1590323103111511758" inputVariable="RESTRequest" name="Delete_User"
+                                                 operation="requestResponse"
+                                                 outputVariable="RESTResponse"
+                                                 partnerLink="UserRestProvider"/>
+                                 </bpel:sequence>
+                              </bpel:elseif>
+                              <!-- portalUserIndPath path is not defefined in configuration xml --><bpel:elseif aei:id="159103192764667909">
+                                 <bpel:condition expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">not(boolean($portalUserIndPath)) and not(boolean($RESTResponse/rest:payload/text()))</bpel:condition>
+                                 <bpel:sequence aei:id="159103192764667913">
+                                    <bpel:assign aei:id="159102855356438000" name="Security_Provider">
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest xmlns:securitypayloadgeneratorinterface="urn:security:payload:securitypayloadgeneratorinterface"&gt;
+   &lt;arg1_string&gt;&lt;/arg1_string&gt;
+   &lt;arg2_string&gt;&lt;/arg2_string&gt;
+   &lt;arg3_string&gt;{ "createUserUsingPost" }&lt;/arg3_string&gt;
+   &lt;arg4_string&gt;{ "avos" }&lt;/arg4_string&gt;
+   &lt;arg5_string&gt;{ $AdminHubUserName }&lt;/arg5_string&gt;
+&lt;/securitypayloadgeneratorinterface:getEncryptedSecurityPayloadRest&gt;</bpel:from>
+                                          <bpel:to variable="getEncryptedSecurityPayloadRest"/>
+                                       </bpel:copy>
+                                    </bpel:assign>
+                                    <bpel:invoke aei:id="159102855356438002" inputVariable="getEncryptedSecurityPayloadRest"
+                                                 name="Security_Provider"
+                                                 operation="getEncryptedSecurityPayloadRest"
+                                                 outputVariable="getEncryptedSecurityPayloadRestResponse"
+                                                 partnerLink="SecurityProvider"/>
+                                    <bpel:assign aei:id="159102855356438003" name="Create_User">
+                                       <bpel:copy>
+                                          <bpel:from expressionLanguage="urn:active-endpoints:expression-language:xquery1.0">&lt;ns:RESTRequest xmlns:ns="http://schemas.activebpel.org/REST/2007/12/01/aeREST.xsd"&gt;
+   &lt;ns:method&gt;POST&lt;/ns:method&gt;
+   &lt;!--Optional:--&gt;&lt;ns:pathInfo&gt;{concat("infa-portal/portals/entities/", $ProcessTaskResponse/mdmavxsd:INFATask/mdmavxsd:taskData/mdmavxsd:subjectAreaUID/text() ,"/users?systemName=Admin")}&lt;/ns:pathInfo&gt;
+   &lt;!--Optional:--&gt;&lt;ns:headers&gt;
+&lt;ns:header name="X-INFA-ORS" value="{$InfaTask/mdmavxsd:orsId/text()}"/&gt; 
+&lt;ns:header name="X-INFA-PORTALID" value="{$portalId}"/&gt;
+&lt;ns:header name="X-MDM-AUTH-PAYLOAD" value="{ $getEncryptedSecurityPayloadRestResponse/string/text() }"/&gt;
+&lt;/ns:headers&gt;
+&lt;rest:payload contentType="application/json"&gt;{{"userData": {{"userName": "{ $userName }","orsId": "{$InfaTask/mdmavxsd:orsId/text()}","email": "{ $email }","firstName": "{ $firstName }","lastName": "{ $lastName }"}}, {$PasswordPolicy},"forgotPasswordUrl":"{abx:resolveURN("urn:forgot:password:url")}" }}&lt;/rest:payload&gt;
+   &lt;!--Optional:--&gt;&lt;ns:ssl&gt;false&lt;/ns:ssl&gt;
+  &lt;rest:locales&gt;
+      &lt;rest:locale country="US" lang="en"&gt;en_US&lt;/rest:locale&gt;
+   &lt;/rest:locales&gt;
+&lt;/ns:RESTRequest&gt;</bpel:from>
+                                          <bpel:to variable="RESTRequest"/>
+                                       </bpel:copy>
+                                    </bpel:assign>
+                                    <bpel:invoke aei:id="159102855356438005" inputVariable="RESTRequest"
+                                                 name="Create_User_Service"
+                                                 operation="requestResponse"
+                                                 outputVariable="RESTResponse"
+                                                 partnerLink="PortalRestProvider"/>
+                                 </bpel:sequence>
+                              </bpel:elseif>
+                              <bpel:else aei:id="1590323103111511759">
+                                 <bpel:empty aei:id="1590323103111511761" aei:implicit="yes"/>
+                              </bpel:else>
+                           </bpel:if>
+                           <bpel:empty aei:id="1590323103111511762"/>
+                        </bpel:sequence>
+                     </bpel:scope>
+                  </bpel:else>
+               </bpel:if>
+               <bpel:empty aei:id="1590323103111511768"/>
+            </bpel:sequence>
+         </bpel:scope>
+         <bpel:else aei:id="1590323103111511774">
+            <bpel:empty aei:id="1590323103111511776" aei:implicit="yes"/>
+         </bpel:else>
+      </bpel:if>
+      <bpel:empty aei:id="1590323103113511861"/>
+   </bpel:sequence>
+</bpel:process>

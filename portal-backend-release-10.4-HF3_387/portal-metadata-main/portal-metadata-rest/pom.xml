@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>portal-metadata-rest</artifactId>
+	<packaging>war</packaging>
+
+	<name>portal-metadata-rest</name>
+	<parent>
+		<groupId>com.informatica.mdm.portal</groupId>
+		<artifactId>portal-metadata-main</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../</relativePath> <!-- lookup parent from repository -->
+	</parent>
+	
+	<properties>
+		<sip.copyright>Copyright © 2003-2014 Informatica Corporation</sip.copyright>
+		<sip.company.name>Informatica Corporation</sip.company.name>
+		<sip.url>http://www.informatica.com</sip.url>
+		<sip.relname>${project.version}</sip.relname>
+		<buildNumber>${project.version}-development</buildNumber>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.informatica.mdm.portal</groupId>
+			<artifactId>portal-metadata-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<archive>
+						<addMavenDescriptor>false</addMavenDescriptor>
+						<manifestEntries>
+							<Created-By>${sip.copyright}</Created-By>
+							<Specification-Title>${project.name}</Specification-Title>
+							<Specification-Vendor>${sip.company.name}</Specification-Vendor>
+							<Specification-Version>${buildNumber}</Specification-Version>
+							<Implementation-Vendor>${sip.company.name}</Implementation-Vendor>
+							<Implementation-Title>${project.name}</Implementation-Title>
+							<Implementation-Vendor-Id>Informatica</Implementation-Vendor-Id>
+							<Implementation-URL>${sip.url}</Implementation-URL>
+							<Implementation-Version>${buildNumber}</Implementation-Version>
+							<SiperianVersion>${buildNumber} release ${sip.relname}</SiperianVersion>
+						</manifestEntries>
+					</archive>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<version>1.5.5</version>
+				<executions>
+					<execution>
+						<id>generate-docs</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html</backend>
+							<doctype>book</doctype>
+							<attributes>
+								<snippets>${snippetsDirectory}</snippets>
+								<project-version>${project.version}</project-version>
+							</attributes>
+							<sourceDirectory>src/asciidoc</sourceDirectory>
+							<outputDirectory>target/generated-docs</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.springframework.restdocs</groupId>
+						<artifactId>spring-restdocs-asciidoctor</artifactId>
+						<version>2.0.1.RELEASE</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			
+			<plugin>
+               <artifactId>maven-resources-plugin</artifactId>
+                 <executions>
+                   <execution>
+                          <id>copy-resources</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                          <goal>copy-resources</goal>
+                        </goals>
+                      <configuration>
+                           <outputDirectory>
+                             ${project.build.outputDirectory}/public/docs
+                           </outputDirectory>
+                         <resources>
+                           <resource>
+                             <directory>
+                               target/generated-docs
+                             </directory>
+                           </resource>
+                         </resources>
+                      </configuration>
+                   </execution>
+                </executions>
+             </plugin>
+			
+		</plugins>
+		<finalName>infa-portal</finalName>
+
+	</build>
+
+</project>

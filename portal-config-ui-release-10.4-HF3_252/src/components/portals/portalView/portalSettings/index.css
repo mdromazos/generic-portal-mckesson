@@ -1,0 +1,45 @@
+.wizard__toolbar {
+    border-top-width: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+.form .d-roadmap__step__label
+{
+    font-weight:bold;
+}
+.be__mandatory__check{
+    color: #f00 !important;
+}
+
+.form-group {
+    display: table-row;
+}
+
+.form-label {
+    font-size: 13px;
+    line-height: 1.5;
+    padding-top: .125em;
+    padding-right: .625em;
+    width: 1%;
+    display: table-cell;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.form-field {
+    width: 250px;
+    position: relative;
+    display: table-cell;
+    margin-bottom: .625em;
+}
+.form-error {
+    vertical-align: middle;
+    height: 20px;
+    margin-bottom: .9375em;
+    line-height: 1.5;    
+}
+
+.radio-field {
+    display: inline-flex;
+}
+

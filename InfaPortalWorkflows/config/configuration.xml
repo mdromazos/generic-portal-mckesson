@@ -1,0 +1,21 @@
+<configuration xmlns="http://www.informatica.com/schema/1.0/av_config.xsd">
+	<properties>
+		<property name="portal.draft.path">draftInd</property>
+		<property name="portal.fullname.path">fullNm</property>
+		<property name="portal.portalId.path">portalAssc.portalId</property>
+		<property name="portal.direct.Submit">Submitted</property>
+		<property name="portal.AVOSBeDraftState.Submit">Submitted</property>
+		<property name="portal.AVOSBeFinalReview.Approve">Approved</property>
+		<property name="portal.AVOSBeFinalReview.Send Back">Send Back</property>
+		<property name="portal.AVOSBeUpdate.Submit For Approval">Submitted</property>
+		<property name="hub.admin.user">admin</property>
+		<property name="portal.SupplierRegistrationView.userInd.path">Contacts.prtlUsrInd</property>
+		<property name="portal.passwordpolicy.maximumPasswordLength">9</property>
+		<property name="portal.passwordpolicy.minimumPasswordLength">4</property>
+		<property name="portal.passwordpolicy.minimumUniqueCharacters">0</property>
+		<property name="portal.passwordpolicy.patternValidationEnabled">false</property>
+		<property name="portal.passwordpolicy.passwordBeginningPattern">Any characters(s)</property>
+		<property name="portal.passwordpolicy.passwordMiddlePattern">Any characters(s)</property>
+		<property name="portal.passwordpolicy.passwordEndPattern">Any characters(s)</property>
+	</properties>
+</configuration>

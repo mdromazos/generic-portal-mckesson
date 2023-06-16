@@ -1,0 +1,396 @@
+<project name="TSRInstallation" default="usage" basedir=".">
+    <description>Portal Installation</description>
+
+	<property environment="env"/>
+	<property name="supported.hub.version" value="^10\.4\.*.*$" />
+    <property file="${env.HUB_HOME}\server\bin\build.properties" prefix="hubprop"/>
+    <property file="${env.HUB_HOME}\server\resources\cmxserver.properties" prefix="hubprop"/>
+    <property name="portal.home" value="${env.PORTAL_HOME}"/>
+    <property name="sip.home" value="${env.SIP_HOME}"/>
+	<property name="withPim" value="${env.choice}"/>
+	<property name="email.config.dir" value="${sip.home}/resources/mdmapps/email-config"/>
+	<property name="email.templates.dir" value="${sip.home}/resources/mdmapps/email-config/templates/avos-templates"/>
+	<property name="email.path" value="${portal.home}/email-config"/>
+	<property name="email.xsl.path" value="${email.path}/templates/avos-templates"/>
+	<property name="bpr_email.name" value="SolutionsEmailService.bpr"/>
+	<property name="bpr_email.path" value="${portal.home}/bpm/${bpr_email.name}"/>
+	<property name="bpr_generic_portal.name" value="InfaPortalWorkflows.bpr"/>
+	<property name="bpr_generic_portal.path" value="${portal.home}/bpm/${bpr_generic_portal.name}"/>
+	
+	<property name="bpr.wsdl" value="wsdl/testwork1/prod_depot/solutions/Supplier Hub/main/projects/ActiveVos Workflow/v10/SolutionsEmailService"/>
+	<property name="bpr_generic_portal.wsdl" value="wsdl/InfaPortalWorkflows"/>
+	
+	<property name="workflow.config.path" value="${portal.home}/bpm"/>
+	<property name="bpr_email.tmpdir" location="${basedir}/../tmp/_build/${bpr_email.name}"/>
+	
+    <property name="tmp.dir" value="${basedir}/../tmp"/>
+    <property name="cookie-secure" value="false"/>
+    <property name="avos_ear_lib_dir" value="APP-INF/lib"/>
+	<property name="hub_api_lib_name" value="siperian-api-10.0.1-SNAPSHOT.jar"/>
+	<property name="hub_common_lib_name" value="siperian-common-10.0.1-SNAPSHOT.jar"/>
+	
+	
+	<property name="cluster.flag" value="false" />
+	
+	<property name="genericportal.ear.name" value="generic-portal.ear"/>
+	<property name="genericportal.ear.path" value="${portal.home}/${genericportal.ear.name}"/>
+    <property name="pimservice.war.name" value="pimservice.war"/>
+	<property name="pimservice.war.path" value="${portal.home}/${pimservice.war.name}"/>
+	
+	<tstamp>
+        <format property="start" pattern="yyyy MMMM dd HH:mm:ss" locale="en"/>
+    </tstamp>
+	
+	<available file="${sip.home}/lib/ant-contrib-1.0b3.jar" property="ant.contrib.present"/>
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+	  <classpath>
+		<pathelement location="${sip.home}/lib/ant-contrib-1.0b3.jar"/>
+	  </classpath>
+	</taskdef>
+		
+    <path id="build.was.classpath">
+        <fileset dir="${sip.home}/lib/">
+            <include name="build.jar"/>
+            <include name="build-db.jar"/>
+            <include name="build-was.jar"/>
+        </fileset>
+    </path>
+
+    <condition property="wsadmin.executable" value="wsadmin.bat" else="wsadmin.sh">
+        <os family="windows"/>
+    </condition>
+
+	<!-- setting default value of cmx.appserver.soap.connector.port for patch because older version won't have cmx.appserver.soap.connector.port set in cmxserver.properties -->
+    <property name="cmx.appserver.soap.connector.port" value="8880" />
+
+    <!-- setting default value of cmx.websphere.security.enabled for patch because older version won't have cmx.websphere.security.enabled set in cmxserver.properties -->
+    <property name="cmx.websphere.security.enabled" value="No" />
+	
+
+	<target name="get.websphere.password" unless="websphere.password">
+        <taskdef resource="build.taskdef.properties" classpath="${sip.home}/lib/build.jar" />
+        <if>
+            <equals arg1="${hubprop.cmx.websphere.security.enabled}" arg2="Yes" />
+            <then>
+                <usageerror message="Since websphere security is enabled, websphere password needs to be passed." />
+                <usageerror message="setup_app.bat -Dwebsphere.password=&lt;was_password&gt;" />
+                <usageerror message=" where WebSphere User is ${hubprop.websphere.username}"  exitstatus="true"/>
+            </then>
+        </if>
+    </target>
+	
+	<condition property="avos_installed">
+        <and>
+            <isset property="hubprop.activevos.install.dir"/>
+            <not>
+                <equals arg1="${hubprop.activevos.install.dir}" arg2=""/>
+            </not>
+            <available file="${hubprop.activevos.install.dir}"/>
+            <not>
+                <isset property="hubprop.skip.avos"/>
+            </not>
+        </and>
+    </condition>
+	
+	<condition property="avos_to_be_deployed">
+		<and>
+			<isTrue value="${avos_installed}"/>
+			<isTrue value="${ant.contrib.present}"/>
+		</and>
+	</condition>
+
+	
+    <target name="generic_portal_pki" description="Run the jar file" >
+        <java classname="com.infomatica.mdm.portal.util.PortalKeyStore"  failonerror="true">
+           	<arg value="${env.HUB_HOME}/server"/>
+           <classpath>
+                <pathelement location="${portal.home}/portal-util.jar"/>
+                <fileset dir="${hubprop.sip.home}/lib/pkiutils">
+                    <include name="**/*.jar" />
+                </fileset>
+                <fileset dir="${hubprop.sip.home}/lib/hashing">
+                    <include name="**/*.jar" />
+                </fileset>
+                <fileset dir="${hubprop.sip.home}/lib">
+                    <include name="**/*.jar" />
+                </fileset>
+                
+            </classpath>
+       </java>
+    </target>
+	
+	<target name="undeployPortal">
+        <echo message="Undeploying ${genericportal.ear.name}."/>
+		 <uninstall-app ear-name="${genericportal.ear.name}"/>
+    </target>
+	
+	<target name="undeployPortalWithPIM">
+        <echo message="Undeploying ${genericportal.ear.name}."/>
+		 <uninstall-app ear-name="${genericportal.ear.name}"/>
+		 <echo message="Undeploying ${pimservice.war.name}."/>
+		 <uninstall-app ear-name="${pimservice.war.name}"/>
+    </target>
+
+    <target name="incl_img_in_war">
+        <echo message="Include img in war."/>
+         <unzip src="${portal.home}/generic-portal.ear" dest="${portal.home}/generic-portal-tmp">
+        </unzip>
+        <zip destfile="${portal.home}/generic-portal-tmp/mdm.ui-portal-ui-0.0.1-SNAPSHOT.war"  update="true">
+            
+            <zipfileset dir="${portal.home}/images/" includes="*.*"
+                        prefix="static/images/"/>
+           
+
+        </zip>
+        <delete file="${portal.home}/generic-portal.ear" />
+        <zip destfile="${portal.home}/generic-portal.ear" basedir="${portal.home}/generic-portal-tmp/" includes="**/*" />
+        
+    </target>
+
+
+   <target name="incl_sql_jar_infa_home">
+        <echo message="Include either of ojdbc, sqljdbc, db2jdbc."/>
+         <unzip src="${portal.home}/generic-portal.ear" dest="${portal.home}/generic-portal-tmp">
+        </unzip>
+        <zip destfile="${portal.home}/generic-portal-tmp/com.informatica.mdm.portal-portal-metadata-rest-0.0.1-SNAPSHOT.war"  update="true">
+            
+            <zipfileset dir="${env.HUB_HOME}/server/lib/" includes="ojdbc*.jar"
+                        prefix="WEB-INF/lib/"/>
+            <zipfileset dir="${env.HUB_HOME}/server/lib" includes="db2jcc*.jar"
+                        prefix="WEB-INF/lib/"/>
+            <zipfileset dir="${env.HUB_HOME}/server/lib" includes="sqljdbc*.jar"
+                        prefix="WEB-INF/lib/"/>
+          <zipfileset dir="${env.HUB_HOME}/server/lib" includes="mssql-jdbc*.jar"
+                        prefix="WEB-INF/lib/"/>
+
+        </zip>
+        <delete file="${portal.home}/generic-portal.ear" />
+        <zip destfile="${portal.home}/generic-portal.ear" basedir="${portal.home}/generic-portal-tmp/" includes="**/*" />
+        
+    </target>
+
+    <target name="redeploy"  depends="get.websphere.password,undeployPortal"
+        description="Prepare it to deploy in the application server">
+        <echo message="Deploying ${genericportal.ear.path}."/>
+        <install-app ear-name="${genericportal.ear.name}" ear-path="${genericportal.ear.path}"/>
+    </target>
+
+    <target name="redeployWithPIM"  depends="get.websphere.password, undeployPortalWithPIM, deploy_pimservice"
+        description="Prepare it to deploy in the application server">
+        <echo message="Deploying ${genericportal.ear.path}."/>
+        <install-app ear-name="${genericportal.ear.name}" ear-path="${genericportal.ear.path}"/>
+    </target>
+	
+	<target name="deploy_portal" description="Prepare it to deploy in the application server">
+		<echo message="Deploying ${genericportal.ear.path}."/>
+        <install-app ear-name="${genericportal.ear.name}" ear-path="${genericportal.ear.path}"/>
+	</target>
+
+	<target name="deploy_generic_portal_ear_PIM"  depends="incl_sql_jar_infa_home, incl_img_in_war, undeployPortalWithPIM, generic_portal_pki,deploy_portal, deploy_pimservice, deploy_bpm"
+    	description="Prepare it to deploy in the application server">
+        <echo message="Deploying ${genericportal.ear.path}."/>
+		<install-app ear-name="${genericportal.ear.name}" ear-path="${genericportal.ear.path}"/>
+    </target>
+
+	<target name="deploy_generic_portal_ear"  depends="incl_sql_jar_infa_home, incl_img_in_war, undeployPortal, generic_portal_pki,deploy_portal, deploy_bpm"
+    	description="Prepare it to deploy in the application server">
+        <echo message="Deploying ${genericportal.ear.path}."/>
+		<install-app ear-name="${genericportal.ear.name}" ear-path="${genericportal.ear.path}"/>
+    </target>
+
+    <target name="deploy_pimservice"  depends="get.websphere.password"
+    	description="Prepare it to deploy in the application server">
+        <echo message="Deploying ${pimservice.war.path}."/>
+		<install-app ear-name="${pimservice.war.name}" ear-path="${pimservice.war.path}"/>
+    </target>
+
+	<target name="show_ant_error" unless="ant.contrib.present">
+		<echo message="Ant contrib not found. BPM project has to be manually installed."/>
+	</target>
+	
+	<target name="extract_bpr">
+		<!-- Unzip ear to temporary location -->
+		<unzip src="${bpr_email.path}" dest="${bpr_email.tmpdir}">
+		</unzip>
+	</target>
+	
+		<target if="avos_to_be_deployed" name="upsert_URN_mapping">
+
+        <path id="activevos.urn.mapping.manegement.classpath">
+            <fileset dir="${sip.home}/lib">
+                <include name="axis-1.3.jar" />
+                <include name="jaxrpc.jar" />
+                <include name="wsdl4j-1.5.1.jar" />
+                <include name="commons-discovery-0.2.jar" />
+                <include name="commons-logging-1.1.1.jar" />
+                <include name="build-active-vos.jar" />
+            </fileset>
+        </path>
+
+        <taskdef resource="build-active-vos-taskdef.properties"
+                 classpathref="activevos.urn.mapping.manegement.classpath"/>
+		
+		<upsertActiveVOSURNMapping wsdlUrl="${hubprop.activevos.mdm.urn.mapping.url}?wsdl" url="${hubprop.sip.appserver.web.url}/cmx/cs/" username="${env.avosUsername}" password="${env.avosPassword}"
+                                   urn="urn:mdmcsrest:service" tenantContextId="$public"/>
+		<upsertActiveVOSURNMapping wsdlUrl="${hubprop.activevos.mdm.urn.mapping.url}?wsdl" url="${hubprop.sip.appserver.web.url}/cmx/user/" username="${env.avosUsername}" password="${env.avosPassword}"
+                                   urn="urn:mdmuserrest:service" tenantContextId="$public"/>
+		<upsertActiveVOSURNMapping wsdlUrl="${hubprop.activevos.mdm.urn.mapping.url}?wsdl" url="${hubprop.sip.appserver.web.url}/" username="${env.avosUsername}" password="${env.avosPassword}"
+                                   urn="urn:portal:service:url" tenantContextId="$public"/>
+		<upsertActiveVOSURNMapping wsdlUrl="${hubprop.activevos.mdm.urn.mapping.url}?wsdl" url="${env.urnHubAdminUserUrl}" username="${env.avosUsername}" password="${env.avosPassword}"
+                                   urn="urn:hub:admin:user" tenantContextId="$public"/>
+		<upsertActiveVOSURNMapping wsdlUrl="${hubprop.activevos.mdm.urn.mapping.url}?wsdl" url="${env.forgotPasswordUrl}" username="${env.avosUsername}" password="${env.avosPassword}"
+                                   urn="urn:forgot:password:url" tenantContextId="$public"/>
+		<upsertActiveVOSURNMapping wsdlUrl="${hubprop.activevos.mdm.urn.mapping.url}?wsdl" url="${env.urnWithPortal}" username="${env.avosUsername}" password="${env.avosPassword}"
+                                   urn="urn:withPortal" tenantContextId="$public"/>
+		<upsertActiveVOSURNMapping wsdlUrl="${hubprop.activevos.mdm.urn.mapping.url}?wsdl" url="${env.urnWithPim}" username="${env.avosUsername}" password="${env.avosPassword}"
+                                   urn="urn:withPim" tenantContextId="$public"/>
+		<if>
+			<equals arg1="${withPim}" arg2="yes" />
+			<then>
+			<upsertActiveVOSURNMapping wsdlUrl="${hubprop.activevos.mdm.urn.mapping.url}?wsdl" url="${env.urnPimAdminUser}" username="${env.avosUsername}" password="${env.avosPassword}"
+                                   urn="urn:pim:admin:user" tenantContextId="$public"/>
+
+			<upsertActiveVOSURNMapping wsdlUrl="${hubprop.activevos.mdm.urn.mapping.url}?wsdl" url="${env.urnPIMUrl}" username="${env.avosUsername}" password="${env.avosPassword}"
+                                   urn="urn:pim:server:url" tenantContextId="$public"/>
+			</then>
+		</if>
+                                   
+		</target>
+	
+	
+	
+	<macrodef name="install-app">
+        <attribute name="ear-name"/>
+        <attribute name="ear-path" default="${portal.home}/@{ear-name}"/>
+        <sequential>
+            <echo message="Installing @{ear-name} to Websphere." />
+				<if>
+					<equals arg1="${hubprop.cmx.websphere.security.enabled}" arg2="Yes"/>
+					<then>
+						<do-install-ear ear-name="@{ear-name}" ear-path="@{ear-path}">
+							<arg value="-user"/>
+							<arg value="${hubprop.websphere.username}"/>
+							<arg value="-password"/>
+							<arg value="${websphere.password}"/>
+						</do-install-ear>
+					</then>
+					<else>
+						<do-install-ear ear-name="@{ear-name}" ear-path="@{ear-path}"/>
+					</else>
+				</if>
+        </sequential>
+    </macrodef>
+	
+	<macrodef name="do-install-ear">
+        <attribute name="ear-name"/>
+		<attribute name="ear-path" default="${portal.home}/@{ear-name}"/>
+        <element name="security" optional="true" implicit="yes"/>
+        <sequential>
+            <stopwatch name="@{ear-name}"/>
+			<copy file="${sip.home}/bin/wsinstall.jacl" tofile="wsinstall.jacl"/>
+            <exec executable="${env.WAS_HOME}/bin/${wsadmin.executable}" dir="${env.WAS_HOME}/bin" failonerror="true">
+                <arg value="-lang"/>
+                <arg value="jacl"/>
+                <arg value="-f"/>
+                <arg value="${sip.home}/bin/wsinstall.jacl"/>
+                <arg value="-profileName"/>
+                <arg value="${hubprop.websphere.profile}"/>
+                <arg value="install"/>
+                <arg value="${env.WAS_CELL}"/>
+                <arg value="${env.WAS_NODE}"/>
+                <arg value="${env.WAS_SERVER}"/>
+                <arg value="@{ear-name}"/>
+                <arg value="${cluster.flag}"/>
+                <arg value="@{ear-path}"/>
+                <arg value="-javaoption"/>
+                <arg value="-Xmx1024m"/>
+                <arg value="-javaoption"/>
+                <arg value="-XX:MaxPermSize=256m"/>
+                <security/>
+            </exec>
+            <stopwatch name="@{ear-name}" action="total"/>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="uninstall-app">
+        <attribute name="ear-name"/>
+        <sequential>
+            <taskdef name="wsadmin" classname="com.ibm.websphere.ant.tasks.WsAdmin"/>
+            <copy file="${sip.home}/bin/wsuninstall.jacl" tofile="wsuninstall.jacl"/>
+            <wsadmin wasHome="${env.WAS_HOME}" script="wsuninstall.jacl" user="${hubprop.websphere.username}"
+                     password="${websphere.password}" profileName="${hubprop.websphere.profile}" failonerror="false">
+                <arg value="@{ear-name}"/>
+                <arg value="${env.WAS_SERVER}"/>
+                <arg value="${cluster.flag}"/>
+            </wsadmin>
+        </sequential>
+    </macrodef>
+	
+	<target name="create_templates">
+		<if>
+            <available file="${email.config.dir}" type="dir"/>  
+            <then>  
+				<echo message="email config directory already exists"/>
+            </then>  
+            <else>  
+				<echo message="creating email templates directory"/>
+				<mkdir dir="${email.templates.dir}"/> 
+			</else>  
+        </if> 
+		<copy todir="${email.templates.dir}">
+			<fileset dir="${email.xsl.path}"/>
+		</copy>
+		<java classname="com.informatica.mdm.solutions.EmailConfigMain"  failonerror="true">
+           <arg value="${env.HUB_HOME}"/>
+		   <arg value="${portal.home}"/>
+           <classpath>
+                <pathelement location="${portal.home}/email-config-util.jar"/>
+            </classpath>
+       </java>
+	</target>
+	
+	<target name="prepare_bpr">
+        <echo message="Preparing ${bpr_email.name}."/>
+        <zip destfile="${bpr_email.path}"  update="true">
+            <zipfileset dir="${email.templates.dir}" includes="*.xsl"
+                        prefix="resources/SolutionsEmailService/xsl/"/>
+            <zipfileset dir="${email.config.dir}" includes="emailConfig.xml"
+                        prefix="${bpr.wsdl}/emailConfigParameters/"/>			
+			<zipfileset dir="${email.config.dir}" includes="catalog.xml"
+                        prefix="META-INF/"/>
+        </zip>
+		<echo message="Preparing ${bpr_generic_portal.name}."/>
+        <zip destfile="${bpr_generic_portal.path}"  update="true">
+			<zipfileset dir="${workflow.config.path}" includes="configuration.xml"
+                        prefix="${bpr_generic_portal.wsdl}/config/"/>				
+        </zip>
+        
+    </target>
+	
+	<target name="deploy_bpm" if="avos_to_be_deployed" depends="upsert_URN_mapping,create_templates,prepare_bpr">
+
+        <path id="activevos.classpath">
+            <fileset dir="${hubprop.sip.home}/lib">
+                <include name="axis-1.3.jar" />
+                <include name="jaxrpc.jar" />
+                <include name="wsdl4j-1.5.1.jar" />
+                <include name="commons-discovery-0.2.jar" />
+                <include name="commons-logging-1.1.1.jar" />
+                <include name="bpr_tasks-9.2.4.1.jar" />
+            </fileset>
+        </path>
+
+        <taskdef name="deploybpr" classname="com.activee.ant.bpr.tasks.AeDeployBPRTask"
+                 classpathref="activevos.classpath"/>
+
+        <echo message="Deploying portal Business Process Archives."/>
+		
+		<deploybpr type="webservice" file="${bpr_generic_portal.path}"
+                   failonerror="true" username="${env.avosUsername}" password="${env.avosPassword}" tourl="${hubprop.activevos.deploy.url}" />
+
+        <deploybpr type="webservice" file="${bpr_email.path}"
+                   failonerror="true" username="${env.avosUsername}" password="${env.avosPassword}" tourl="${hubprop.activevos.deploy.url}" />
+
+    </target>
+	
+</project>

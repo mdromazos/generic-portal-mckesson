@@ -1,0 +1,17 @@
+.default_message{
+    padding-bottom: 14px;
+    padding-top: 14px;
+}
+.general__settings__section .d-toolbar{
+    margin-left: 0px;
+    color: #bbb;
+}
+.general__settings__section .tooltip__icon{
+    background-color: #9c9a9a;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.email-templates-toolbar {
+    margin-left: 0px !important;
+}

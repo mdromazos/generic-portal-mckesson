@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'futura-pt-medium';
+    src: local('futura-pt-medium'), url(fonts/FTN55.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'futura-pt-demi';
+    src: local('futura-pt-demi'), url(fonts/FTN65.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'futura-pt';
+    src: local('futura-pt'), url(fonts/FTN45.otf) format('opentype');
+}
+
+body, body div, body span, body h1 {
+    font-family: futura-pt !important;
+}

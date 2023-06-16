@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation=
+         "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.informatica.mdm.portal</groupId>
+  <artifactId>generic-portal</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>ear</packaging>
+
+<dependencies>
+  <dependency>
+    <groupId>mdm.ui</groupId>
+    <artifactId>portal-config</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <type>war</type>
+ </dependency>
+
+ <dependency>
+    <groupId>com.informatica.mdm.portal</groupId>
+    <artifactId>portal-metadata-rest</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <type>war</type>
+</dependency>
+
+<dependency>
+    <groupId>mdm.ui</groupId>
+    <artifactId>portal-ui</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <type>war</type>
+</dependency>
+</dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>3.0.1</version>
+        <configuration>
+          <modules>
+            <webModule>
+              <groupId>com.informatica.mdm.portal</groupId>
+              <artifactId>portal-metadata-rest</artifactId>
+              <contextRoot>infa-portal</contextRoot>
+            </webModule>
+            <webModule>
+              <groupId>mdm.ui</groupId>
+              <artifactId>portal-config</artifactId>
+              <contextRoot>portal-config</contextRoot>
+            </webModule>
+            <webModule>
+              <groupId>mdm.ui</groupId>
+              <artifactId>portal-ui</artifactId>
+              <contextRoot>portal-ui</contextRoot>
+            </webModule>
+          </modules>
+		</configuration>
+      </plugin>
+	  <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.1.0</version>
+            <executions>
+                <execution>
+                    <id>copy-resources</id>
+                    <phase>validate</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${build.directory}/${project.artifactId}-${project.version}/META-INF</outputDirectory>
+                        <resources>
+                            <resource>
+                                <directory>src/main/resources</directory>
+                                <filtering>true</filtering>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+
+</project>

@@ -1,0 +1,86 @@
+[
+  {
+    "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutSection",
+    "sectionType": "Section-Type 1",
+    "displayIcon": "rectangle",
+    "containers": [
+      {
+        "eClass": "http://www.informatica.com/mdm/config/model/v1#//SectionContainer",
+        "style": {
+          "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutStyle",
+          "width": 1
+        }
+      }
+    ]
+  },
+  {
+    "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutSection",
+    "sectionType": "Section-Type 2",
+    "displayIcon": "restore",
+    "containers": [
+      {
+        "eClass": "http://www.informatica.com/mdm/config/model/v1#//SectionContainer",
+        "style": {
+          "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutStyle",
+          "width": 1
+        }
+      },
+      {
+        "eClass": "http://www.informatica.com/mdm/config/model/v1#//SectionContainer",
+        "style": {
+          "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutStyle",
+          "width": 1
+        }
+      }
+    ]
+  },
+  {
+    "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutSection",
+    "sectionType": "Section-Type 3",
+    "displayIcon": "maximize",
+    "containers": [
+      {
+        "eClass": "http://www.informatica.com/mdm/config/model/v1#//SectionContainer",
+        "style": {
+          "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutStyle",
+          "width": 3
+        }
+      },
+      {
+        "eClass": "http://www.informatica.com/mdm/config/model/v1#//SectionContainer",
+        "style": {
+          "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutStyle",
+          "width": 1
+        }
+      }
+    ]
+   },
+   {
+    "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutSection",
+    "sectionType": "Section-Type 4",
+    "displayIcon": "grid-view",
+    "containers": [
+      {
+        "eClass": "http://www.informatica.com/mdm/config/model/v1#//SectionContainer",
+        "style": {
+          "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutStyle",
+          "width": 1
+        }
+      },
+      {
+        "eClass": "http://www.informatica.com/mdm/config/model/v1#//SectionContainer",
+        "style": {
+          "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutStyle",
+          "width": 1
+        }
+      },
+      {
+        "eClass": "http://www.informatica.com/mdm/config/model/v1#//SectionContainer",
+        "style": {
+          "eClass": "http://www.informatica.com/mdm/config/model/v1#//LayoutStyle",
+          "width": 1
+        }
+      }
+    ]
+   }
+ ]

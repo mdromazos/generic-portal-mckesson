@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project name="Service Archive" default='run' basedir=".">
+
+   <!-- The project root location. -->
+   <property name="project_loc" value="${basedir}/.." />
+
+   <!-- Some properties used by the script. -->
+   <property name="archive.filename" value="${project_loc}/deploy/InfaPortalWorkflows.bpr" />
+
+   <!-- The deployment location.  Typically a server/container deployment directory. -->
+   <property name="archive.deploypath" value="" />
+
+   <!-- The type of deployment. -->
+   <property name="archive.deploytype" value="file" />
+
+   <!-- A temp directory location. -->
+   <property name="archive.temppath" value="${java.io.tmpdir}" />
+
+   <!-- Taskdefs required when running this script from the command line. -->
+   <target name="init">
+      <property name="activevos.antlib" value="" />
+      <path id="activevos.classpath">
+         <fileset dir="${activevos.antlib}">
+            <include name="*.jar" />
+         </fileset>
+      </path>
+      <condition property="avos.tasks.available">
+         <and>
+            <available classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeCreateCatalogTask"/>
+            <available classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeDeployBPRTask"/>
+            <available classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeCreateContributionTask"/>
+         </and>
+      </condition>
+   </target>
+
+   <target name="load.tasks" depends="init" if="avos.tasks.available">
+      <taskdef name="deploybpr" onerror="ignore" classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeDeployBPRTask" />
+      <taskdef name="createcatalog" onerror="ignore" classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeCreateCatalogTask" />
+      <taskdef name="createcontribution" onerror="ignore" classpathref="activevos.classpath" classname="com.activee.ant.bpr.tasks.AeCreateContributionTask" />
+   </target>
+
+   <!-- Build the BPR file from the following (generated) file set. -->
+   <target name="build" depends="load.tasks">
+      <delete file="${archive.filename}" />
+      <jar destfile="${archive.temppath}/__ae__tmp_jar0.jar">
+         <zipfileset dir="${project_loc}/bin" />
+      </jar>
+      <jar destfile="${archive.filename}">
+         <!-- PDD Files. -->
+         <zipfileset file="${project_loc}/deploy/CreatePortalPorcess.pdd" fullpath="META-INF/pdd/InfaPortalWorkflows/deploy/CreatePortalPorcess.pdd" />
+         <zipfileset file="${project_loc}/deploy/MDMAppsDirectSaveProcess.pdd" fullpath="META-INF/pdd/InfaPortalWorkflows/deploy/MDMAppsDirectSaveProcess.pdd" />
+         <zipfileset file="${project_loc}/deploy/MDMAppsProcess.pdd" fullpath="META-INF/pdd/InfaPortalWorkflows/deploy/MDMAppsProcess.pdd" />
+         <!-- BPEL Files. -->
+         <zipfileset file="${project_loc}/bpel/CreatePortalPorcess.bpel" fullpath="bpel/InfaPortalWorkflows/bpel/CreatePortalPorcess.bpel" />
+         <zipfileset file="${project_loc}/bpel/MDMAppsDirectSaveProcess.bpel" fullpath="bpel/InfaPortalWorkflows/bpel/MDMAppsDirectSaveProcess.bpel" />
+         <zipfileset file="${project_loc}/bpel/MDMAppsProcess.bpel" fullpath="bpel/InfaPortalWorkflows/bpel/MDMAppsProcess.bpel" />
+         <!-- WSDL Files. -->
+         <zipfileset file="${project_loc}/wsdl/SecurityPayloadGeneratorInterface/securitypayloadgeneratorinterface.wsdl" fullpath="wsdl/InfaPortalWorkflows/wsdl/SecurityPayloadGeneratorInterface/securitypayloadgeneratorinterface.wsdl" />
+         <zipfileset file="${project_loc}/wsdl/mdm_avos.wsdl" fullpath="wsdl/InfaPortalWorkflows/wsdl/mdm_avos.wsdl" />
+         <zipfileset file="${project_loc}/wsdl/mdm_avos_pl.wsdl" fullpath="wsdl/InfaPortalWorkflows/wsdl/mdm_avos_pl.wsdl" />
+         <zipfileset file="${project_loc}/wsdl/sif.wsdl" fullpath="resources/InfaPortalWorkflows/wsdl/sif.wsdl" />
+         <!-- XSD Files -->
+         <zipfileset file="${project_loc}/schema/av_config.xsd" fullpath="wsdl/InfaPortalWorkflows/schema/av_config.xsd" />
+         <zipfileset file="${project_loc}/schema/mdm_avos_schema.xsd" fullpath="wsdl/InfaPortalWorkflows/schema/mdm_avos_schema.xsd" />
+         <zipfileset file="${project_loc}/schema/sif-core.xsd" fullpath="resources/InfaPortalWorkflows/schema/sif-core.xsd" />
+         <zipfileset file="${project_loc}/schema/sif-metadata.xsd" fullpath="wsdl/InfaPortalWorkflows/schema/sif-metadata.xsd" />
+         <zipfileset file="${project_loc}/schema/sif-types.xsd" fullpath="wsdl/InfaPortalWorkflows/schema/sif-types.xsd" />
+         <zipfileset file="${project_loc}/wsdl/SecurityPayloadGeneratorInterface/crypto.xsd" fullpath="wsdl/InfaPortalWorkflows/wsdl/SecurityPayloadGeneratorInterface/crypto.xsd" />
+         <zipfileset file="${project_loc}/wsdl/SecurityPayloadGeneratorInterface/security.xsd" fullpath="wsdl/InfaPortalWorkflows/wsdl/SecurityPayloadGeneratorInterface/security.xsd" />
+         <!-- Function context entries -->
+         <!-- Other Files. -->
+         <zipfileset file="${project_loc}/config/configuration.xml" fullpath="wsdl/InfaPortalWorkflows/config/configuration.xml" />
+         <zipfileset file="${project_loc}/form/NewDraftStateTask.html" fullpath="wsdl/InfaPortalWorkflows/form/NewDraftStateTask.html" />
+         <zipfileset file="${project_loc}/form/NewFinalReviewTask.html" fullpath="wsdl/InfaPortalWorkflows/form/NewFinalReviewTask.html" />
+         <zipfileset file="${project_loc}/form/NewNotificationTask.html" fullpath="wsdl/InfaPortalWorkflows/form/NewNotificationTask.html" />
+         <zipfileset file="${project_loc}/form/NewUpdateTask.html" fullpath="wsdl/InfaPortalWorkflows/form/NewUpdateTask.html" />
+         <zipfileset file="${project_loc}/lib/commons-lang-2.6.jar" fullpath="lib/InfaPortalWorkflows/lib/commons-lang-2.6.jar" />
+         <zipfileset file="${project_loc}/lib/commons-validator-1.4.0.jar" fullpath="lib/InfaPortalWorkflows/lib/commons-validator-1.4.0.jar" />
+         <zipfileset file="${project_loc}/lib/informatica-bpm-adapter.jar" fullpath="lib/InfaPortalWorkflows/lib/informatica-bpm-adapter.jar" />
+         <zipfileset file="${project_loc}/lib/json.jar" fullpath="resources/InfaPortalWorkflows/lib/json.jar" />
+      	<zipfileset file="${project_loc}/lib/json.jar" fullpath="lib/InfaPortalWorkflows/lib/json.jar" />
+         <zipfileset file="${project_loc}/lib/log4j-1.2.16.jar" fullpath="lib/InfaPortalWorkflows/lib/log4j-1.2.16.jar" />
+         <zipfileset file="${project_loc}/lib/siperian-api.jar" fullpath="lib/InfaPortalWorkflows/lib/siperian-api.jar" />
+         <zipfileset file="${project_loc}/lib/siperian-common.jar" fullpath="lib/InfaPortalWorkflows/lib/siperian-common.jar" />
+         <zipfileset file="${project_loc}/lib/siperian-server-pkiutil.jar" fullpath="lib/InfaPortalWorkflows/lib/siperian-server-pkiutil.jar" />
+         <zipfileset file="${project_loc}/xquery/infa-configuration.xq" fullpath="wsdl/InfaPortalWorkflows/xquery/infa-configuration.xq" />
+         <!-- Process Image Files. -->
+         <zipfileset file="${project_loc}/.image/bpel/CreatePortalPorcess/*" prefix=".image/InfaPortalWorkflows/bpel/CreatePortalPorcess" />
+         <!-- Java classes. -->
+         <zipfileset file="${archive.temppath}/__ae__tmp_jar0.jar" fullpath="lib/_InfaPortalWorkflows_bin.jar" />
+      </jar>
+      <!-- Update function context jars manifest -->
+      <delete dir="${java.io.tmpdir}/InfaPortalWorkflows/deploy/InfaPortalWorkflows.bpr/" quiet="true"/>
+      <unjar src="${archive.filename}" dest="${java.io.tmpdir}/InfaPortalWorkflows/deploy/InfaPortalWorkflows.bpr/">
+         <patternset>
+            <include name="**/*.jar"/>
+         </patternset>
+      </unjar>
+      <jar update="true" destfile="${java.io.tmpdir}/InfaPortalWorkflows/deploy/InfaPortalWorkflows.bpr/lib/_InfaPortalWorkflows_bin.jar">
+         <manifest>
+            <attribute name="Catalog-ClassPath" value="project:/InfaPortalWorkflows/lib/commons-lang-2.6.jar,project:/InfaPortalWorkflows/lib/commons-validator-1.4.0.jar,project:/InfaPortalWorkflows/lib/informatica-bpm-adapter.jar,project:/InfaPortalWorkflows/lib/json.jar,project:/InfaPortalWorkflows/lib/log4j-1.2.16.jar,project:/InfaPortalWorkflows/lib/siperian-api.jar,project:/InfaPortalWorkflows/lib/siperian-common.jar,project:/InfaPortalWorkflows/lib/siperian-server-pkiutil.jar,project:/InfaPortalWorkflows/bin"/>
+         </manifest>
+      </jar>
+      <jar update="true" destfile="${archive.filename}">
+         <zipfileset file="${java.io.tmpdir}/InfaPortalWorkflows/deploy/InfaPortalWorkflows.bpr/lib/_InfaPortalWorkflows_bin.jar" fullpath="lib/_InfaPortalWorkflows_bin.jar" />
+      </jar>
+      <delete dir="${java.io.tmpdir}/InfaPortalWorkflows/deploy/InfaPortalWorkflows.bpr/" quiet="true"/>
+      <createcatalog file="${archive.filename}" contributionURI="project:/InfaPortalWorkflows">
+         <wsdlentry location="project:/InfaPortalWorkflows/wsdl/SecurityPayloadGeneratorInterface/securitypayloadgeneratorinterface.wsdl" classpath="wsdl/InfaPortalWorkflows/wsdl/SecurityPayloadGeneratorInterface/securitypayloadgeneratorinterface.wsdl" />
+         <wsdlentry location="project:/InfaPortalWorkflows/wsdl/mdm_avos.wsdl" classpath="wsdl/InfaPortalWorkflows/wsdl/mdm_avos.wsdl" />
+         <wsdlentry location="project:/InfaPortalWorkflows/wsdl/mdm_avos_pl.wsdl" classpath="wsdl/InfaPortalWorkflows/wsdl/mdm_avos_pl.wsdl" />
+         <wsdlentry location="project:/InfaPortalWorkflows/wsdl/sif.wsdl" classpath="resources/InfaPortalWorkflows/wsdl/sif.wsdl" />
+         <schemaentry location="project:/InfaPortalWorkflows/schema/av_config.xsd" classpath="wsdl/InfaPortalWorkflows/schema/av_config.xsd" />
+         <schemaentry location="project:/InfaPortalWorkflows/schema/mdm_avos_schema.xsd" classpath="wsdl/InfaPortalWorkflows/schema/mdm_avos_schema.xsd" />
+         <schemaentry location="project:/InfaPortalWorkflows/schema/sif-core.xsd" classpath="resources/InfaPortalWorkflows/schema/sif-core.xsd" />
+         <schemaentry location="project:/InfaPortalWorkflows/schema/sif-metadata.xsd" classpath="wsdl/InfaPortalWorkflows/schema/sif-metadata.xsd" />
+         <schemaentry location="project:/InfaPortalWorkflows/schema/sif-types.xsd" classpath="wsdl/InfaPortalWorkflows/schema/sif-types.xsd" />
+         <schemaentry location="project:/InfaPortalWorkflows/wsdl/SecurityPayloadGeneratorInterface/crypto.xsd" classpath="wsdl/InfaPortalWorkflows/wsdl/SecurityPayloadGeneratorInterface/crypto.xsd" />
+         <schemaentry location="project:/InfaPortalWorkflows/wsdl/SecurityPayloadGeneratorInterface/security.xsd" classpath="wsdl/InfaPortalWorkflows/wsdl/SecurityPayloadGeneratorInterface/security.xsd" />
+         <otherentry typeURI="http://www.informatica.com/schema/1.0/av_config.xsd" location="project:/InfaPortalWorkflows/config/configuration.xml" classpath="wsdl/InfaPortalWorkflows/config/configuration.xml" />
+         <otherentry typeURI="res:/text/html" location="project:/InfaPortalWorkflows/form/NewDraftStateTask.html" classpath="wsdl/InfaPortalWorkflows/form/NewDraftStateTask.html" />
+         <otherentry typeURI="res:/text/html" location="project:/InfaPortalWorkflows/form/NewFinalReviewTask.html" classpath="wsdl/InfaPortalWorkflows/form/NewFinalReviewTask.html" />
+         <otherentry typeURI="res:/text/html" location="project:/InfaPortalWorkflows/form/NewNotificationTask.html" classpath="wsdl/InfaPortalWorkflows/form/NewNotificationTask.html" />
+         <otherentry typeURI="res:/text/html" location="project:/InfaPortalWorkflows/form/NewUpdateTask.html" classpath="wsdl/InfaPortalWorkflows/form/NewUpdateTask.html" />
+         <otherentry typeURI="http://schemas.xmlsoap.org/wsdl/java/" location="project:/InfaPortalWorkflows/lib/commons-lang-2.6.jar" classpath="lib/InfaPortalWorkflows/lib/commons-lang-2.6.jar" />
+         <otherentry typeURI="http://schemas.xmlsoap.org/wsdl/java/" location="project:/InfaPortalWorkflows/lib/commons-validator-1.4.0.jar" classpath="lib/InfaPortalWorkflows/lib/commons-validator-1.4.0.jar" />
+         <otherentry typeURI="http://schemas.xmlsoap.org/wsdl/java/" location="project:/InfaPortalWorkflows/lib/informatica-bpm-adapter.jar" classpath="lib/InfaPortalWorkflows/lib/informatica-bpm-adapter.jar" />
+         <otherentry typeURI="http://schemas.xmlsoap.org/wsdl/java/" location="project:/InfaPortalWorkflows/lib/json.jar" classpath="resources/InfaPortalWorkflows/lib/json.jar" />
+         <otherentry typeURI="http://schemas.xmlsoap.org/wsdl/java/" location="project:/InfaPortalWorkflows/lib/log4j-1.2.16.jar" classpath="lib/InfaPortalWorkflows/lib/log4j-1.2.16.jar" />
+         <otherentry typeURI="http://schemas.xmlsoap.org/wsdl/java/" location="project:/InfaPortalWorkflows/lib/siperian-api.jar" classpath="lib/InfaPortalWorkflows/lib/siperian-api.jar" />
+         <otherentry typeURI="http://schemas.xmlsoap.org/wsdl/java/" location="project:/InfaPortalWorkflows/lib/siperian-common.jar" classpath="lib/InfaPortalWorkflows/lib/siperian-common.jar" />
+         <otherentry typeURI="http://schemas.xmlsoap.org/wsdl/java/" location="project:/InfaPortalWorkflows/lib/siperian-server-pkiutil.jar" classpath="lib/InfaPortalWorkflows/lib/siperian-server-pkiutil.jar" />
+         <otherentry typeURI="http://modules.active-endpoints.com/2009/07/xquery" location="project:/InfaPortalWorkflows/xquery/infa-configuration.xq" classpath="wsdl/InfaPortalWorkflows/xquery/infa-configuration.xq" />
+         <functioncontextentry inheritServerClasspath="true" targetNS="http://custom.functions/CustomJavafunctions" className="custom.functions.CustomFunctions" location="project:/InfaPortalWorkflows/functionContexts/CustomJavaContext" classpath="lib/_InfaPortalWorkflows_bin.jar" />
+         <otherentry typeURI="http://schemas.xmlsoap.org/wsdl/java/" location="project:/InfaPortalWorkflows/bin" classpath="lib/_InfaPortalWorkflows_bin.jar" />
+      </createcatalog>
+      <!-- The contribution task sets up a contribution file which documents the exported and imported namespaces for this contribution -->
+      <createcontribution file="${archive.filename}">
+         <!-- Namespaces exported by this contribution for use by other contributions  -->
+         <export namespace="http://custom.functions/CustomJavafunctions"/>
+         <export namespace="urn:security:payload:securitypayloadgeneratorinterface"/>
+         <export namespace="urn:informatica.mdm.av"/>
+         <export namespace="http://www.informatica.com/activevos/mdmworkflow/wsdl/mdmavospl"/>
+         <export namespace="urn:siperian.api"/>
+         <export namespace="http://www.informatica.com/schema/1.0/av_config.xsd"/>
+         <export namespace="urn:informatica.mdm.av.xsd"/>
+         <export namespace="urn:metadata.siperian.api"/>
+         <export namespace="urn:types.siperian.api"/>
+         <export namespace="urn:javax:crypto"/>
+         <export namespace="urn:java:security"/>
+         <export namespace="http://informatica.com/modules/configuration/1.0/xquery"/>
+         <!-- Namespaces from other contributions (location) that this contribution is dependent on if any -->
+         <!-- Namespaces for system services used in this contribution on if any -->
+         <import namespace="http://www.activebpel.org/REST/2007/12/01/aeREST.wsdl" location="project:/com.activee.rt.rest.services"/>
+      </createcontribution>
+      <delete file="${archive.temppath}/__ae__tmp_jar0.jar" />
+   </target>
+
+   <!-- Deploy the built BPR file to some kind of container/server. -->
+   <target name="deploy" depends="load.tasks">
+      <echo message="Deploying Business Process Archive." />
+
+      <!--
+         **** deploybpr task usage: ****
+         @type: Either 'file' or 'webservice'.
+         @file: The path to the BPR file created by the build target.
+         @todir: The path to deploy the BPR to when @type is 'file'.
+         @tourl: The URL of the server to deploy the BPR to when @type is 'webservice'.
+         @username: A username to use to authenticate when @type is 'webservice'.
+         @password: A password to use to authenticate when @type is 'webservice'.
+         @failonerror: Fail the build when it's set to true and @type is 'webservice'.
+      -->
+      <deploybpr type="${archive.deploytype}" file="${archive.filename}" failonerror="true" todir="${archive.deploypath}" />
+   </target>
+
+   <!-- The main entry point into this script, the run target calls various other targets in turn. -->
+   <target name="run" depends="build"/>
+
+   <target name="runDeploy" depends="run,deploy"/>
+
+</project>

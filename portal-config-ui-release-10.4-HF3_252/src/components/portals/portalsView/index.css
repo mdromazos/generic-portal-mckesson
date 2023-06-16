@@ -1,0 +1,11 @@
+.d-card.card_section > .d-menu__trigger{
+    float:right;
+}
+
+.no__portal__message{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: calc(100vh - 215px);
+}

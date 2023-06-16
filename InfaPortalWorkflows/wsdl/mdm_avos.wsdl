@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:informatica.mdm.av" 
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+				xmlns:mdmav="urn:informatica.mdm.av"
+				 xmlns:mdmavxsd="urn:informatica.mdm.av.xsd">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+		<xs:import namespace="urn:informatica.mdm.av.xsd" schemaLocation="../schema/mdm_avos_schema.xsd"/>
+	</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="startProcessRequest">
+    <wsdl:part name="startProcessRequest" element="mdmavxsd:startProcessRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="startProcessResponse">
+    <wsdl:part name="startProcessResponse" element="mdmavxsd:startProcessResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processTaskResponse">
+    <wsdl:part name="processTaskResponse" element="mdmavxsd:processTaskResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processTaskRequest">
+    <wsdl:part name="processTaskRequest" element="mdmavxsd:processTaskRequest">
+    </wsdl:part>
+  </wsdl:message>  
+  
+  <wsdl:portType name="startProcess">
+    <wsdl:operation name="start">
+      <wsdl:input message="mdmav:startProcessRequest">
+    </wsdl:input>
+      <wsdl:output message="mdmav:startProcessResponse">
+    </wsdl:output>
+    </wsdl:operation>    
+  </wsdl:portType>
+  
+  <wsdl:portType name="processTask">
+    <wsdl:operation name="processTask">
+      <wsdl:input message="mdmav:processTaskRequest">
+      </wsdl:input>
+      <wsdl:output message="mdmav:processTaskResponse">
+      </wsdl:output>
+    </wsdl:operation>       
+  </wsdl:portType>
+    
+</wsdl:definitions>

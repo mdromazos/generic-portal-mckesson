@@ -1,0 +1,118 @@
+
+.session__dialog .session_wrapper,.session__dialog .session_wrapper * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.session__dialog .session_wrapper {
+    position: relative;
+    margin: 40px auto;
+    background-color: #fff;
+    width: 125px;
+    height: 125px;
+}
+.session__dialog .session_wrapper .timer{
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    z-index: 4;
+    text-align: center;
+}
+.session_wrapper .timer .remaining__time{
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.session__dialog .session_wrapper .timer .remaining__time__description{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.session__dialog .session_wrapper .pie {
+    width: 50%;
+    height: 100%;
+    transform-origin: 100% 50%;
+    position: absolute;
+    background: #f3f3f3;
+    border: 5px solid rgba(2, 155, 237, 1);
+}
+.session__dialog .session_wrapper .spinner {
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    z-index: 2;
+    border-right: none;
+}
+.session__dialog .session_wrapper:hover .spinner,
+.session__dialog .session_wrapper:hover .filler,
+.session__dialog .session_wrapper:hover .mask {
+    animation-play-state: running;
+}
+.session__dialog .session_wrapper .filler {
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+    left: 50%;
+    opacity: 0;
+    z-index: 1;
+    border-left: none;
+}
+.session__dialog .session_wrapper .mask {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background: inherit;
+    opacity: 1;
+    z-index: 3;
+}
+@keyframes timer_rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes timer_opacity {
+    0% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+.session__dialog{
+    background-color: #fff!important;
+    border-radius: 6px;
+}
+.session__dialog .d-dialog__header{
+    height: 50px!important;
+    background: #f5f5f5!important;
+    padding: 15px 30px!important;
+    background: #f5f5f5!important;
+    border-bottom: 1px solid #ccc!important;
+}
+.session__dialog .session__timeout__header p{
+    line-height: 16px;
+    font-family: Roboto;
+    color: #000;
+    font-weight: normal !important;
+}
+.session__dialog .d-panel{
+    margin-top: 0px !important;
+    box-shadow: none!important;
+}
+.session__dialog .session__dialog__header__title{
+    font-family: Roboto;
+    line-height: 14px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 0px;
+    color: #000;
+}
+.session__dialog .session__dialog__footer__title{
+    font-family: Roboto;
+    line-height: 14px;
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 0px;
+    color: #000;
+}
+.session__dialog  .d-dialog__footer{
+    padding-right: 30px !important;
+}

@@ -1,0 +1,251 @@
+.page__layout{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: calc(100vh - 110px);
+    overflow-y: auto;
+}
+.portal-name-container {
+    width: 100%;
+}
+.portal-global {
+    height: 50px;
+    position: relative;
+    border-bottom: 1px solid #CCCCCC;
+    display: flex;
+    align-items: center;   
+    background-color: #fff;
+    z-index: 100; 
+    border-left: 1px solid #ccc;
+}
+.portal-name {
+    padding-left: 30px;
+    font-size: 18px;
+    color: black;
+    font-family: Roboto;
+    width: 100%;
+    height: 100%;
+    font-weight:bold;
+   
+}
+.page-data{
+    min-height: calc(100vh - 173px);
+    width: 100% ;
+}
+
+.user__delete__icon{
+    padding-right: 6.5px;
+}
+
+/*chnages*/
+.page__layout .d-panel
+{
+    box-shadow: none !important;
+    padding: 20px 20px 20px 20px!important;
+}
+.d-card__header {
+    border-bottom: 1px solid #CCCCCC!important;
+    margin: 0px!important;
+    padding-left: 20px!important;
+    font-size: 16px!important;
+    height: 50px!important;
+    border-radius: 6px 6px 0 0!important;
+    background: #F5F5F5!important;
+}
+
+.external-link-width {
+    width: 100%!important;
+    border-radius: 6px!important;
+    border: 1px solid #CCCCCC!important;
+    box-shadow: none!important;
+    margin-bottom: 20px!important;
+}
+
+.external-link-width:hover {
+    border: 1px solid #CCCCCC!important;
+}
+
+.external-link-iframe
+{
+    width:100%;
+    display:initial;
+    position: relative;
+    border: 1px solid #CCCCCC!important;
+}
+
+.component-scroll-wrap{
+    overflow:auto !important;
+}
+
+.page__layout .be-form-header
+{
+    position: absolute;
+    right: 11px;
+    top: 70px;
+    left: 200px;
+    z-index: 100;
+}
+
+.page__layout .d-section__header
+{
+    background: none !important;
+    border-bottom-style: solid !important;
+    border-bottom-width: 1px !important; 
+    border-bottom: 1px solid #DDD!important;
+    font-size : 16px!important;
+}
+
+.page__layout .d-form__label__text
+{
+    font-size: 12px !important;
+    font-family: Roboto !important;
+    color: black !important;
+}
+
+
+.page__layout .d-form__error, .page-layout .form__error {
+    margin-left: 150px;
+    padding-left: .625em;
+}
+
+.page__layout .rw-datetime-picker .rw-widget-picker {
+    border-collapse: unset;
+    border: 1px solid #cccccc;
+}
+
+.page-layout-section {
+    display: flex;
+    width: 100% ;
+}
+.shell__header__separator{
+    font-size: 20px;
+    padding-left: 10px;
+    border-right: 1px solid rgb(187, 187, 187);
+    margin: 0px;
+}
+.portal__user {
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    height: 24px;
+    color: #fff!important;
+    font-family: Roboto!important;
+    font-size: 14px!important;
+    line-height: 14px!important;
+    text-align: center!important;
+    border-radius: 3px!important;
+    border-color: #0a4fc7!important;
+    background-color: #0a4fc7!important;
+    padding: 5px 15px!important;
+}
+
+.portal__user:hover {
+    box-shadow: none!important;
+    background-color: #39f!important;
+}
+
+.portal__table .d-table__header__cell {
+    border-bottom: 1px solid #ddd;
+}
+
+.portal__user__close{
+    font-size: 20px;
+    position: absolute;
+    right: 30px;
+    bottom: 15px;
+}
+.shell__seperator__div{
+    position: absolute;
+    right: 70px;
+    top: 13px;
+}
+.portal__table{
+    width: 100%;
+    height: calc(100% - 61px);
+    padding: 0px 30px;
+}
+.d-section__content {
+    padding-bottom: 20px!important;
+}
+.portal-name-container .title-close-icon{
+    font-size: 20px;
+}
+.external-link-width .d-toolbar{
+ position: absolute !important;
+ right: 50px !important;
+}
+.page-layout-section .d-panel {
+    padding: 10px 20px 20px!important;
+}
+.d-dialog{
+    background-color: #fff!important;
+}
+.d-dialog__header{
+    background-color: #f5f5f5!important;
+    padding: 15px 30px;
+    border-bottom: 1px solid #CCC!important;
+    font-size: 16px!important;
+    border-top-left-radius: 6px!important;
+    border-top-right-radius: 6px!important;
+}
+.d-dialog__header .d-dialog__header__title {
+    font-weight: 400!important;
+}
+.d-dialog__content{
+    margin: 0px!important;
+}
+.d-dialog__content, .d-dialog__footer {
+    background-color: #fff!important;
+    border-bottom-left-radius: 6px!important;
+    border-bottom-right-radius: 6px!important;
+}
+.d-dialog__footer__buttons{
+    margin-right: 10px!important;
+}
+.user__content__header{
+    margin-top: 30px;
+    padding: 0px 10px;
+}
+.user__delete__message__body{
+    font-family: Roboto;
+    line-height: 14px;
+    font-size: 14px;
+    color: #000;
+    font-weight: 700;
+    margin: 30px 0 0 15px;
+}
+.user__cancel__alert__icon {
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+}
+.d-button--primary, .button--primary {
+    height: 24px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    Font-size: 14px;
+    line-height: 14px;
+    text-align: center!important;
+    border-radius: 3px!important;
+    background-color: #0A4FC7!important;
+    border: 1px solid #0A4FC7!important;
+}
+.d-button--secondary, .button--secondary {
+    height: 24px;
+    color: #000000;
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #DDDDDD;
+    border: 1px solid #DDDDDD;
+}
+.d-button--secondary:hover, .button--secondary:hover {
+    box-shadow: none!important;
+    border: 1px solid #3399FF!important;
+}
+.d-button--primary:hover, .button--primary:hover {
+    box-shadow: none!important;
+    background-color: #3399FF!important;
+}

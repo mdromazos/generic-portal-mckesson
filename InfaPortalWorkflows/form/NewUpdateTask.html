@@ -1,0 +1,1553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <!-- Created by ActiveVOS 9.2.2 -->
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Update- ActiveVOS Ajax Task Form</title>
+   </head>
+   <body>
+      <div id="taskForm$ID" class="avc_taskform_form_container">
+         <!-- The following div presents the task header at runtime. -->
+         <div id="taskFormHeader$ID" class="ui-widget-content noborder">
+         </div><!-- The task input and output areas are below the following collapser widget -->
+         <div class="avc_collapser ui-widget-header">
+            <table>
+               <tr>
+                  <td><span class="ui-icon ui-icon-triangle-1-s">&nbsp;</span></td>
+                  <td><span>Update</span></td>
+               </tr>
+            </table>
+         </div>
+         <div class="avc_task_container ui-widget-content avc_noborder">
+            <div id="ns1_processTaskRequest_input$ID" class="avc_message_container input ui-widget-content noborder">
+               <form id="processTaskRequestInputForm$ID" name="processTaskRequestInputForm$ID" action="">
+                  <table class="input">
+                     <tbody>
+                        <tr>
+                           <td colspan="2">
+                              <div id="ProcessTaskRequestInput1$ID" class="avc_message_container input">
+                                 <div>
+                                    <span class="avc_heading"></span>
+                                 </div>
+                                 <table class="input">
+                                    <tbody>
+                                       <tr>
+                                          <td colspan="2">
+                                              <div id="ProcessTaskResponseOutput1$ID" class="avc_message_container output">
+                                 <div >
+                                    <span class="avc_heading">     Choose an Action</span> <select id="oActionName1$ID" name="actionName" class="avc_output_field  avc_required_field avc_type_string avc_data_field_ns_processTaskResponse_ns_actionName">
+                                          
+                                             <option value="Submit For Approval" selected="selected">Submit For Approval</option>
+                                             <option value="Cancel" >Cancel</option>
+                                             <option value="Disclaim">Disclaim</option>
+                                          </select>
+                                 </div>
+                                 <table class="output">
+                                    <tbody>
+                                      
+                                                   <!--  do not show Hub username and Pasword 
+                                                      <tr style="display:none">
+                                                         <th align="right">Hub Username</th>
+                                                         <td nowrap="nowrap" class="avc_data_cell"><span id="iHubUsername1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_hubUsername"></span></td>
+                                                      </tr>
+                                                        <tr style="display:none">
+                                                         <th align="right">Hub Password</th>
+                                                         <td nowrap="nowrap" class="avc_data_cell"><span id="iHubPassword1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_hubPassword"></span></td>
+                                                      </tr>
+                                                      -->
+                                                      <tr>
+                                                         <th align="right">Ors Id</th>
+                                                         <td nowrap="nowrap" class="avc_data_cell"><span id="iOrsId1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_orsId"></span></td>
+                                                     <th align="right">Table</th>
+                                                         <td nowrap="nowrap" class="avc_data_cell"><span id="iTable1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_table"></span></td>
+                                                     
+                                                      </tr>
+                                                      <tr>
+                                                         <td colspan="2" valign="top">
+                                                            <div id="TaskTypeInput1$ID" class="avc_message_container input">
+                                                               <div>
+                                                                  <span class="avc_heading">Task Type</span>
+                                                               </div>
+                                                               <table class="input">
+                                                                  <tbody>
+                                                                     <tr>
+                                                                        <th align="right">Name</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iName1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskType_ns_name"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Display Name</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iDisplayName1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskType_ns_displayName"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Description</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iDescription1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskType_ns_description"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Pending BVT</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iPendingBVT1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskType_ns_pendingBVT"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Data Update Type</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iDataUpdateType1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskType_ns_dataUpdateType"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Display Type</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iDisplayType1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskType_ns_displayType"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <td colspan="2">
+                                                                        </td>
+                                                                     </tr>
+                                                                     </tbody>
+                                                                     </table>
+                                                                     </div>
+                                                                     </td> 
+                                                                     
+                                                                    <td colspan="2">
+                                                                 <!--  hnm add here -->
+                                                                     <div id="TaskDataInput1$ID" class="avc_message_container input">
+                                                               <div>
+                                                                  <span class="avc_heading">Task Data</span>
+                                                               </div>
+                                                               <table class="input">
+                                                                  <tbody>
+                                                                    
+                                                                    
+                                                                     <tr>
+                                                                        <th align="right">Task Id</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iTaskId1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskId"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Owner UID</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iOwnerUID1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_ownerUID"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Due Date</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iDueDate1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_dueDate"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Status</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iStatus1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_status"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Priority</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iPriority1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_priority"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Subject Area UID</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iSubjectAreaUID1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_subjectAreaUID"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Title</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iTitle1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_title"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Comments</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iComments1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_comments"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Interaction Id</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iInteractionId1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_interactionId"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Creator</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iCreator1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_creator"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Create Date</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iCreateDate1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_createDate"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Updated By</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iUpdatedBy1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_updatedBy"></span></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Last Update Date</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><span id="iLastUpdateDate1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_lastUpdateDate"></span></td>
+                                                                     </tr>
+                                                                     
+                                                                                 </tbody>
+                                                                              </table>
+                                                                              <table style="display:none">
+                                                                              <tbody>
+                                                                     <tr >
+                                                                        <td colspan="2">
+                                                                           <div id="TaskRecordsInput1$ID" class="avc_message_container input">
+                                                                              <div>
+                                                                                 <span class="avc_heading">Task Records</span>
+                                                                              </div>
+                                                                              <table class="input">
+                                                                                 <tbody>
+                                                                                    <tr>
+                                                                                       <td colspan="2">
+                                                                                          <div id="INFARecordKeyInput1$ID" class="avc_message_container input repeating">
+                                                                                             <div>
+                                                                                                <span class="avc_heading">INFARecord Key</span>
+                                                                                             </div>
+                                                                                             <div id="iNFARecordKeyInputTable_DataTableContainer$ID" class="input avc_data_table_container">
+                                                                                                <table id="iNFARecordKeyInputTable$ID" class="input avc_data_table">
+                                                                                                   <thead>
+                                                                                                      <tr>
+                                                                                                         <th class="avc_data_row_select_cell">
+                                                                                                            <div class="avc_data_row_selected_indicator">
+                                                                                                            </div>
+                                                                                                         </th>
+                                                                                                         <th align="left">Row Id</th>
+                                                                                                         <th align="left">Pkey Src Object</th>
+                                                                                                         <th align="left">System</th>
+                                                                                                         <th align="left">Rowid Xref</th>
+                                                                                                         <th align="left">Table UID</th>
+                                                                                                      </tr>
+                                                                                                   </thead>
+                                                                                                   <tbody>
+                                                                                                      <tr class="avc_data_row avc_empty_row avc_data_row_INFARecordKey">
+                                                                                                         <th class="avc_data_row_select_cell">
+                                                                                                            <div class="avc_data_row_selected_indicator">
+                                                                                                            </div>
+                                                                                                         </th>
+                                                                                                         <td class="avc_data_cell"><span id="iRowId1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowId"></span></td>
+                                                                                                         <td class="avc_data_cell"><span id="iPkeySrcObject1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_pkeySrcObject"></span></td>
+                                                                                                         <td class="avc_data_cell"><span id="iSystem1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_system"></span></td>
+                                                                                                         <td class="avc_data_cell"><span id="iRowidXref1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowidXref"></span></td>
+                                                                                                         <td class="avc_data_cell"><span id="iTableUID1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_tableUID"></span></td>
+                                                                                                      </tr>
+                                                                                                   </tbody>
+                                                                                                </table>
+                                                                                             </div>
+                                                                                          </div>
+                                                                                       </td>
+                                                                                    </tr>
+                                                                                 </tbody>
+                                                                              </table>
+                                                                           </div>
+                                                                        </td>
+                                                                     </tr>
+                                                                  </tbody>
+                                                               </table>
+                                                            </div>
+                                                            <div id="ActionsInput1$ID" class="avc_message_container input">
+                                                               <div style="display:none">
+                                                                  <span class="avc_heading">Actions</span>
+                                                               </div>
+                                                               <table class="input"    style="display:none">
+                                                                  <tbody>
+                                                                     <tr>
+                                                                        <td colspan="2">
+                                                                           <div id="INFATaskActionInput1$ID" class="avc_message_container input repeating">
+                                                                              <div>
+                                                                                 <span class="avc_heading">INFATask Action</span>
+                                                                              </div>
+                                                                              <div id="iNFATaskActionInputTable_DataTableContainer$ID" class="input avc_data_table_container">
+                                                                                 <table id="iNFATaskActionInputTable$ID" class="input avc_data_table">
+                                                                                    <thead>
+                                                                                       <tr>
+                                                                                          <th class="avc_data_row_select_cell">
+                                                                                             <div class="avc_data_row_selected_indicator">
+                                                                                             </div>
+                                                                                          </th>
+                                                                                          <th align="left">Name</th>
+                                                                                          <th align="left">Display Name</th>
+                                                                                          <th align="left">Description</th>
+                                                                                          <th align="left">Cancel Task</th>
+                                                                                          <th align="left">Close Task View</th>
+                                                                                          <th align="left">Manual Reassign</th>
+                                                                                       </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                       <tr class="avc_data_row avc_empty_row avc_data_row_INFATaskAction">
+                                                                                          <th class="avc_data_row_select_cell">
+                                                                                             <div class="avc_data_row_selected_indicator">
+                                                                                             </div>
+                                                                                          </th>
+                                                                                          <td class="avc_data_cell"><span id="iName31$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_name"></span></td>
+                                                                                          <td class="avc_data_cell"><span id="iDisplayName31$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_displayName"></span></td>
+                                                                                          <td class="avc_data_cell"><span id="iDescription31$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_description"></span></td>
+                                                                                          <td class="avc_data_cell"><span id="iCancelTask1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_cancelTask"></span></td>
+                                                                                          <td class="avc_data_cell"><span id="iCloseTaskView1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_closeTaskView"></span></td>
+                                                                                          <td class="avc_data_cell"><span id="iManualReassign1$ID" class="avc_display_field avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_manualReassign"></span></td>
+                                                                                       </tr>
+                                                                                    </tbody>
+                                                                                 </table>
+                                                                              </div>
+                                                                           </div>
+                                                                        </td>
+                                                                     </tr>
+                                                                  </tbody>
+                                                               </table>
+                                                               </div>
+                                                           
+                                                         </td>
+                                                      </tr>
+                                                   </tbody>
+                                                </table>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </form>
+            </div>
+            <div id="ns1_processTaskResponse_output$ID" class="avc_message_container output ui-widget-content noborder">
+               <form id="processTaskResponseOutputForm$ID" name="processTaskResponseOutputForm$ID" action=""  style="display:none">
+                  <table class="output">
+                     <tbody>
+                        <tr>
+                           <td colspan="2">
+                              <div id="ProcessTaskResponseOutput1$ID" class="avc_message_container output">
+                                
+                                 <table class="output">
+                                    <tbody>
+                                
+                                       <tr>
+                                          <td colspan="2">
+                                             <div id="INFATaskOutput1$ID" class="avc_message_container output"   style="display:none;">
+                                                <div>
+                                                   <span class="avc_heading">INFATask</span>
+                                                </div>
+                                                <table class="output">
+                                                   <tbody>
+                                                      <tr>
+                                                         <th align="right">Hub Username</th>
+                                                         <td nowrap="nowrap" class="avc_data_cell"><input id="oHubUsername1$ID" name="hubUsername" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_hubUsername" /></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <th align="right">Hub Password</th>
+                                                         <td nowrap="nowrap" class="avc_data_cell"><input id="oHubPassword1$ID" name="hubPassword" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_hubPassword" /></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <th align="right">Ors Id</th>
+                                                         <td nowrap="nowrap" class="avc_data_cell"><input id="oOrsId1$ID" name="orsId" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_orsId" /></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td colspan="1">
+                                                            <div id="TaskTypeOutput1$ID" class="avc_message_container output">
+                                                               <div>
+                                                                  <span class="avc_heading">Task Type</span>
+                                                               </div>
+                                                               <table class="output">
+                                                                  <tbody>
+                                                                     <tr>
+                                                                        <th align="right">Name</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oName1$ID" name="name" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskType_ns_name" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Display Name</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oDisplayName1$ID" name="displayName" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskType_ns_displayName" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Description</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oDescription1$ID" name="description" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskType_ns_description" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Pending BVT</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input type="checkbox" id="oPendingBVT1$ID" name="pendingBVT" value="true" class="avc_output_field avc_type_boolean avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskType_ns_pendingBVT" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Data Update Type</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oDataUpdateType1$ID" name="dataUpdateType" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskType_ns_dataUpdateType" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Display Type</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oDisplayType1$ID" name="displayType" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskType_ns_displayType" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <td colspan="2">
+                                                                        </td>
+                                                                     </tr>
+                                                                  </tbody>
+                                                               </table>
+                                                            </div>
+                                                            <div id="TaskDataOutput1$ID" class="avc_message_container output">
+                                                               <div>
+                                                                  <span class="avc_heading">Task Data</span>
+                                                               </div>
+                                                               <table class="output">
+                                                                  <tbody>
+                                                                     <tr>
+                                                                        <th align="right">Task Id</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oTaskId1$ID" name="taskId" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskId" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Owner UID</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oOwnerUID1$ID" name="ownerUID" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_ownerUID" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Due Date</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oDueDate1_date$ID" name="dueDate_date" value="" size="15" class="avc_output_field avc_type_dateTime avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_dueDate avc_type_date" timeentryid="oDueDate1_time$ID" /> <input id="oDueDate1_time$ID" name="dueDate_time" value="" size="15" class="avc_output_field avc_type_dateTime avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_dueDate avc_type_time" style="margin-left: 5px;" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Status</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oStatus1$ID" name="status" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_status" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Priority</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oPriority1$ID" name="priority" value="" size="50" class="avc_output_field avc_type_number avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_priority" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Subject Area UID</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oSubjectAreaUID1$ID" name="subjectAreaUID" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_subjectAreaUID" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Title</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oTitle1$ID" name="title" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_title" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Comments</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oComments1$ID" name="comments" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_comments" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Interaction Id</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oInteractionId1$ID" name="interactionId" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_interactionId" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Creator</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oCreator1$ID" name="creator" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_creator" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Create Date</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oCreateDate1_date$ID" name="createDate_date" value="" size="15" class="avc_output_field avc_type_dateTime avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_createDate avc_type_date" timeentryid="oCreateDate1_time$ID" /> <input id="oCreateDate1_time$ID" name="createDate_time" value="" size="15" class="avc_output_field avc_type_dateTime avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_createDate avc_type_time" style="margin-left: 5px;" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Updated By</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oUpdatedBy1$ID" name="updatedBy" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_updatedBy" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <th align="right">Last Update Date</th>
+                                                                        <td nowrap="nowrap" class="avc_data_cell"><input id="oLastUpdateDate1_date$ID" name="lastUpdateDate_date" value="" size="15" class="avc_output_field avc_type_dateTime avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_lastUpdateDate avc_type_date" timeentryid="oLastUpdateDate1_time$ID" /> <input id="oLastUpdateDate1_time$ID" name="lastUpdateDate_time" value="" size="15" class="avc_output_field avc_type_dateTime avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_lastUpdateDate avc_type_time" style="margin-left: 5px;" /></td>
+                                                                     </tr>
+                                                                     <tr>
+                                                                        <td colspan="2">
+                                                                           <div id="TaskRecordsOutput1$ID" class="avc_message_container output">
+                                                                              <div>
+                                                                                 <span class="avc_heading">Task Records</span>
+                                                                              </div>
+                                                                              <table class="output">
+                                                                                 <tbody>
+                                                                                    <tr>
+                                                                                       <td colspan="2">
+                                                                                          <div id="INFARecordKeyOutput1$ID" class="avc_message_container output repeating">
+                                                                                             <div>
+                                                                                                <span class="avc_heading">INFARecord Key</span>
+                                                                                             </div>
+                                                                                             <div id="iNFARecordKeyOutputTable_DataTableContainer$ID" class="output avc_data_table_container">
+                                                                                                <table id="iNFARecordKeyOutputTable$ID" class="output avc_data_table">
+                                                                                                   <thead>
+                                                                                                      <tr>
+                                                                                                         <th class="avc_data_row_select_cell">
+                                                                                                            <div class="avc_data_row_selected_indicator">
+                                                                                                            </div>
+                                                                                                         </th>
+                                                                                                         <th align="left">Row Id</th>
+                                                                                                         <th align="left">Pkey Src Object</th>
+                                                                                                         <th align="left">System</th>
+                                                                                                         <th align="left">Rowid Xref</th>
+                                                                                                         <th align="left">Table UID *</th>
+                                                                                                      </tr>
+                                                                                                   </thead>
+                                                                                                   <tbody>
+                                                                                                      <tr class="avc_data_row avc_empty_row avc_data_row_INFARecordKey">
+                                                                                                         <th class="avc_data_row_select_cell">
+                                                                                                            <div class="avc_data_row_selected_indicator">
+                                                                                                            </div>
+                                                                                                         </th>
+                                                                                                         <td class="avc_data_cell"><input id="oRowId1$ID" name="rowId" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowId" /></td>
+                                                                                                         <td class="avc_data_cell"><input id="oPkeySrcObject1$ID" name="pkeySrcObject" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_pkeySrcObject" /></td>
+                                                                                                         <td class="avc_data_cell"><input id="oSystem1$ID" name="system" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_system" /></td>
+                                                                                                         <td class="avc_data_cell"><input id="oRowidXref1$ID" name="rowidXref" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowidXref" /></td>
+                                                                                                         <td class="avc_data_cell"><input id="oTableUID1$ID" name="tableUID" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_tableUID avc_required_field" /></td>
+                                                                                                      </tr>
+                                                                                                   </tbody>
+                                                                                                </table>
+                                                                                                <table>
+                                                                                                   <tr>
+                                                                                                      <td align="left"><input type="button" id="addRow_iNFARecordKeyOutputTable$ID" class="avc_add_row_element" value="Add" /> <input type="button" id="removeRow_iNFARecordKeyOutputTable$ID" class="avc_remove_row_element" value="Remove" /></td>
+                                                                                                   </tr>
+                                                                                                </table>
+                                                                                             </div>
+                                                                                          </div>
+                                                                                       </td>
+                                                                                    </tr>
+                                                                                 </tbody>
+                                                                              </table>
+                                                                           </div>
+                                                                        </td>
+                                                                     </tr>
+                                                                  </tbody>
+                                                               </table>
+                                                            </div>
+                                                            <div id="ActionsOutput1$ID" class="avc_message_container output">
+                                                               <div style="display:none">
+                                                                  <span class="avc_heading">Actions</span>
+                                                               </div>
+                                                               <table class="output">
+                                                                  <tbody>
+                                                                     <tr>
+                                                                        <td colspan="2">
+                                                                           <div id="INFATaskActionOutput1$ID" class="avc_message_container output repeating">
+                                                                              <div>
+                                                                                 <span class="avc_heading">INFATask Action</span>
+                                                                              </div>
+                                                                              <div id="iNFATaskActionOutputTable_DataTableContainer$ID" class="output avc_data_table_container">
+                                                                                 <table id="iNFATaskActionOutputTable$ID" class="output avc_data_table">
+                                                                                    <thead>
+                                                                                       <tr>
+                                                                                          <th class="avc_data_row_select_cell">
+                                                                                             <div class="avc_data_row_selected_indicator">
+                                                                                             </div>
+                                                                                          </th>
+                                                                                          <th align="left">Name</th>
+                                                                                          <th align="left">Display Name</th>
+                                                                                          <th align="left">Description</th>
+                                                                                          <th align="left">Cancel Task</th>
+                                                                                          <th align="left">Close Task View</th>
+                                                                                          <th align="left">Manual Reassign</th>
+                                                                                       </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                       <tr class="avc_data_row avc_empty_row avc_data_row_INFATaskAction">
+                                                                                          <th class="avc_data_row_select_cell">
+                                                                                             <div class="avc_data_row_selected_indicator">
+                                                                                             </div>
+                                                                                          </th>
+                                                                                          <td class="avc_data_cell"><input id="oName31$ID" name="name" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_name" /></td>
+                                                                                          <td class="avc_data_cell"><input id="oDisplayName31$ID" name="displayName" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_displayName" /></td>
+                                                                                          <td class="avc_data_cell"><input id="oDescription31$ID" name="description" value="" size="50" class="avc_output_field avc_type_string avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_description" /></td>
+                                                                                          <td class="avc_data_cell"><input type="checkbox" id="oCancelTask1$ID" name="cancelTask" value="true" class="avc_output_field avc_type_boolean avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_cancelTask" /></td>
+                                                                                          <td class="avc_data_cell"><input type="checkbox" id="oCloseTaskView1$ID" name="closeTaskView" value="true" class="avc_output_field avc_type_boolean avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_closeTaskView" /></td>
+                                                                                          <td class="avc_data_cell"><input type="checkbox" id="oManualReassign1$ID" name="manualReassign" value="true" class="avc_output_field avc_type_boolean avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_manualReassign" /></td>
+                                                                                       </tr>
+                                                                                    </tbody>
+                                                                                 </table>
+                                                                                 <table>
+                                                                                    <tr>
+                                                                                       <td align="left"><input type="button" id="addRow_iNFATaskActionOutputTable$ID" class="avc_add_row_element" value="Add" /> <input type="button" id="removeRow_iNFATaskActionOutputTable$ID" class="avc_remove_row_element" value="Remove" /></td>
+                                                                                    </tr>
+                                                                                 </table>
+                                                                              </div>
+                                                                           </div>
+                                                                        </td>
+                                                                     </tr>
+                                                                  </tbody>
+                                                               </table>
+                                                            </div>
+                                                         </td>
+                                                      </tr>
+                                                   </tbody>
+                                                </table>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </form>
+            </div>
+         </div>
+         <div class="avc_collapser ui-widget-header">
+            <table>
+               <tr>
+                  <td><span class="ui-icon ui-icon-triangle-1-s">&nbsp;</span></td>
+                  <td><span>Additional Information</span></td>
+               </tr>
+            </table>
+         </div><!-- The following div is populated at runtime with a tab folder with information such as comments, attachments and history. -->
+         <div id="taskFormAdditionalInfo$ID" class="avc_task_additional_info ui-widget-content noborder">
+         </div><input type="button" id="saveButton$ID" value="Save" class="avc_form_instance_save" />
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+      // form definition to receive and save human task input and output 
+      var AeTaskForm$ID = function() {
+
+      // the task name
+                var mTaskName = "TestTask";
+                
+      // the operation, represented in json. Used for easy access to metadata about the service operation. during design time.
+      var mOperation = {"Namespace":"urn:informatica.mdm.av","PortType":"processTask","Operation":"processTask"};
+
+      // The form instance (this)
+      var mFormInstance = this;
+
+      // task form framework context manager
+      var mTaskFormContext = null;
+
+      // task id
+      var mTaskId = null;
+
+      // task instance
+      var mTask = null;
+
+      // form dirty flag
+      var mDirtyFlag = false;
+
+      // form metadata
+      var mFormMetadata = { };   
+
+
+     var bGotCreateDate = false;
+     var bGotLastUpdateDate = false;
+      /**
+       * This function is called during the initialization of the page
+       * to perform the initial setup of any form field validation rules.
+       */
+      var _setupValidation = function() {
+         $("#processTaskResponseOutputForm$ID").validate();
+        $("#oPriority1$ID").rules("add", {mininclusive: -2147483648, fractiondigits: 0, maxinclusive: 2147483647});
+      }
+      
+      /**
+       * Called by the manager to initialize the task form.
+       */
+      this.avcform_initialize = function(aTaskId, aTaskFormContext) {
+         mTaskId = aTaskId;
+         mTaskFormContext = aTaskFormContext;
+
+   
+         // Make a copy of the table's empty row used for adding new data rows 
+         $("#iNFARecordKeyInputTable$ID").data("emptyRowCopy", $("#iNFARecordKeyInputTable$ID tbody tr.avc_empty_row:first").clone(true));
+
+         // Initializes row selection handling for the ns1:INFARecordKey
+         $("#iNFARecordKeyInputTable$ID:not(.avc_repeating_field_data_table) tbody tr").live("click", function(e) {
+         
+            // remove the current selection and make the clicked row the new selection
+            $("#iNFARecordKeyInputTable$ID:not(.avc_repeating_field_data_table) tbody tr").removeClass("avc_data_row_selected");
+            $(this).addClass("avc_data_row_selected");            
+         });
+
+   
+         // Make a copy of the table's empty row used for adding new data rows 
+         $("#iNFATaskActionInputTable$ID").data("emptyRowCopy", $("#iNFATaskActionInputTable$ID tbody tr.avc_empty_row:first").clone(true));
+
+         // Initializes row selection handling for the ns1:INFATaskAction
+         $("#iNFATaskActionInputTable$ID:not(.avc_repeating_field_data_table) tbody tr").live("click", function(e) {
+         
+            // remove the current selection and make the clicked row the new selection
+            $("#iNFATaskActionInputTable$ID:not(.avc_repeating_field_data_table) tbody tr").removeClass("avc_data_row_selected");
+            $(this).addClass("avc_data_row_selected");            
+         });
+
+   
+         // Make a copy of the table's empty row used for adding new data rows 
+         $("#iNFARecordKeyOutputTable$ID").data("emptyRowCopy", $("#iNFARecordKeyOutputTable$ID tbody tr.avc_empty_row:first").clone(true));
+
+         // Initializes row selection handling for the ns1:INFARecordKey
+         $("#iNFARecordKeyOutputTable$ID:not(.avc_repeating_field_data_table) tbody tr").live("click", function(e) {
+         
+            // remove the current selection and make the clicked row the new selection
+            $("#iNFARecordKeyOutputTable$ID:not(.avc_repeating_field_data_table) tbody tr").removeClass("avc_data_row_selected");
+            $(this).addClass("avc_data_row_selected");            
+         });
+
+         // Initializes add/remove row handling for the ns1:INFARecordKey
+         $("#addRow_iNFARecordKeyOutputTable$ID").click(function(e) {
+            mFormInstance.addINFARecordKeyOutputTableRow();            
+         }); 
+         $("#removeRow_iNFARecordKeyOutputTable$ID").click(function(e) {
+            mFormInstance.removeINFARecordKeyOutputTableRow();
+         });
+   
+         // Make a copy of the table's empty row used for adding new data rows 
+         $("#iNFATaskActionOutputTable$ID").data("emptyRowCopy", $("#iNFATaskActionOutputTable$ID tbody tr.avc_empty_row:first").clone(true));
+
+         // Initializes row selection handling for the ns1:INFATaskAction
+         $("#iNFATaskActionOutputTable$ID:not(.avc_repeating_field_data_table) tbody tr").live("click", function(e) {
+         
+            // remove the current selection and make the clicked row the new selection
+            $("#iNFATaskActionOutputTable$ID:not(.avc_repeating_field_data_table) tbody tr").removeClass("avc_data_row_selected");
+            $(this).addClass("avc_data_row_selected");            
+         });
+
+         // Initializes add/remove row handling for the ns1:INFATaskAction
+         $("#addRow_iNFATaskActionOutputTable$ID").click(function(e) {
+        
+            mFormInstance.addINFATaskActionOutputTableRow();   
+           
+         }); 
+         $("#removeRow_iNFATaskActionOutputTable$ID").click(function(e) {
+            mFormInstance.removeINFATaskActionOutputTableRow();
+         });
+         
+         // Assign handler for saving form data entered by the user
+         $("#saveButton$ID").click( function() {
+            mFormInstance.avcform_save(); 
+         });
+          
+         // Handles the hiding and showing of individual display sections of the task form 
+         $("#taskForm$ID div.avc_collapser").live("click", function(e) {
+            $(this).find("span.ui-icon:first").toggleClass("ui-icon-triangle-1-s").toggleClass("ui-icon-triangle-1-e");
+            $(this).next().toggle("fast");
+         });
+
+         // Apply ui date and time pickers to fields that are bound to date/time values
+         $("#taskForm$ID .avc_type_date").datepicker({ constrainInput: false, onClose: function() { this.focus(); if ( $('#' + $(this).attr('timeentryid')).val() == '') {$('#' + $(this).attr('timeentryid')).timeEntry('setTime', new Date());} }, showOn: 'button', buttonImage: AE_RESOURCE_BASE + '/images/calendar.png', buttonImageOnly: true });
+         $("#taskForm$ID .avc_type_time").timeEntry({ show24Hours : true, showSeconds : true, spinnerImage: AE_RESOURCE_BASE + '/images/timeentry-spinner.png' });
+         
+         // Setup monitoring of input fields for dirty indicator
+         $("#taskForm$ID input.avc_output_field").live("keypress", function() { mDirtyFlag = true; });
+         $("#taskForm$ID input[type='checkbox'].avc_output_field").live("click", function() { mDirtyFlag = true; });
+         $("#taskForm$ID select.avc_output_field").live("change", function() { mDirtyFlag = true; });
+
+         // Handles the adding of a new repeating field         
+         $("#taskForm$ID").find("table.avc_repeating_field_data_table input[type='button'].avc_add_field_element").click(function() {
+            var table = $(this).parents("table:first");
+
+            // clear selection from all rows
+            var rows = $(table).find("tbody tr");
+            $(rows).removeClass("avc_data_row_selected");
+            
+            // clone the last row and add it as a new row
+            var lastRow = $(table).find("tbody tr:last");
+            var newRow = $(lastRow).clone(true);
+            $(lastRow).after(newRow);
+            
+            // Add a unique id to each input element in the new row
+            var nextRowId = $(table).data("nextRowId");
+            if(nextRowId == null) {
+               nextRowId = rows.length;
+            }
+            
+            $(table).data("nextRowId", ++nextRowId);
+            
+            // Ensure unique ids are set for the new row's child elements
+            AE_UI_UTIL.setUniqueChildElementIds(newRow, nextRowId);
+            
+            // Apply ui datepicker and time entry to new fields that are bound to date/time values but first remove any cloned picker
+            $(newRow).find(".ui-datepicker-trigger").remove();
+            $(newRow).find(".avc_type_date").removeClass("hasDatepicker").datepicker({ constrainInput: false, onClose: function() { this.focus(); if ( $('#' + $(this).attr('timeentryid')).val() == '') {$('#' + $(this).attr('timeentryid')).timeEntry('setTime', new Date());} }, showOn: 'button', buttonImage: AE_RESOURCE_BASE + '/images/calendar.png', buttonImageOnly: true });
+            $(newRow).find(".timeEntry_control").remove();
+            $(newRow).find(".avc_type_time").removeClass("hasTimeEntry").timeEntry({ show24Hours : true, showSeconds : true, spinnerImage: AE_RESOURCE_BASE + '/images/timeentry-spinner.png' });
+         });
+
+         // Handles the selection of an individual repeating field
+         $("#taskForm$ID").find("table.avc_repeating_field_data_table tbody tr").live("click", function() {
+            // remove the current selection and make the clicked row the new selection
+            $(this).siblings("tr").removeClass("avc_data_row_selected");
+            $(this).addClass("avc_data_row_selected");
+         });
+
+         // Handles the removing of an existing repeating field
+         $("#taskForm$ID").find("table.avc_repeating_field_data_table input[type='button'].avc_remove_field_element").click(function() {
+            var table = $(this).parents("table:first");
+            var rows = $(table).find("tbody tr").length;
+            
+            if(rows > 1) {
+               // if there is a row selected remove it, otherwise remove the last row
+               var row = $(table).find("tbody tr.avc_data_row_selected");
+               if($(row).length == 0)      
+                  row = $(table).find("tbody tr:last");
+               $(row).remove();
+            }
+         });
+         
+         // Setup validation for request form fields
+         _setupValidation();
+
+         // Mark all data table rows, non-empty when the user enters data
+         $("table.input.avc_data_table tbody tr, table.output.avc_data_table tbody tr").live("keypress", function() {
+             $(this).removeClass("avc_empty_row");
+         });
+      }
+        
+      /**
+       * Called when the task instance has been loaded from the server.
+       */
+      this.avcform_onTaskReady = function(aTask) {
+         mTask = aTask;
+         this.showData();
+      }
+        
+      /**
+       * Called when the task instance has been updated from the server.
+       */
+      this.avcform_onTaskUpdated = function(aTask) {
+         mTask = aTask;
+      }
+
+      /**
+       * Called when loading task instance from the server failed.
+       */
+      this.avcform_onTaskLoadError = function(aMessage) {
+          // return false to allow AVC system to handle error.
+          return false;
+      }
+        
+      /**
+       * Called to enable/disable form input fields
+       * @param aEnable Indicates if the form should be enabled or disabled
+       */
+      this.avcform_enable = function(aEnable) {
+          // return false to allow AVC system to handle enable/disabling of form fields
+          return false;
+      }
+
+      /**
+       * Called to validate the task form data before the task is saved
+       */
+      this.avcform_validate = function() {
+                 $("#processTaskResponseOutputForm$ID").validate().form();
+              
+              // return true for relaxed validation on saving a form that isn't 100% complete
+         return true;
+      }
+
+      /**
+       * Called to validate the task form data before the task is completed
+       */
+      this.avcform_validateForCompletion = function() {
+                 if($("#processTaskResponseOutputForm$ID").validate().form() == false)
+                    return false;
+      
+         return true;
+      }
+
+      /**
+       * Called to check if the form instance has been modified.
+       */      
+      this.avcform_isDirty = function() {
+         return mDirtyFlag;
+      }      
+
+      /**
+       * Called when the task needs to be saved.
+       */
+      this.avcform_save = function(aCompleteTask) {
+         var bHaveDateCreated=false;
+         var bHaveLastUpdate=false;
+         var bHaveDueDate=false;
+         if ($("#oDueDate1_date$ID").val() > '')
+               bHaveDueDate=true;
+         if ($("#oLastUpdateDate1_date$ID").val()> '')
+               bHaveLastUpdate=true;
+         if ($("#oCreateDate1_date$ID").val() > '')
+               bHaveDateCreated=true;
+         // put ui data into task object
+         if(mTask != null) {
+            
+            var taskParts = mFormInstance.getTaskOutputPartsOther(bHaveDateCreated,bHaveLastUpdate,bHaveDueDate);
+      
+
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskType.name, $("#oName1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskType.displayName, $("#oDisplayName1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskType.description, $("#oDescription1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskType.pendingBVT, $("#oPendingBVT1$ID").is(":checked") ? "true" : "false");
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskType.dataUpdateType, $("#oDataUpdateType1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskType.displayType, $("#oDisplayType1$ID").val());
+            taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.taskRecords.INFARecordKey = mFormInstance.getINFARecordKeyOutputTableData();
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.taskId, $("#oTaskId1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.ownerUID, $("#oOwnerUID1$ID").val());
+            if (bHaveDueDate)
+                 AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.dueDate, AE_UTIL.toXsdDateTimeFromDateAndTimeStr($("#oDueDate1_date$ID").datepicker("getDate"), $("#oDueDate1_time$ID").timeEntry("getTime")));
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.status, $("#oStatus1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.priority, $("#oPriority1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.subjectAreaUID, $("#oSubjectAreaUID1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.title, $("#oTitle1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.comments, $("#oComments1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.interactionId, $("#oInteractionId1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.creator, $("#oCreator1$ID").val());
+            if (bHaveDateCreated)
+               AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.createDate, AE_UTIL.toXsdDateTimeFromDateAndTimeStr($("#oCreateDate1_date$ID").datepicker("getDate"), $("#oCreateDate1_time$ID").timeEntry("getTime")));
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.updatedBy, $("#oUpdatedBy1$ID").val());
+            if (bHaveLastUpdate)
+                 AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.taskData.lastUpdateDate, AE_UTIL.toXsdDateTimeFromDateAndTimeStr($("#oLastUpdateDate1_date$ID").datepicker("getDate"), $("#oLastUpdateDate1_time$ID").timeEntry("getTime")));
+            taskParts.processTaskResponse.processTaskResponse.INFATask.actions.INFATaskAction = mFormInstance.getINFATaskActionOutputTableData();
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.hubUsername, $("#oHubUsername1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.hubPassword, $("#oHubPassword1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.INFATask.orsId, $("#oOrsId1$ID").val());
+            AE_JSON_NODE_UTIL.setText(taskParts.processTaskResponse.processTaskResponse.actionName, $("#oActionName1$ID").val());
+            mTask.setOutputPart("processTaskResponse", taskParts.processTaskResponse);
+            if(aCompleteTask) {
+               // complete task
+               mTaskFormContext.completeTask(mTask);            
+            }
+            else {            
+               // save task
+               mTaskFormContext.saveTask(mTask);
+            }
+            
+            // reset dirty flag on save
+            mDirtyFlag = false;
+         }
+      }
+      
+      /**
+       * Returns the JSON representation of the task output parts used
+       * by this form when setting task output data.
+       */
+      this.getTaskOutputParts = function() {
+         var taskOutput = { 
+             parts : {
+                processTaskResponse : {"processTaskResponse":{"xmlns":"urn:informatica.mdm.av.xsd","xmlns$ns":"urn:informatica.mdm.av.xsd","INFATask":{"hubUsername":{"$t":""},"hubPassword":{"$t":""},"orsId":{"$t":""},"taskType":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"pendingBVT":{"$t":""},"dataUpdateType":{"$t":""},"displayType":{"$t":""}},"taskData":{"taskId":{"$t":""},"ownerUID":{"$t":""},"dueDate":{"$t":""},"status":{"$t":""},"priority":{"$t":""},"subjectAreaUID":{"$t":""},"title":{"$t":""},"comments":{"$t":""},"interactionId":{"$t":""},"creator":{"$t":""},"createDate":{"$t":""},"updatedBy":{"$t":""},"lastUpdateDate":{"$t":""},"taskRecords":{"INFARecordKey":{"rowId":{"$t":""},"pkeySrcObject":{"$t":""},"system":{"$t":""},"rowidXref":{"$t":""},"tableUID":{"$t":""}}}},"actions":{"INFATaskAction":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"cancelTask":{"$t":""},"closeTaskView":{"$t":""},"manualReassign":{"$t":""}}}},"actionName":{"$t":""}}}   
+             }
+          };
+
+          return taskOutput.parts;
+      }
+      
+      this.getTaskOutputPartsOther = function(abHaveDateCreated, abHaveLastUpdate, abHaveDueDate) {
+      var taskOutput = null;
+      /// HNM allow for blank dates
+      if (abHaveDateCreated && abHaveLastUpdate && abHaveDueDate) {
+             taskOutput = { 
+                parts : {
+                   processTaskResponse : {"processTaskResponse":{"xmlns":"urn:informatica.mdm.av.xsd","xmlns$ns":"urn:informatica.mdm.av.xsd","INFATask":{"hubUsername":{"$t":""},"hubPassword":{"$t":""},"orsId":{"$t":""},"taskType":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"pendingBVT":{"$t":""},"dataUpdateType":{"$t":""},"displayType":{"$t":""}},"taskData":{"taskId":{"$t":""},"ownerUID":{"$t":""},"dueDate":{"$t":""},"status":{"$t":""},"priority":{"$t":""},"subjectAreaUID":{"$t":""},"title":{"$t":""},"comments":{"$t":""},"interactionId":{"$t":""},"creator":{"$t":""},"createDate":{"$t":""},"updatedBy":{"$t":""},"lastUpdateDate":{"$t":""},"taskRecords":{"INFARecordKey":{"rowId":{"$t":""},"pkeySrcObject":{"$t":""},"system":{"$t":""},"rowidXref":{"$t":""},"tableUID":{"$t":""}}}},"actions":{"INFATaskAction":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"cancelTask":{"$t":""},"closeTaskView":{"$t":""},"manualReassign":{"$t":""}}}},"actionName":{"$t":""}}}   
+               }
+             };
+          }
+
+          else if ( abHaveLastUpdate && abHaveDueDate) {
+             taskOutput = { 
+                parts : {
+                   processTaskResponse : {"processTaskResponse":{"xmlns":"urn:informatica.mdm.av.xsd","xmlns$ns":"urn:informatica.mdm.av.xsd","INFATask":{"hubUsername":{"$t":""},"hubPassword":{"$t":""},"orsId":{"$t":""},"taskType":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"pendingBVT":{"$t":""},"dataUpdateType":{"$t":""},"displayType":{"$t":""}},"taskData":{"taskId":{"$t":""},"ownerUID":{"$t":""},"dueDate":{"$t":""},"status":{"$t":""},"priority":{"$t":""},"subjectAreaUID":{"$t":""},"title":{"$t":""},"comments":{"$t":""},"interactionId":{"$t":""},"creator":{"$t":""},"updatedBy":{"$t":""},"lastUpdateDate":{"$t":""},"taskRecords":{"INFARecordKey":{"rowId":{"$t":""},"pkeySrcObject":{"$t":""},"system":{"$t":""},"rowidXref":{"$t":""},"tableUID":{"$t":""}}}},"actions":{"INFATaskAction":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"cancelTask":{"$t":""},"closeTaskView":{"$t":""},"manualReassign":{"$t":""}}}},"actionName":{"$t":""}}}   
+                }
+             };
+          }
+          else if ( abHaveDateCreated && abHaveDueDate) {
+             taskOutput = { 
+                parts : {
+                   processTaskResponse : {"processTaskResponse":{"xmlns":"urn:informatica.mdm.av.xsd","xmlns$ns":"urn:informatica.mdm.av.xsd","INFATask":{"hubUsername":{"$t":""},"hubPassword":{"$t":""},"orsId":{"$t":""},"taskType":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"pendingBVT":{"$t":""},"dataUpdateType":{"$t":""},"displayType":{"$t":""}},"taskData":{"taskId":{"$t":""},"ownerUID":{"$t":""},"dueDate":{"$t":""},"status":{"$t":""},"priority":{"$t":""},"subjectAreaUID":{"$t":""},"title":{"$t":""},"comments":{"$t":""},"interactionId":{"$t":""},"creator":{"$t":""},"updatedBy":{"$t":""},"taskRecords":{"INFARecordKey":{"rowId":{"$t":""},"pkeySrcObject":{"$t":""},"system":{"$t":""},"rowidXref":{"$t":""},"tableUID":{"$t":""}}}},"actions":{"INFATaskAction":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"cancelTask":{"$t":""},"closeTaskView":{"$t":""},"manualReassign":{"$t":""}}}},"actionName":{"$t":""}}}   
+                }
+             };
+          }
+          
+         else if ( abHaveDateCreated &&  abHaveLastUpdate) {
+             taskOutput = { 
+                parts : {
+                   processTaskResponse : {"processTaskResponse":{"xmlns":"urn:informatica.mdm.av.xsd","xmlns$ns":"urn:informatica.mdm.av.xsd","INFATask":{"hubUsername":{"$t":""},"hubPassword":{"$t":""},"orsId":{"$t":""},"taskType":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"pendingBVT":{"$t":""},"dataUpdateType":{"$t":""},"displayType":{"$t":""}},"taskData":{"taskId":{"$t":""},"ownerUID":{"$t":""},"status":{"$t":""},"priority":{"$t":""},"subjectAreaUID":{"$t":""},"title":{"$t":""},"comments":{"$t":""},"interactionId":{"$t":""},"creator":{"$t":""},"updatedBy":{"$t":""},"taskRecords":{"INFARecordKey":{"rowId":{"$t":""},"pkeySrcObject":{"$t":""},"system":{"$t":""},"rowidXref":{"$t":""},"tableUID":{"$t":""}}}},"actions":{"INFATaskAction":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"cancelTask":{"$t":""},"closeTaskView":{"$t":""},"manualReassign":{"$t":""}}}},"actionName":{"$t":""}}}   
+                }
+             };
+          }
+                    else if ( abHaveDueDate) {
+             taskOutput = { 
+                parts : {
+                   processTaskResponse : {"processTaskResponse":{"xmlns":"urn:informatica.mdm.av.xsd","xmlns$ns":"urn:informatica.mdm.av.xsd","INFATask":{"hubUsername":{"$t":""},"hubPassword":{"$t":""},"orsId":{"$t":""},"taskType":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"pendingBVT":{"$t":""},"dataUpdateType":{"$t":""},"displayType":{"$t":""}},"taskData":{"taskId":{"$t":""},"ownerUID":{"$t":""},"dueDate":{"$t":""},"status":{"$t":""},"priority":{"$t":""},"subjectAreaUID":{"$t":""},"title":{"$t":""},"comments":{"$t":""},"interactionId":{"$t":""},"creator":{"$t":""},"updatedBy":{"$t":""},"taskRecords":{"INFARecordKey":{"rowId":{"$t":""},"pkeySrcObject":{"$t":""},"system":{"$t":""},"rowidXref":{"$t":""},"tableUID":{"$t":""}}}},"actions":{"INFATaskAction":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"cancelTask":{"$t":""},"closeTaskView":{"$t":""},"manualReassign":{"$t":""}}}},"actionName":{"$t":""}}}   
+                }
+             };
+          }
+          else if ( abHaveDateCreated ) {
+             taskOutput = { 
+                parts : {
+                   processTaskResponse : {"processTaskResponse":{"xmlns":"urn:informatica.mdm.av.xsd","xmlns$ns":"urn:informatica.mdm.av.xsd","INFATask":{"hubUsername":{"$t":""},"hubPassword":{"$t":""},"orsId":{"$t":""},"taskType":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"pendingBVT":{"$t":""},"dataUpdateType":{"$t":""},"displayType":{"$t":""}},"taskData":{"taskId":{"$t":""},"ownerUID":{"$t":""},"status":{"$t":""},"priority":{"$t":""},"subjectAreaUID":{"$t":""},"title":{"$t":""},"comments":{"$t":""},"interactionId":{"$t":""},"creator":{"$t":""},"updatedBy":{"$t":""},"taskRecords":{"INFARecordKey":{"rowId":{"$t":""},"pkeySrcObject":{"$t":""},"system":{"$t":""},"rowidXref":{"$t":""},"tableUID":{"$t":""}}}},"actions":{"INFATaskAction":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"cancelTask":{"$t":""},"closeTaskView":{"$t":""},"manualReassign":{"$t":""}}}},"actionName":{"$t":""}}}   
+                }
+             };
+          }
+          
+         else if ( abHaveLastUpdate) {
+             taskOutput = { 
+                parts : {
+                    processTaskResponse : {"processTaskResponse":{"xmlns":"urn:informatica.mdm.av.xsd","xmlns$ns":"urn:informatica.mdm.av.xsd","INFATask":{"hubUsername":{"$t":""},"hubPassword":{"$t":""},"orsId":{"$t":""},"taskType":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"pendingBVT":{"$t":""},"dataUpdateType":{"$t":""},"displayType":{"$t":""}},"taskData":{"taskId":{"$t":""},"ownerUID":{"$t":""},"status":{"$t":""},"priority":{"$t":""},"subjectAreaUID":{"$t":""},"title":{"$t":""},"comments":{"$t":""},"interactionId":{"$t":""},"creator":{"$t":""},"updatedBy":{"$t":""},"lastUpdateDate":{"$t":""},"taskRecords":{"INFARecordKey":{"rowId":{"$t":""},"pkeySrcObject":{"$t":""},"system":{"$t":""},"rowidXref":{"$t":""},"tableUID":{"$t":""}}}},"actions":{"INFATaskAction":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"cancelTask":{"$t":""},"closeTaskView":{"$t":""},"manualReassign":{"$t":""}}}},"actionName":{"$t":""}}}   
+                 }
+             };
+          }
+          
+          else  {
+             taskOutput = { 
+                parts : {
+                    processTaskResponse : {"processTaskResponse":{"xmlns":"urn:informatica.mdm.av.xsd","xmlns$ns":"urn:informatica.mdm.av.xsd","INFATask":{"hubUsername":{"$t":""},"hubPassword":{"$t":""},"orsId":{"$t":""},"taskType":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"pendingBVT":{"$t":""},"dataUpdateType":{"$t":""},"displayType":{"$t":""}},"taskData":{"taskId":{"$t":""},"ownerUID":{"$t":""},"status":{"$t":""},"priority":{"$t":""},"subjectAreaUID":{"$t":""},"title":{"$t":""},"comments":{"$t":""},"interactionId":{"$t":""},"creator":{"$t":""},"updatedBy":{"$t":""},"taskRecords":{"INFARecordKey":{"rowId":{"$t":""},"pkeySrcObject":{"$t":""},"system":{"$t":""},"rowidXref":{"$t":""},"tableUID":{"$t":""}}}},"actions":{"INFATaskAction":{"name":{"$t":""},"displayName":{"$t":""},"description":{"$t":""},"cancelTask":{"$t":""},"closeTaskView":{"$t":""},"manualReassign":{"$t":""}}}},"actionName":{"$t":""}}}   
+                 }
+             };
+          }
+          return taskOutput.parts;
+      }
+      /**
+       * Binds data to the UI controls.
+       */       
+      this.showData = function() {
+   
+         if(mTask != null) {
+         
+            // Get the task input data via the current task api instance and populate the input fields.
+            var processTaskRequestTaskInputPart = mTask.getInputPart("processTaskRequest");
+            if(processTaskRequestTaskInputPart != null) {
+               if(AE_UTIL.isNullOrEmpty(processTaskRequestTaskInputPart.processTaskRequest.INFATask) === false) {
+                  $("#iHubUsername1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.hubUsername));
+                  $("#iHubPassword1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.hubPassword));
+                  $("#iOrsId1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.orsId));
+               }
+               if(AE_UTIL.isNullOrEmpty(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType) === false) {
+                  $("#iName1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.name));
+                  $("#iDisplayName1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.displayName));
+                  $("#iDescription1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.description));
+                  $("#iPendingBVT1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.pendingBVT));
+                  $("#iDataUpdateType1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.dataUpdateType));
+                  $("#iDisplayType1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.displayType));
+               }
+               if(AE_UTIL.isNullOrEmpty(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData) === false) {
+                  $("#iTaskId1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.taskId));
+                  $("#iOwnerUID1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.ownerUID));
+                  $("#iDueDate1$ID").text(AE_UTIL.formatDate(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.dueDate)) + " " + AE_UTIL.formatTime(AE_UTIL.xsdDateTimeToJsDateTime(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.dueDate))) );
+                  $("#iStatus1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.status));
+                  $("#iPriority1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.priority));
+                  $("#iSubjectAreaUID1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.subjectAreaUID));
+                  $("#iTitle1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.title));
+                  $("#iComments1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.comments));
+                  $("#iInteractionId1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.interactionId));
+                  $("#iCreator1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.creator));
+                  $("#iCreateDate1$ID").text(AE_UTIL.formatDate(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.createDate)) + " " + AE_UTIL.formatTime(AE_UTIL.xsdDateTimeToJsDateTime(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.createDate))) );
+                  if ($("#iCreateDate1$ID").text() > "")
+                   bGotCreateDate = true;
+                  $("#iUpdatedBy1$ID").text(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.updatedBy));
+                  $("#iLastUpdateDate1$ID").text(AE_UTIL.formatDate(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.lastUpdateDate)) + " " + AE_UTIL.formatTime(AE_UTIL.xsdDateTimeToJsDateTime(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.lastUpdateDate))) );
+                   if ($("#iLastUpdateDate1$ID").text() > "")
+                   bLastUpdateDate = true;
+               }
+
+               $("#iNFARecordKeyInputTable$ID").find("tbody tr:not(.avc_empty_row)").remove();
+               if(AE_UTIL.isNullOrEmpty(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.taskRecords.INFARecordKey) === false) {
+                  var INFARecordKeyData = AE_UTIL.asArray(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.taskRecords.INFARecordKey);
+                  for(i in INFARecordKeyData) {
+                     mFormInstance.addINFARecordKeyInputTableRow(INFARecordKeyData[i]);
+                  }
+               }
+
+               $("#iNFATaskActionInputTable$ID").find("tbody tr:not(.avc_empty_row)").remove();
+               if(AE_UTIL.isNullOrEmpty(processTaskRequestTaskInputPart.processTaskRequest.INFATask.actions.INFATaskAction) === false) {
+                  var INFATaskActionData = AE_UTIL.asArray(processTaskRequestTaskInputPart.processTaskRequest.INFATask.actions.INFATaskAction);
+                  for(i in INFATaskActionData) {
+                  
+                     mFormInstance.addINFATaskActionInputTableRow(INFATaskActionData[i]);
+                  }
+                 
+               }
+            }
+            // Get the task output data via the current task api instance and populate the output fields.
+            var processTaskResponseTaskOutputPart = mTask.getOutputPart("processTaskResponse");
+            if(processTaskResponseTaskOutputPart != null) {
+               if(AE_UTIL.isNullOrEmpty(processTaskResponseTaskOutputPart.processTaskResponse) === false) {
+                  $("#oActionName1$ID option[value=" + AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.actionName, '') +"]").attr("selected", "selected");
+               }
+               if(AE_UTIL.isNullOrEmpty(processTaskResponseTaskOutputPart.processTaskResponse.INFATask) === false) {
+                  $("#oHubUsername1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.hubUsername));
+                  $("#oHubPassword1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.hubPassword));
+                  $("#oOrsId1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.orsId));
+               }
+               if(AE_UTIL.isNullOrEmpty(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskType) === false) {
+                  $("#oName1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskType.name));
+                  $("#oDisplayName1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskType.displayName));
+                  $("#oDescription1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskType.description));
+                  $("#oPendingBVT1$ID").attr("checked", AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskType.pendingBVT) == "true" ? "checked" : "");
+                  $("#oDataUpdateType1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskType.dataUpdateType));
+                  $("#oDisplayType1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskType.displayType));
+               }
+               if(AE_UTIL.isNullOrEmpty(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData) === false) {
+                  $("#oTaskId1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.taskId));
+                  $("#oOwnerUID1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.ownerUID));
+                  $("#oDueDate1_date$ID").val(AE_UTIL.formatDate(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.dueDate)));
+                  $("#oDueDate1_time$ID").val(AE_UTIL.formatTime(AE_UTIL.xsdDateTimeToJsDateTime(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.dueDate))));
+                  $("#oStatus1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.status));
+                  $("#oPriority1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.priority));
+                  $("#oSubjectAreaUID1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.subjectAreaUID));
+                  $("#oTitle1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.title));
+                  $("#oComments1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.comments));
+                  $("#oInteractionId1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.interactionId));
+                  $("#oCreator1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.creator));
+                  $("#oCreateDate1_date$ID").val(AE_UTIL.formatDate(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.createDate)));
+                  $("#oCreateDate1_time$ID").val(AE_UTIL.formatTime(AE_UTIL.xsdDateTimeToJsDateTime(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.createDate))));
+                  $("#oUpdatedBy1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.updatedBy));
+                  $("#oLastUpdateDate1_date$ID").val(AE_UTIL.formatDate(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.lastUpdateDate)));
+                  $("#oLastUpdateDate1_time$ID").val(AE_UTIL.formatTime(AE_UTIL.xsdDateTimeToJsDateTime(AE_JSON_NODE_UTIL.getText(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.lastUpdateDate))));
+               }
+
+               $("#iNFARecordKeyOutputTable$ID").find("tbody tr:not(.avc_empty_row)").remove();
+               if(AE_UTIL.isNullOrEmpty(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.taskRecords.INFARecordKey) === false) {
+                  var INFARecordKeyData = AE_UTIL.asArray(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.taskData.taskRecords.INFARecordKey);
+                  for(i in INFARecordKeyData) {
+                     mFormInstance.addINFARecordKeyOutputTableRow(INFARecordKeyData[i]);
+                  }
+               }
+
+               $("#iNFATaskActionOutputTable$ID").find("tbody tr:not(.avc_empty_row)").remove();
+               if(AE_UTIL.isNullOrEmpty(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.actions.INFATaskAction) === false) {
+                  var INFATaskActionData = AE_UTIL.asArray(processTaskResponseTaskOutputPart.processTaskResponse.INFATask.actions.INFATaskAction);
+                  for(i in INFATaskActionData) {
+                     mFormInstance.addINFATaskActionOutputTableRow(INFATaskActionData[i]);
+                  }
+               }
+            }
+            // Get the task input data via the current task api instance and populate the output fields.
+            else {
+                if(processTaskRequestTaskInputPart != null) {
+               if(AE_UTIL.isNullOrEmpty(processTaskRequestTaskInputPart.processTaskRequest.INFATask) === false) {
+                  $("#oHubUsername1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.hubUsername));
+                  $("#oHubPassword1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.hubPassword));
+                  $("#oOrsId1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.orsId));
+               }
+               if(AE_UTIL.isNullOrEmpty(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType) === false) {
+                  $("#oName1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.name));
+                  $("#oDisplayName1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.displayName));
+                  $("#oDescription1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.description));
+                  $("#oPendingBVT1$ID").attr("checked", AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.pendingBVT) == "true" ? "checked" : "");
+                  $("#oDataUpdateType1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.dataUpdateType));
+                  $("#oDisplayType1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskType.displayType));
+               }
+               if(AE_UTIL.isNullOrEmpty(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData) === false) {
+                  $("#oTaskId1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.taskId));
+                  $("#oOwnerUID1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.ownerUID));
+                  $("#oDueDate1_date$ID").val(AE_UTIL.formatDate(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.dueDate)));
+                  $("#oDueDate1_time$ID").val(AE_UTIL.formatTime(AE_UTIL.xsdDateTimeToJsDateTime(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.dueDate))));
+                  $("#oStatus1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.status));
+                  $("#oPriority1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.priority));
+                  $("#oSubjectAreaUID1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.subjectAreaUID));
+                  $("#oTitle1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.title));
+                  $("#oComments1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.comments));
+                  $("#oInteractionId1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.interactionId));
+                  $("#oCreator1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.creator));
+                  $("#oCreateDate1_date$ID").val(AE_UTIL.formatDate(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.createDate)));
+                  $("#oCreateDate1_time$ID").val(AE_UTIL.formatTime(AE_UTIL.xsdDateTimeToJsDateTime(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.createDate))));
+                  $("#oUpdatedBy1$ID").val(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.updatedBy));
+                  $("#oLastUpdateDate1_date$ID").val(AE_UTIL.formatDate(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.lastUpdateDate)));
+                  $("#oLastUpdateDate1_time$ID").val(AE_UTIL.formatTime(AE_UTIL.xsdDateTimeToJsDateTime(AE_JSON_NODE_UTIL.getText(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.lastUpdateDate))));
+               }
+
+               $("#iNFARecordKeyOutputTable$ID").find("tbody tr:not(.avc_empty_row)").remove();
+               if(AE_UTIL.isNullOrEmpty(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.taskRecords.INFARecordKey) === false) {
+                  var INFARecordKeyData = AE_UTIL.asArray(processTaskRequestTaskInputPart.processTaskRequest.INFATask.taskData.taskRecords.INFARecordKey);
+                  for(i in INFARecordKeyData) {
+                     mFormInstance.addINFARecordKeyOutputTableRow(INFARecordKeyData[i]);
+                  }
+               }
+
+               $("#iNFATaskActionOutputTable$ID").find("tbody tr:not(.avc_empty_row)").remove();
+               if(AE_UTIL.isNullOrEmpty(processTaskRequestTaskInputPart.processTaskRequest.INFATask.actions.INFATaskAction) === false) {
+                  var INFATaskActionData = AE_UTIL.asArray(processTaskRequestTaskInputPart.processTaskRequest.INFATask.actions.INFATaskAction);
+                  for(i in INFATaskActionData) {
+                     mFormInstance.addINFATaskActionOutputTableRow(INFATaskActionData[i]);
+                  }
+               }
+                }
+                }
+                
+         }
+
+         // remove any empty placeholder rows defined in tables 
+         $("#taskForm$ID table.input tr.avc_empty_row").remove();
+         
+         // auto select the first row in each data table
+         $("table.avc_data_table.input tbody, table.avc_data_table.output tbody").each(function() {
+            $(this).find("tr.avc_data_row:first").click();
+         });
+      }
+
+
+      /**
+       * Adds a new row to the dataTable for INFARecord Key data  
+       */
+      this.addINFARecordKeyInputTableRow = function(INFARecordKey) {
+      
+         // Get/set the next row id stored with the table data
+         var rowId = $("#iNFARecordKeyInputTable$ID").data("nextRowId");
+         if(rowId == null) {
+            rowId = $("#iNFARecordKeyInputTable$ID tbody tr").length + 1;
+         }            
+         $("#iNFARecordKeyInputTable$ID").data("nextRowId", ++rowId);
+         
+         var lastRow = $("#iNFARecordKeyInputTable$ID tbody tr.avc_data_row_INFARecordKey:last");
+         var dataRow = null;
+         
+         if($(lastRow).length == 0) {
+            // if there are no existing rows, use for the empty row copy 
+            var emptyRowCopy = $("#iNFARecordKeyInputTable$ID").data("emptyRowCopy");
+            if(emptyRowCopy != null) {
+               $("#iNFARecordKeyInputTable$ID tbody").append(emptyRowCopy);
+               dataRow = emptyRowCopy;
+               // Apply ui datepicker and time entry to new fields that are bound to date/time values but first remove any cloned picker
+               $(dataRow).find(".ui-datepicker-trigger").remove();
+               $(dataRow).find(".avc_type_date").removeClass("hasDatepicker").datepicker({ constrainInput: false, onClose: function() { this.focus(); if ( $('#' + $(this).attr('timeentryid')).val() == '') {$('#' + $(this).attr('timeentryid')).timeEntry('setTime', new Date());} }, showOn: 'button', buttonImage: AE_RESOURCE_BASE + '/images/calendar.png', buttonImageOnly: true });            
+               $(dataRow).find(".timeEntry_control").remove();
+               $(dataRow).find(".avc_type_time").removeClass("hasTimeEntry").timeEntry({ show24Hours : true, showSeconds : true, spinnerImage: AE_RESOURCE_BASE + '/images/timeentry-spinner.png' });               
+            }
+            else {
+               alert("Unable to add a new row");
+            }
+         }
+         else if($(lastRow).hasClass("avc_empty_row") && AE_UTIL.isNullOrEmpty(INFARecordKey) == false) {
+            // use the existing empty row on display as the new row for the data passed
+            dataRow = lastRow;
+         }
+         else {
+            // otherwise clone the last row and add the clone as the new row 
+            // Ensuring unique ids are set for the new row's child elements
+            dataRow = $(lastRow).clone(true);
+            AE_UI_UTIL.setUniqueChildElementIds(dataRow, rowId);
+            $(lastRow).after(dataRow);
+
+            // Apply ui datepicker and time entry to new fields that are bound to date/time values but first remove any cloned picker
+            $(dataRow).find(".ui-datepicker-trigger").remove();
+            $(dataRow).find(".avc_type_date").removeClass("hasDatepicker").datepicker({ constrainInput: false, onClose: function() { this.focus(); if ( $('#' + $(this).attr('timeentryid')).val() == '') {$('#' + $(this).attr('timeentryid')).timeEntry('setTime', new Date());} }, showOn: 'button', buttonImage: AE_RESOURCE_BASE + '/images/calendar.png', buttonImageOnly: true });            
+            $(dataRow).find(".timeEntry_control").remove();
+            $(dataRow).find(".avc_type_time").removeClass("hasTimeEntry").timeEntry({ show24Hours : true, showSeconds : true, spinnerImage: AE_RESOURCE_BASE + '/images/timeentry-spinner.png' });
+         }
+         
+         $(dataRow).removeClass("avc_data_row_selected");
+
+         if(AE_UTIL.isNullOrEmpty(INFARecordKey) == false) {
+            $(dataRow).removeClass("avc_empty_row");
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowId").text(AE_JSON_NODE_UTIL.getText(INFARecordKey.rowId));
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_pkeySrcObject").text(AE_JSON_NODE_UTIL.getText(INFARecordKey.pkeySrcObject));
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_system").text(AE_JSON_NODE_UTIL.getText(INFARecordKey.system));
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowidXref").text(AE_JSON_NODE_UTIL.getText(INFARecordKey.rowidXref));
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_tableUID").text(AE_JSON_NODE_UTIL.getText(INFARecordKey.tableUID));
+            var tableUID = AE_JSON_NODE_UTIL.getText(INFARecordKey.tableUID);
+            if (tableUID.indexOf("BASE_OBJECT.C_") > -1)
+             $("#iTable1$ID").text(tableUID.substring(14));
+            
+         }
+         else {
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowId").text("");
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_pkeySrcObject").text("");
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_system").text("");
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowidXref").text("");
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_tableUID").text("");
+         }
+      }
+
+   
+      /**
+       * Removes a table row defined in the iNFARecordKeyInputTable dataTable
+       * @param The row number to remove   
+       */
+      this.removeINFARecordKeyInputTableRow = function(rowNumber) {
+         // if there is a row selected remove it, otherwise remove the last row
+         var row = $("#iNFARecordKeyInputTable$ID tbody tr.avc_data_row_selected");      
+         if($(row).length == 0)      
+            row = $("#iNFARecordKeyInputTable$ID tbody tr:last");
+         $(row).remove();
+      }
+
+      /**
+       * Adds a new row to the dataTable for INFATask Action data  
+       */
+      this.addINFATaskActionInputTableRow = function(INFATaskAction) {
+      
+         // Get/set the next row id stored with the table data
+         var rowId = $("#iNFATaskActionInputTable$ID").data("nextRowId");
+         if(rowId == null) {
+            rowId = $("#iNFATaskActionInputTable$ID tbody tr").length + 1;
+         }            
+         $("#iNFATaskActionInputTable$ID").data("nextRowId", ++rowId);
+         
+         var lastRow = $("#iNFATaskActionInputTable$ID tbody tr.avc_data_row_INFATaskAction:last");
+         var dataRow = null;
+         
+         if($(lastRow).length == 0) {
+            // if there are no existing rows, use for the empty row copy 
+            var emptyRowCopy = $("#iNFATaskActionInputTable$ID").data("emptyRowCopy");
+            if(emptyRowCopy != null) {
+               $("#iNFATaskActionInputTable$ID tbody").append(emptyRowCopy);
+               dataRow = emptyRowCopy;
+               // Apply ui datepicker and time entry to new fields that are bound to date/time values but first remove any cloned picker
+               $(dataRow).find(".ui-datepicker-trigger").remove();
+               $(dataRow).find(".avc_type_date").removeClass("hasDatepicker").datepicker({ constrainInput: false, onClose: function() { this.focus(); if ( $('#' + $(this).attr('timeentryid')).val() == '') {$('#' + $(this).attr('timeentryid')).timeEntry('setTime', new Date());} }, showOn: 'button', buttonImage: AE_RESOURCE_BASE + '/images/calendar.png', buttonImageOnly: true });            
+               $(dataRow).find(".timeEntry_control").remove();
+               $(dataRow).find(".avc_type_time").removeClass("hasTimeEntry").timeEntry({ show24Hours : true, showSeconds : true, spinnerImage: AE_RESOURCE_BASE + '/images/timeentry-spinner.png' });               
+            }
+            else {
+               alert("Unable to add a new row");
+            }
+         }
+         else if($(lastRow).hasClass("avc_empty_row") && AE_UTIL.isNullOrEmpty(INFATaskAction) == false) {
+            // use the existing empty row on display as the new row for the data passed
+            dataRow = lastRow;
+         }
+         else {
+            // otherwise clone the last row and add the clone as the new row 
+            // Ensuring unique ids are set for the new row's child elements
+            dataRow = $(lastRow).clone(true);
+            AE_UI_UTIL.setUniqueChildElementIds(dataRow, rowId);
+            $(lastRow).after(dataRow);
+
+            // Apply ui datepicker and time entry to new fields that are bound to date/time values but first remove any cloned picker
+            $(dataRow).find(".ui-datepicker-trigger").remove();
+            $(dataRow).find(".avc_type_date").removeClass("hasDatepicker").datepicker({ constrainInput: false, onClose: function() { this.focus(); if ( $('#' + $(this).attr('timeentryid')).val() == '') {$('#' + $(this).attr('timeentryid')).timeEntry('setTime', new Date());} }, showOn: 'button', buttonImage: AE_RESOURCE_BASE + '/images/calendar.png', buttonImageOnly: true });            
+            $(dataRow).find(".timeEntry_control").remove();
+            $(dataRow).find(".avc_type_time").removeClass("hasTimeEntry").timeEntry({ show24Hours : true, showSeconds : true, spinnerImage: AE_RESOURCE_BASE + '/images/timeentry-spinner.png' });
+         }
+         
+         $(dataRow).removeClass("avc_data_row_selected");
+
+         if(AE_UTIL.isNullOrEmpty(INFATaskAction) == false) {
+            $(dataRow).removeClass("avc_empty_row");
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_name").text(AE_JSON_NODE_UTIL.getText(INFATaskAction.name));
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_displayName").text(AE_JSON_NODE_UTIL.getText(INFATaskAction.displayName));
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_description").text(AE_JSON_NODE_UTIL.getText(INFATaskAction.description));
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_cancelTask").text(AE_JSON_NODE_UTIL.getText(INFATaskAction.cancelTask));
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_closeTaskView").text(AE_JSON_NODE_UTIL.getText(INFATaskAction.closeTaskView));
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_manualReassign").text(AE_JSON_NODE_UTIL.getText(INFATaskAction.manualReassign));
+                       
+         }
+         else {
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_name").text("");
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_displayName").text("");
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_description").text("");
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_cancelTask").text("");
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_closeTaskView").text("");
+            $(dataRow).find("span.avc_data_field_ns_processTaskRequest_ns_INFATask_ns_actions_ns_INFATaskAction_ns_manualReassign").text("");
+         }
+      }
+
+   
+      /**
+       * Removes a table row defined in the iNFATaskActionInputTable dataTable
+       * @param The row number to remove   
+       */
+      this.removeINFATaskActionInputTableRow = function(rowNumber) {
+         // if there is a row selected remove it, otherwise remove the last row
+         var row = $("#iNFATaskActionInputTable$ID tbody tr.avc_data_row_selected");      
+         if($(row).length == 0)      
+            row = $("#iNFATaskActionInputTable$ID tbody tr:last");
+         $(row).remove();
+      }
+   
+
+      /**
+       * Adds a new row to the dataTable for INFARecord Key data  
+       */
+      this.addINFARecordKeyOutputTableRow = function(INFARecordKey) {
+      
+         // Get/set the next row id stored with the table data
+         var rowId = $("#iNFARecordKeyOutputTable$ID").data("nextRowId");
+         if(rowId == null) {
+            rowId = $("#iNFARecordKeyOutputTable$ID tbody tr").length + 1;
+         }            
+         $("#iNFARecordKeyOutputTable$ID").data("nextRowId", ++rowId);
+         
+         var lastRow = $("#iNFARecordKeyOutputTable$ID tbody tr.avc_data_row_INFARecordKey:last");
+         var dataRow = null;
+         
+         if($(lastRow).length == 0) {
+            // if there are no existing rows, use for the empty row copy 
+            var emptyRowCopy = $("#iNFARecordKeyOutputTable$ID").data("emptyRowCopy");
+            if(emptyRowCopy != null) {
+               $("#iNFARecordKeyOutputTable$ID tbody").append(emptyRowCopy);
+               dataRow = emptyRowCopy;
+               // Apply ui datepicker and time entry to new fields that are bound to date/time values but first remove any cloned picker
+               $(dataRow).find(".ui-datepicker-trigger").remove();
+               $(dataRow).find(".avc_type_date").removeClass("hasDatepicker").datepicker({ constrainInput: false, onClose: function() { this.focus(); if ( $('#' + $(this).attr('timeentryid')).val() == '') {$('#' + $(this).attr('timeentryid')).timeEntry('setTime', new Date());} }, showOn: 'button', buttonImage: AE_RESOURCE_BASE + '/images/calendar.png', buttonImageOnly: true });            
+               $(dataRow).find(".timeEntry_control").remove();
+               $(dataRow).find(".avc_type_time").removeClass("hasTimeEntry").timeEntry({ show24Hours : true, showSeconds : true, spinnerImage: AE_RESOURCE_BASE + '/images/timeentry-spinner.png' });               
+            }
+            else {
+               alert("Unable to add a new row");
+            }
+         }
+         else if($(lastRow).hasClass("avc_empty_row") && AE_UTIL.isNullOrEmpty(INFARecordKey) == false) {
+            // use the existing empty row on display as the new row for the data passed
+            dataRow = lastRow;
+         }
+         else {
+            // otherwise clone the last row and add the clone as the new row 
+            // Ensuring unique ids are set for the new row's child elements
+            dataRow = $(lastRow).clone(true);
+            AE_UI_UTIL.setUniqueChildElementIds(dataRow, rowId);
+            $(lastRow).after(dataRow);
+
+            // Apply ui datepicker and time entry to new fields that are bound to date/time values but first remove any cloned picker
+            $(dataRow).find(".ui-datepicker-trigger").remove();
+            $(dataRow).find(".avc_type_date").removeClass("hasDatepicker").datepicker({ constrainInput: false, onClose: function() { this.focus(); if ( $('#' + $(this).attr('timeentryid')).val() == '') {$('#' + $(this).attr('timeentryid')).timeEntry('setTime', new Date());} }, showOn: 'button', buttonImage: AE_RESOURCE_BASE + '/images/calendar.png', buttonImageOnly: true });            
+            $(dataRow).find(".timeEntry_control").remove();
+            $(dataRow).find(".avc_type_time").removeClass("hasTimeEntry").timeEntry({ show24Hours : true, showSeconds : true, spinnerImage: AE_RESOURCE_BASE + '/images/timeentry-spinner.png' });
+         }
+         
+         $(dataRow).removeClass("avc_data_row_selected");
+
+         if(AE_UTIL.isNullOrEmpty(INFARecordKey) == false) {
+            $(dataRow).removeClass("avc_empty_row");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowId").val(AE_JSON_NODE_UTIL.getText(INFARecordKey.rowId));
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_pkeySrcObject").val(AE_JSON_NODE_UTIL.getText(INFARecordKey.pkeySrcObject));
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_system").val(AE_JSON_NODE_UTIL.getText(INFARecordKey.system));
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowidXref").val(AE_JSON_NODE_UTIL.getText(INFARecordKey.rowidXref));
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_tableUID").val(AE_JSON_NODE_UTIL.getText(INFARecordKey.tableUID));
+         }
+         else {
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowId").val("");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_pkeySrcObject").val("");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_system").val("");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowidXref").val("");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_tableUID").val("");
+         }
+      }
+
+      /**
+       * Gets the values defined in the dataTable for INFARecord Key  
+       * @param aJsonDataRowType An example json data type to use as the format 
+       * each row in the html table data will be marshaled into.
+       * @return A complete representation of the data contained in the table
+       * marshaled into JSON format based on the example row type specified
+       */
+      this.getINFARecordKeyOutputTableData = function(aJsonDataRowType) {
+
+         var rowData = [];
+         var i = 0;
+      
+         $("#iNFARecordKeyOutputTable$ID tbody tr.avc_data_row_INFARecordKey").each(function(index) {
+      
+            if(AE_UI_UTIL.isDataRowEmpty(this))
+                return;
+      
+            // Clone the passed row type as a new row in the data array to return
+            rowData[i] = $.extend(true, {}, aJsonDataRowType);
+            rowData[i].rowId = { $t : $(this).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowId").val() };
+            rowData[i].pkeySrcObject = { $t : $(this).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_pkeySrcObject").val() };
+            rowData[i].system = { $t : $(this).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_system").val() };
+            rowData[i].rowidXref = { $t : $(this).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_rowidXref").val() };
+            rowData[i].tableUID = { $t : $(this).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_taskData_ns_taskRecords_ns_INFARecordKey_ns_tableUID").val() };
+         
+            i++;
+         });
+      
+         return rowData;
+      }
+   
+      /**
+       * Removes a table row defined in the iNFARecordKeyOutputTable dataTable
+       * @param The row number to remove   
+       */
+      this.removeINFARecordKeyOutputTableRow = function(rowNumber) {
+         // if there is a row selected remove it, otherwise remove the last row
+         var row = $("#iNFARecordKeyOutputTable$ID tbody tr.avc_data_row_selected");      
+         if($(row).length == 0)      
+            row = $("#iNFARecordKeyOutputTable$ID tbody tr:last");
+         $(row).remove();
+      }
+
+      /**
+       * Adds a new row to the dataTable for INFATask Action data  
+       */
+      this.addINFATaskActionOutputTableRow = function(INFATaskAction) {
+      
+         // Get/set the next row id stored with the table data
+         var rowId = $("#iNFATaskActionOutputTable$ID").data("nextRowId");
+         if(rowId == null) {
+            rowId = $("#iNFATaskActionOutputTable$ID tbody tr").length + 1;
+         }            
+         $("#iNFATaskActionOutputTable$ID").data("nextRowId", ++rowId);
+         
+         var lastRow = $("#iNFATaskActionOutputTable$ID tbody tr.avc_data_row_INFATaskAction:last");
+         var dataRow = null;
+         
+         if($(lastRow).length == 0) {
+            // if there are no existing rows, use for the empty row copy 
+            var emptyRowCopy = $("#iNFATaskActionOutputTable$ID").data("emptyRowCopy");
+            if(emptyRowCopy != null) {
+               $("#iNFATaskActionOutputTable$ID tbody").append(emptyRowCopy);
+               dataRow = emptyRowCopy;
+               // Apply ui datepicker and time entry to new fields that are bound to date/time values but first remove any cloned picker
+               $(dataRow).find(".ui-datepicker-trigger").remove();
+               $(dataRow).find(".avc_type_date").removeClass("hasDatepicker").datepicker({ constrainInput: false, onClose: function() { this.focus(); if ( $('#' + $(this).attr('timeentryid')).val() == '') {$('#' + $(this).attr('timeentryid')).timeEntry('setTime', new Date());} }, showOn: 'button', buttonImage: AE_RESOURCE_BASE + '/images/calendar.png', buttonImageOnly: true });            
+               $(dataRow).find(".timeEntry_control").remove();
+               $(dataRow).find(".avc_type_time").removeClass("hasTimeEntry").timeEntry({ show24Hours : true, showSeconds : true, spinnerImage: AE_RESOURCE_BASE + '/images/timeentry-spinner.png' });               
+            }
+            else {
+               alert("Unable to add a new row");
+            }
+         }
+         else if($(lastRow).hasClass("avc_empty_row") && AE_UTIL.isNullOrEmpty(INFATaskAction) == false) {
+            // use the existing empty row on display as the new row for the data passed
+            dataRow = lastRow;
+         }
+         else {
+            // otherwise clone the last row and add the clone as the new row 
+            // Ensuring unique ids are set for the new row's child elements
+            dataRow = $(lastRow).clone(true);
+            AE_UI_UTIL.setUniqueChildElementIds(dataRow, rowId);
+            $(lastRow).after(dataRow);
+
+            // Apply ui datepicker and time entry to new fields that are bound to date/time values but first remove any cloned picker
+            $(dataRow).find(".ui-datepicker-trigger").remove();
+            $(dataRow).find(".avc_type_date").removeClass("hasDatepicker").datepicker({ constrainInput: false, onClose: function() { this.focus(); if ( $('#' + $(this).attr('timeentryid')).val() == '') {$('#' + $(this).attr('timeentryid')).timeEntry('setTime', new Date());} }, showOn: 'button', buttonImage: AE_RESOURCE_BASE + '/images/calendar.png', buttonImageOnly: true });            
+            $(dataRow).find(".timeEntry_control").remove();
+            $(dataRow).find(".avc_type_time").removeClass("hasTimeEntry").timeEntry({ show24Hours : true, showSeconds : true, spinnerImage: AE_RESOURCE_BASE + '/images/timeentry-spinner.png' });
+         }
+         
+         $(dataRow).removeClass("avc_data_row_selected");
+
+         if(AE_UTIL.isNullOrEmpty(INFATaskAction) == false) {
+            $(dataRow).removeClass("avc_empty_row");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_name").val(AE_JSON_NODE_UTIL.getText(INFATaskAction.name));
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_displayName").val(AE_JSON_NODE_UTIL.getText(INFATaskAction.displayName));
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_description").val(AE_JSON_NODE_UTIL.getText(INFATaskAction.description));
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_cancelTask").attr("checked", AE_JSON_NODE_UTIL.getText(INFATaskAction.cancelTask) == "true" ? "checked" : "");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_closeTaskView").attr("checked", AE_JSON_NODE_UTIL.getText(INFATaskAction.closeTaskView) == "true" ? "checked" : "");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_manualReassign").attr("checked", AE_JSON_NODE_UTIL.getText(INFATaskAction.manualReassign) == "true" ? "checked" : "");
+         }
+         else {
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_name").val("");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_displayName").val("");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_description").val("");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_cancelTask").attr("checked", "");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_closeTaskView").attr("checked", "");
+            $(dataRow).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_manualReassign").attr("checked", "");
+         }
+      }
+
+      /**
+       * Gets the values defined in the dataTable for INFATask Action  
+       * @param aJsonDataRowType An example json data type to use as the format 
+       * each row in the html table data will be marshaled into.
+       * @return A complete representation of the data contained in the table
+       * marshaled into JSON format based on the example row type specified
+       */
+      this.getINFATaskActionOutputTableData = function(aJsonDataRowType) {
+
+         var rowData = [];
+         var i = 0;
+      
+         $("#iNFATaskActionOutputTable$ID tbody tr.avc_data_row_INFATaskAction").each(function(index) {
+      
+            if(AE_UI_UTIL.isDataRowEmpty(this))
+                return;
+      
+            // Clone the passed row type as a new row in the data array to return
+            rowData[i] = $.extend(true, {}, aJsonDataRowType);
+            rowData[i].name = { $t : $(this).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_name").val() };
+            rowData[i].displayName = { $t : $(this).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_displayName").val() };
+            rowData[i].description = { $t : $(this).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_description").val() };
+            rowData[i].cancelTask = { $t : $(this).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_cancelTask").is(":checked") ? "true" : "false" };
+            rowData[i].closeTaskView = { $t : $(this).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_closeTaskView").is(":checked") ? "true" : "false" };
+            rowData[i].manualReassign = { $t : $(this).find("input.avc_data_field_ns_processTaskResponse_ns_INFATask_ns_actions_ns_INFATaskAction_ns_manualReassign").is(":checked") ? "true" : "false" };
+         
+            i++;
+         });
+      
+         return rowData;
+      }
+   
+      /**
+       * Removes a table row defined in the iNFATaskActionOutputTable dataTable
+       * @param The row number to remove   
+       */
+      this.removeINFATaskActionOutputTableRow = function(rowNumber) {
+         // if there is a row selected remove it, otherwise remove the last row
+         var row = $("#iNFATaskActionOutputTable$ID tbody tr.avc_data_row_selected");      
+         if($(row).length == 0)      
+            row = $("#iNFATaskActionOutputTable$ID tbody tr:last");
+         $(row).remove();
+      }
+   }
+   
+
+
+   
+   
+
+   // The ready event is invoked once the page is loaded and ready for processing 
+   $(document).ready(function() {
+
+ 
+       ACTIVEVOS_TASKFORM_CONTEXT.init(_TASK_INSTANCE_ID_, new AeTaskForm$ID() );       
+   });   
+
+//]]>
+</script>
+   </body>
+</html>

@@ -1,0 +1,59 @@
+.sso__guide {
+    color: #0080ff;
+    cursor: pointer;
+}
+
+.service__provider__header {
+    padding-right: 20px;
+}
+
+.sso__panel {
+    padding-top: 0!important;
+}
+
+.sso__heading__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.sso__heading {
+    font-size: 16px;
+}
+
+.sso__download__metadata {
+    margin-right: 20px;
+}
+
+.setup__guide__list{
+    padding-left: 20px;
+    list-style-type: decimal;
+}
+
+.setup__guide__list__item {
+    padding: 5px;
+}
+
+.sso__form__field {
+    width: 400px;
+    margin-bottom: .625em;
+}
+
+.sso__file__upload__field > div:first-of-type {
+    width: 400px;
+    margin: 5px 0;
+}
+
+.sso__form__label {
+    font-size: 13px;
+    line-height: 1.5;
+    padding-top: .125em;
+    padding-right: .625em;
+    width: 250px;
+    display: table-cell;
+    white-space: nowrap;
+    vertical-align: top;
+}

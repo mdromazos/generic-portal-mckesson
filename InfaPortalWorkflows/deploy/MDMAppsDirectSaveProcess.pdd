@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdd:process xmlns:aeb4p="http://www.activebpel.org/b4p/2007/10/wshumantask/deployments" xmlns:bpelns="http://MDMAppsDirectSaveProcess" xmlns:pdd="http://schemas.active-endpoints.com/pdd/2006/08/pdd.xsd" location="bpel/InfaPortalWorkflows/bpel/MDMAppsDirectSaveProcess.bpel" name="bpelns:MDMAppsDirectSaveProcess" platform="enterprise">
+  <pdd:partnerLinks>
+    <pdd:partnerLink name="CSRest">
+      <pdd:partnerRole endpointReference="static" invokeHandler="rest:Address">
+        <wsa:EndpointReference xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <wsa:Address>urn:mdmcsrest:service</wsa:Address>
+               <wsa:Metadata>
+                  <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:abp="http://schemas.active-endpoints.com/ws/2005/12/policy">
+                     <abp:HTTPTransportOptions>
+                        <abp:XmlTypes>
+                           <abp:MimeType>application/xml</abp:MimeType>
+                        </abp:XmlTypes>
+                     </abp:HTTPTransportOptions>
+                     <abp:retry attempts="3" interval="10" onFailure="fault"/>
+                  </wsp:Policy>
+               </wsa:Metadata>
+            </wsa:EndpointReference>
+      </pdd:partnerRole>
+    </pdd:partnerLink>
+    <pdd:partnerLink name="MDMAppsDirectSave">
+      <pdd:myRole binding="MSG" service="MDMAppsDirectSaveProcess"/>
+    </pdd:partnerLink>
+    <pdd:partnerLink name="PortalRestProvider">
+      <pdd:partnerRole endpointReference="static" invokeHandler="rest:Address">
+        <wsa:EndpointReference xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <wsa:Address>urn:portal:service:url</wsa:Address>
+               <wsa:Metadata>
+                  <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:abp="http://schemas.active-endpoints.com/ws/2005/12/policy">
+                     <abp:HTTPTransportOptions>
+                        <abp:XmlTypes>
+                           <abp:MimeType>application/xml</abp:MimeType>
+                        </abp:XmlTypes>
+                     </abp:HTTPTransportOptions>
+                     <abp:retry attempts="3" interval="10" onFailure="fault"/>
+                  </wsp:Policy>
+               </wsa:Metadata>
+            </wsa:EndpointReference>
+      </pdd:partnerRole>
+    </pdd:partnerLink>
+    <pdd:partnerLink name="SecurityProvider">
+      <pdd:partnerRole endpointReference="dynamic" invokeHandler="pojo:security.payload.SecurityPayloadGenerator?inherit=true&amp;parentLast=true&amp;classpath=project:/InfaPortalWorkflows/bin;project:/InfaPortalWorkflows/lib/commons-lang-2.6.jar;project:/InfaPortalWorkflows/lib/commons-validator-1.4.0.jar;project:/InfaPortalWorkflows/lib/siperian-common.jar;project:/InfaPortalWorkflows/lib/informatica-bpm-adapter.jar;project:/InfaPortalWorkflows/lib/log4j-1.2.16.jar;project:/InfaPortalWorkflows/lib/siperian-api.jar;project:/InfaPortalWorkflows/lib/siperian-server-pkiutil.jar;project:/InfaPortalWorkflows/lib/json.jar"/>
+    </pdd:partnerLink>
+    <pdd:partnerLink name="UserRestProvider">
+      <pdd:partnerRole endpointReference="static" invokeHandler="rest:Address">
+        <wsa:EndpointReference xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <wsa:Address>urn:mdmuserrest:service</wsa:Address>
+               <wsa:Metadata>
+                  <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:abp="http://schemas.active-endpoints.com/ws/2005/12/policy">
+                     <abp:HTTPTransportOptions>
+                        <abp:XmlTypes>
+                           <abp:MimeType>application/xml</abp:MimeType>
+                        </abp:XmlTypes>
+                     </abp:HTTPTransportOptions>
+                     <abp:retry attempts="3" interval="10" onFailure="fault"/>
+                  </wsp:Policy>
+               </wsa:Metadata>
+            </wsa:EndpointReference>
+      </pdd:partnerRole>
+    </pdd:partnerLink>
+  </pdd:partnerLinks>
+  <pdd:references>
+    <pdd:wsdl location="project:/InfaPortalWorkflows/wsdl/mdm_avos_pl.wsdl" namespace="http://www.informatica.com/activevos/mdmworkflow/wsdl/mdmavospl"/>
+    <pdd:wsdl location="project:/InfaPortalWorkflows/wsdl/mdm_avos.wsdl" namespace="urn:informatica.mdm.av"/>
+    <pdd:schema location="project:/InfaPortalWorkflows/schema/av_config.xsd" namespace="http://www.informatica.com/schema/1.0/av_config.xsd"/>
+    <pdd:other location="project:/InfaPortalWorkflows/xquery/infa-configuration.xq" namespace="http://informatica.com/modules/configuration/1.0/xquery" typeURI="http://modules.active-endpoints.com/2009/07/xquery"/>
+    <pdd:wsdl location="project:/InfaPortalWorkflows/wsdl/SecurityPayloadGeneratorInterface/securitypayloadgeneratorinterface.wsdl" namespace="urn:security:payload:securitypayloadgeneratorinterface"/>
+    <pdd:wsdl location="project:/com.activee.rt.rest.services/wsdl/aeREST.wsdl" namespace="http://www.activebpel.org/REST/2007/12/01/aeREST.wsdl"/>
+    <pdd:other location="project:/InfaPortalWorkflows/functionContexts/CustomJavaContext" namespace="http://custom.functions/CustomJavafunctions" typeURI="http://activevos/functionContext"/>
+  </pdd:references>
+  <pdd:extensions>
+    <aeb4p:logicalPeopleGroups>
+      <aeb4p:logicalPeopleGroup location="/process/humanInteractions/logicalPeopleGroups" name="abAdmin" type="USEASID"/>
+    </aeb4p:logicalPeopleGroups>
+  </pdd:extensions>
+</pdd:process>

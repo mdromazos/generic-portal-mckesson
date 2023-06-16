@@ -1,0 +1,32 @@
+.portal__error__container {
+    width: 800px;
+    height: 400px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 40px;
+}
+.portal__error__image {
+    max-height: 150px;
+    max-width: 115px;
+    padding-bottom: 40px;
+}
+.portal__error__heading {
+    font-size: 18px;
+    line-height: 18px;
+    display: block;
+    padding-bottom: 20px;
+}
+.portal__error__content {
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    padding-bottom: 40px;
+}
+.portal__error__sub__content {
+    font-size: 14px;
+    line-height: 14px;
+    display: block;
+}

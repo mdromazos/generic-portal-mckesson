@@ -1,0 +1,302 @@
+.login__box{
+    width: 403px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+.login__box__content{
+    background-color: white;
+    padding: 1px 50px 10px;
+}
+.login__box__header{
+    height: 50px;
+    text-align: center;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    padding-left: 25px;
+    border-bottom: 1px solid #ff800E;
+}
+.login__button{
+    width: 130px!important;
+    height: 30px!important;
+    color: #FFFFFF!important;
+    font-family: Roboto!important;	
+    font-size: 14px!important;	
+    line-height: 14px!important;	
+    text-align: center!important;
+    border-radius: 3px!important; 
+    border-color: #0A4FC7!important;
+    background-color: #0A4FC7!important;
+}
+.login__button:hover{
+    box-shadow: none!important;
+    background-color: #3399FF!important;
+}
+
+.login__box__content .field__error {
+    padding: 10px 0 !important;
+    font-size: 12px !important;
+}
+
+.login__box__content .form__field__label label{
+    padding-top: 10px !important;
+}
+.login__links{
+    padding-top: 20px;
+    font-size: 12px;
+    font-family: roboto;
+    text-align: center;
+}
+.login__links__fp{
+    padding-top: 20px;
+    font-size: 12px;
+    font-family: roboto;
+    text-align: center;
+}
+.link__color{
+    color: #3399ff;
+    cursor: pointer;
+}
+.login__link__forgot{
+    float: left;
+}
+.error__msg{
+    color: red;
+}
+.loader__login{
+    position: relative;
+    height: 100px ;
+}
+.login__header__div{
+    padding-right: 12px;
+    margin-top: 10px ;
+}
+.login__header__logo
+{
+    height:30px
+}
+.login__header__content {
+    line-height: 50px;
+    padding-left: .5em;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: roboto light;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 25px;
+}
+.login__input {
+    width: 310px !important;
+    height: 24px;
+}
+.copyright__style{
+    font-size: x-small;
+    padding-top: 20px;
+    text-align: center;
+    color: #9c9c9c;
+}
+.logo{
+    max-width: 150px;
+}
+.form__field__title{
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: black;
+    font-family: roboto;
+}
+.form__group{
+    padding-bottom: 10px;
+}
+.form__field__title__password{
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: black;
+    font-family: roboto;
+    padding-top: 10px;
+}
+.login__div{
+    text-align:center;
+    padding-top: 20px;
+}
+.form__remember .state label{
+    font-weight: bold;
+    font-size: small;
+}
+.login__button__center{
+    text-align:center;
+}
+
+.login__link__signup{
+    float: right;
+}
+.login__form__title{
+    padding: 30px 0 30px 0;
+    font-size: 22px;
+    text-align: center;
+    color: black;
+    font-family: roboto;
+}
+.locale__holder{
+    padding-top: 26px;
+    width: 120px;
+    margin-left: 91.5px;
+}
+.locale__holder .d-dropdown__search{
+    font-family: roboto;
+    font-weight: 300;
+}
+.locale__holder div:nth-child(1){
+    border: 0px !important;
+    outline: 0px !important;
+}
+.locale__holder .d-dropdown__button{
+    border: none !important ;
+    background: none !important;
+}
+.form__label{
+    padding-bottom: 10px;
+}
+.d-input{
+    padding:0px!important;
+}
+.login__page{
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login__error__color{
+    color: red;
+}
+.login__error{
+    margin-top: 20px;
+    height: 2.05em;
+    text-align: center;
+}
+.login__error__close{
+    width: 16px;
+    height: 16px;
+}
+.login__error__btn{
+    padding-top:0em !important;
+    padding-bottom:0em !important;
+    padding-right:0.4em !important;
+}
+.login__check__account{
+    padding-right: 5px;
+}
+.saml__login__container{
+    text-align: center;
+}
+.login__saml__seperator {
+    width: 100%;
+    height: 10px;
+    border-bottom: 1px solid #bbbbbb;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.login__saml__seperator span {
+    font-size: 10px;
+    background-color: #ffffff;
+    padding: 0 10px;
+}
+.saml__login__button {
+    background-color: #ffffff!important;
+    border-color: #0A4FC7!important;
+    height: 30px!important;
+}
+.saml__login__button:hover {
+    border: 1px solid #035bda!important;
+    background: #d6ebfc!important;
+}
+.bottom__seperator{
+    margin-top: 10px!important;
+    margin-bottom: 0px!important;
+}
+.d-dropdown__menu{
+    border-radius: 4px!important;	
+    background-color: #FFFFFF!important;	
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.5)!important; 
+}
+
+.d-dropdown__item {
+    min-height: 22px;
+    line-height: 20px;
+    padding-right: 20px!important;
+    padding-left: 20px!important;
+    margin: 0px;
+    font-size: 12px;
+    margin-bottom: 5px!important;
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+}
+
+.d-dropdown__item--active {
+    background-color: #E3F1FF!important;
+    border-color: #E3F1FF!important;
+}
+/* message bubble starts*/
+.d-messagebubble{
+    border-radius: 4px!important;
+    border-bottom:medium none!important;
+    border-left: medium none!important;
+    border-right: medium none!important;
+    min-width: 350px!important;
+    box-shadow: none!important;
+    color: #000!important;
+    font-family: Roboto!important; 
+    min-height: 45px!important;
+}
+.d-messagebubble__text{
+    font-size: 14px !important; 
+    font-weight: 500 !important;
+    line-height: 16px!important; 
+}
+.d-messagebubble--type-success{
+    background-color: #E7F6D9!important;
+    border-top: 5px solid #006f33!important;
+}
+.d-messagebubble__icon{
+    font-size: 16px!important;
+}
+.d-messagebubble__icon--success{
+    padding: 2px!important;
+}
+
+.d-messagebubble--type-warning{
+    background-color: #FDF4C3!important;
+    border-top: 5px solid #F9BF27!important;
+}
+
+.d-messagebubble__icon--warning{
+    background-color: #FDF4C3!important;
+}
+
+.d-messagebubble--type-error{
+    background-color: #FBD2D3!important;
+    border-top: 5px solid #B2151B!important;
+}
+
+.d-messagebubble__icon--error{
+    background-color: #FBD2D3!important;
+}
+
+.d-messagebubble--type-info{
+    background-color: #E3F1FF!important;
+    border-top: 5px solid #3399FF!important;
+}
+
+.d-messagebubble__icon--info{
+    background-color: #E3F1FF!important;
+}
+
+.d-messagebubble__close{
+    color: #aaa!important;
+}
+/* message bubble ends */

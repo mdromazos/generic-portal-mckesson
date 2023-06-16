@@ -1,0 +1,11 @@
+.tabs__section {
+    margin-left: -0.55em !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif !important;
+}
+
+.default_message{
+    padding-bottom: 14px;
+    padding-top: 14px;
+}

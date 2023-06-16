@@ -1,0 +1,18 @@
+.tabs__section{
+   padding-bottom: 20px;
+}
+.hide__user__role{
+   display: inline-block;
+   padding-top: 10px;
+}
+
+.user__management__form__label {
+   min-width: 187px;
+}
+
+.user__management__tooltip__icon, .disable__registration__tooltip__icon {
+   background-color: #bbb;
+   color: #fff;
+   border-radius: 50%;
+   font-size: 15px;
+}

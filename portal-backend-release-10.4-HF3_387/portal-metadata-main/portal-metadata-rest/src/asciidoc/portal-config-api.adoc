@@ -1,0 +1,681 @@
+= Portal Config API
+Latest version : {project-version}
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+:sectnums:
+
+[introduction]
+== Introduction
+Api's available for Portal Config Application
+
+== Portal Config Login
+
+=== http Request
+include::{snippets}/PortalConfigLoginControllerApiDocumentation/login/http-request.adoc[]
+include::{snippets}/PortalConfigLoginControllerApiDocumentation/login/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalConfigLoginControllerApiDocumentation/login/http-response.adoc[]
+include::{snippets}/PortalConfigLoginControllerApiDocumentation/login/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalConfigLoginControllerApiDocumentation/login/curl-request.adoc[]
+
+== Portal Config Logout
+
+=== http Request
+include::{snippets}/PortalConfigLoginControllerApiDocumentation/logout/http-request.adoc[]
+
+=== http Response
+include::{snippets}/PortalConfigLoginControllerApiDocumentation/logout/http-response.adoc[]
+
+=== curl 
+include::{snippets}/PortalConfigLoginControllerApiDocumentation/logout/curl-request.adoc[]
+
+== Portal Config Valid Session 
+
+=== http Request
+include::{snippets}/PortalConfigLoginControllerApiDocumentation/is-session-valid/http-request.adoc[]
+
+=== http Response
+include::{snippets}/PortalConfigLoginControllerApiDocumentation/is-session-valid/http-response.adoc[]
+
+=== curl 
+include::{snippets}/PortalConfigLoginControllerApiDocumentation/is-session-valid/curl-request.adoc[]
+
+
+== Generic Api to Create Portal Config
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/create-portal/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/create-portal/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/create-portal/curl-request.adoc[]
+
+== Generic Api to Update Portal Config
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/update-portal/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/update-portal/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/update-portal/curl-request.adoc[]
+
+
+
+== Generic Api to Publish Portal Config
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/publish-portal-config-model/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/publish-portal-config-model/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/publish-portal-config-model/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/publish-portal-config-model/request-parameters.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/publish-portal-config-model/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/publish-portal-config-model/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/publish-portal-config-model/curl-request.adoc[]
+
+
+== Generic Api to Delete Portal Config
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/delete-portal-config-model/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-portal-config-model/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-portal-config-model/request-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-portal-config-model/request-headers.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/delete-portal-config-model/http-response.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/delete-portal-config-model/curl-request.adoc[]
+
+
+
+== Generic Api to Create child/grand child config of Object Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-object/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-object/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-object/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-object/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-object/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-object/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-object/curl-request.adoc[]
+
+
+== Generic Api to Create child/grand child config of Collection Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection/curl-request.adoc[]
+
+
+== Generic Api to Create child/grand child config of Object Collection Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection-object/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection-object/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection-object/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection-object/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection-object/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection-object/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/create-portal-config-model-collection-object/curl-request.adoc[]
+
+
+
+== Generic Api to Update child/grand child config of Object Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-object/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-object/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-object/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-object/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-object/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-object/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-object/curl-request.adoc[]
+
+
+== Generic Api to Update child/grand child config of Collection Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection/curl-request.adoc[]
+
+
+== Generic Api to Update child/grand child config of Object Collection Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection-object/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection-object/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection-object/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection-object/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection-object/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection-object/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/update-portal-config-model-collection-object/curl-request.adoc[]
+
+
+== Generic Api to Patch Update child/grand child config of Object Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-object/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-object/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-object/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-object/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-object/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-object/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-object/curl-request.adoc[]
+
+
+== Generic Api to Patch Update child/grand child config of Collection Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection/curl-request.adoc[]
+
+
+== Generic Api to Patch Update child/grand child config of Object Collection Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection-object/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection-object/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection-object/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection-object/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection-object/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection-object/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/patch-update-portal-config-model-collection-object/curl-request.adoc[]
+
+
+== Generic Api to Delete child/grand child config of Object Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-object/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-object/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-object/request-headers.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-object/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-object/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-object/curl-request.adoc[]
+
+
+== Generic Api to Delete child/grand child config of Collection Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection/request-headers.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection/curl-request.adoc[]
+
+
+== Generic Api to Delete child/grand child config of Object Collection Type
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection-object/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection-object/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection-object/request-headers.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection-object/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection-object/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/delete-from-portal-config-model-for-collection-object/curl-request.adoc[]
+
+
+
+
+== Retrieve Portal Config based on portal id
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/get-portal/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/get-portal/path-parameters.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/get-portal/request-headers.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/get-portal/request-parameters.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/get-portal/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/get-portal/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/get-portal/curl-request.adoc[]
+
+== Retrieve Available Portals Config 
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/get-portals/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/get-portals/request-parameters.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/get-portals/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/get-portals/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/get-portals/curl-request.adoc[]
+
+== Retrieve Available ORS Database Schema 
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/get-databases/http-request.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/get-databases/http-response.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/get-databases/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/get-databases/curl-request.adoc[]
+
+
+== Get Portal Reference Data
+
+=== http Request
+include::{snippets}/PortalControllerApiDocumentation/get-portal-reference-data/http-request.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/get-portal-reference-data/path-parameters.adoc[]
+
+=== http Response
+include::{snippets}/PortalControllerApiDocumentation/get-portal-reference-data/http-response.adoc[]
+
+=== curl 
+include::{snippets}/PortalControllerApiDocumentation/get-portal-reference-data/curl-request.adoc[]
+
+
+== Retrieve Portal Runtime Config based for portal id
+
+=== http Request
+include::{snippets}/RuntimeControllerApiDocumentation/get-runtime-config/http-request.adoc[]
+include::{snippets}/RuntimeControllerApiDocumentation/get-runtime-config/path-parameters.adoc[]
+include::{snippets}/RuntimeControllerApiDocumentation/get-runtime-config/request-headers.adoc[]
+
+=== http Response
+include::{snippets}/RuntimeControllerApiDocumentation/get-runtime-config/http-response.adoc[]
+include::{snippets}/RuntimeControllerApiDocumentation/get-runtime-config/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/RuntimeControllerApiDocumentation/get-runtime-config/curl-request.adoc[]
+
+== Persist Portal Runtime Config based for portal id
+
+=== http Request
+include::{snippets}/RuntimeControllerApiDocumentation/persist-runtime-config/http-request.adoc[]
+include::{snippets}/RuntimeControllerApiDocumentation/persist-runtime-config/path-parameters.adoc[]
+include::{snippets}/RuntimeControllerApiDocumentation/persist-runtime-config/request-headers.adoc[]
+include::{snippets}/RuntimeControllerApiDocumentation/persist-runtime-config/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/RuntimeControllerApiDocumentation/persist-runtime-config/http-response.adoc[]
+include::{snippets}/RuntimeControllerApiDocumentation/persist-runtime-config/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/RuntimeControllerApiDocumentation/persist-runtime-config/curl-request.adoc[]
+
+
+= Portal UI API
+
+[introduction]
+== Introduction
+Api's available for Portal UI Application
+
+
+== Portal UI Login
+
+=== http Request
+include::{snippets}/PortalLoginControllerApiDocumentation/login/http-request.adoc[]
+include::{snippets}/PortalLoginControllerApiDocumentation/login/path-parameters.adoc[]
+include::{snippets}/PortalLoginControllerApiDocumentation/login/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalLoginControllerApiDocumentation/login/http-response.adoc[]
+include::{snippets}/PortalLoginControllerApiDocumentation/login/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalLoginControllerApiDocumentation/login/curl-request.adoc[]
+
+== Portal UI Logout
+
+=== http Request
+include::{snippets}/PortalLoginControllerApiDocumentation/logout/http-request.adoc[]
+include::{snippets}/PortalLoginControllerApiDocumentation/logout/path-parameters.adoc[]
+
+=== http Response
+include::{snippets}/PortalLoginControllerApiDocumentation/logout/http-response.adoc[]
+
+=== curl 
+include::{snippets}/PortalLoginControllerApiDocumentation/logout/curl-request.adoc[]
+
+== Portal UI Valid Session 
+
+=== http Request
+include::{snippets}/PortalLoginControllerApiDocumentation/is-session-valid/http-request.adoc[]
+
+=== http Response
+include::{snippets}/PortalLoginControllerApiDocumentation/is-session-valid/http-response.adoc[]
+
+=== curl 
+include::{snippets}/PortalLoginControllerApiDocumentation/is-session-valid/curl-request.adoc[]
+
+== Retrieve Global Portal Config based on portal id
+
+=== http Request
+include::{snippets}/GlobalConfigControllerApiDocumentation/get-portal/http-request.adoc[]
+include::{snippets}/GlobalConfigControllerApiDocumentation/get-portal/path-parameters.adoc[]
+
+=== http Response
+include::{snippets}/GlobalConfigControllerApiDocumentation/get-portal/http-response.adoc[]
+include::{snippets}/GlobalConfigControllerApiDocumentation/get-portal/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/GlobalConfigControllerApiDocumentation/get-portal/curl-request.adoc[]
+
+== Retrieve Portal Global Runtime Config based for portal id
+
+=== http Request
+include::{snippets}/GlobalConfigControllerApiDocumentation/get-runtime-config/http-request.adoc[]
+include::{snippets}/GlobalConfigControllerApiDocumentation/get-runtime-config/path-parameters.adoc[]
+include::{snippets}/GlobalConfigControllerApiDocumentation/get-runtime-config/request-headers.adoc[]
+
+=== http Response
+include::{snippets}/GlobalConfigControllerApiDocumentation/get-runtime-config/http-response.adoc[]
+include::{snippets}/GlobalConfigControllerApiDocumentation/get-runtime-config/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/GlobalConfigControllerApiDocumentation/get-runtime-config/curl-request.adoc[]
+
+== Retrieve Portal Global Proxy for BE's Api via Trusted App
+
+=== http Request
+include::{snippets}/GlobalConfigControllerApiDocumentation/global-proxy/http-request.adoc[]
+include::{snippets}/GlobalConfigControllerApiDocumentation/global-proxy/request-fields.adoc[]
+include::{snippets}/GlobalConfigControllerApiDocumentation/global-proxy/request-headers.adoc[]
+
+=== http Response
+include::{snippets}/GlobalConfigControllerApiDocumentation/global-proxy/http-response.adoc[]
+
+=== curl 
+include::{snippets}/GlobalConfigControllerApiDocumentation/global-proxy/curl-request.adoc[]
+
+== Portal UI Get Portal Child
+
+=== http Request
+include::{snippets}/PortalUIControllerApiDocumentation/get-portal-child/http-request.adoc[]
+include::{snippets}/PortalUIControllerApiDocumentation/get-portal-child/path-parameters.adoc[]
+
+=== http Response
+include::{snippets}/PortalUIControllerApiDocumentation/get-portal-child/http-response.adoc[]
+include::{snippets}/PortalUIControllerApiDocumentation/get-portal-child/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalUIControllerApiDocumentation/get-portal-child/curl-request.adoc[]
+
+== Portal UI Get Portal Grand Child
+
+=== http Request
+include::{snippets}/PortalUIControllerApiDocumentation/get-portal-grand-child/http-request.adoc[]
+include::{snippets}/PortalUIControllerApiDocumentation/get-portal-grand-child/path-parameters.adoc[]-
+
+=== http Response
+include::{snippets}/PortalUIControllerApiDocumentation/get-portal-grand-child/http-response.adoc[]
+include::{snippets}/PortalUIControllerApiDocumentation/get-portal-grand-child/response-fields.adoc[]
+
+=== curl 
+include::{snippets}/PortalUIControllerApiDocumentation/get-portal-grand-child/curl-request.adoc[]
+
+== Portal UI Add User
+
+=== http Request
+include::{snippets}/PortalUIControllerApiDocumentation/add-user/http-request.adoc[]
+include::{snippets}/PortalUIControllerApiDocumentation/add-user/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalUIControllerApiDocumentation/add-user/http-response.adoc[]
+
+=== curl 
+include::{snippets}/PortalUIControllerApiDocumentation/add-user/curl-request.adoc[]
+
+
+== Portal UI Delete User
+
+=== http Request
+include::{snippets}/PortalUIControllerApiDocumentation/delete-user/http-request.adoc[]
+include::{snippets}/PortalUIControllerApiDocumentation/delete-user/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalUIControllerApiDocumentation/delete-user/http-response.adoc[]
+
+=== curl 
+include::{snippets}/PortalUIControllerApiDocumentation/delete-user/curl-request.adoc[]
+
+== Portal UI Get User
+
+=== http Request
+include::{snippets}/PortalUIControllerApiDocumentation/get-hub-user/http-request.adoc[]
+include::{snippets}/PortalUIControllerApiDocumentation/get-hub-user/response-fields.adoc[]
+include::{snippets}/PortalUIControllerApiDocumentation/get-hub-user/request-parameters.adoc[]
+
+=== http Response
+include::{snippets}/PortalUIControllerApiDocumentation/get-hub-user/http-response.adoc[]
+
+=== curl 
+include::{snippets}/PortalUIControllerApiDocumentation/get-hub-user/curl-request.adoc[]
+
+== Portal UI Update Portal State
+
+=== http Request
+include::{snippets}/PortalUIControllerApiDocumentation/update-state/http-request.adoc[]
+include::{snippets}/PortalUIControllerApiDocumentation/update-state/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/PortalUIControllerApiDocumentation/update-state/http-response.adoc[]
+
+=== curl 
+include::{snippets}/PortalUIControllerApiDocumentation/update-state/curl-request.adoc[]
+
+
+== Portal Proxy Api
+
+=== http Request
+include::{snippets}/ProxyControllerApiDocumentation/invoke-proxy/http-request.adoc[]
+include::{snippets}/ProxyControllerApiDocumentation/invoke-proxy/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/ProxyControllerApiDocumentation/invoke-proxy/http-response.adoc[]
+
+=== curl 
+include::{snippets}/ProxyControllerApiDocumentation/invoke-proxy/curl-request.adoc[]
+
+== Portal Proxy File Upload Api
+
+=== http Request
+include::{snippets}/ProxyControllerApiDocumentation/upload-file-via-proxy/http-request.adoc[]
+include::{snippets}/ProxyControllerApiDocumentation/upload-file-via-proxy/request-fields.adoc[]
+include::{snippets}/PortalControllerApiDocumentation/upload-file-via-proxy/request-parameters.adoc[]
+
+=== http Response
+include::{snippets}/ProxyControllerApiDocumentation/upload-file-via-proxy/http-response.adoc[]
+
+=== curl 
+include::{snippets}/ProxyControllerApiDocumentation/upload-file-via-proxy/curl-request.adoc[]
+
+== Portal Proxy File Download Api
+
+=== http Request
+include::{snippets}/ProxyControllerApiDocumentation/download-file-via-proxy/http-request.adoc[]
+include::{snippets}/ProxyControllerApiDocumentation/download-file-via-proxy/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/ProxyControllerApiDocumentation/download-file-via-proxy/http-response.adoc[]
+
+=== curl 
+include::{snippets}/ProxyControllerApiDocumentation/download-file-via-proxy/curl-request.adoc[]
+
+== Portal UI Add User Preference
+
+=== http Request
+include::{snippets}/PortalUIControllerApiDocumentation/save-preference/http-request.adoc[]
+
+=== http Response
+include::{snippets}/PortalUIControllerApiDocumentation/save-preference/http-response.adoc[]
+
+=== curl
+include::{snippets}/PortalUIControllerApiDocumentation/save-preference/curl-request.adoc[]
+
+== Portal UI Update User Preference
+
+=== http Request
+include::{snippets}/PortalUIControllerApiDocumentation/update-preference/http-request.adoc[]
+
+=== http Response
+include::{snippets}/PortalUIControllerApiDocumentation/update-preference/http-response.adoc[]
+
+=== curl
+include::{snippets}/PortalUIControllerApiDocumentation/update-preference/curl-request.adoc[]
+
+
+== Portal UI Get User Preference
+
+=== http Request
+include::{snippets}/PortalUIControllerApiDocumentation/get-user-preference/http-request.adoc[]
+include::{snippets}/PortalUIControllerApiDocumentation/get-user-preference/request-parameters.adoc[]
+
+=== http Response
+include::{snippets}/PortalUIControllerApiDocumentation/get-user-preference/http-response.adoc[]
+
+=== curl
+include::{snippets}/PortalUIControllerApiDocumentation/get-user-preference/curl-request.adoc[]
+
+
+== Retrieve Portal SSO Config based for portal id
+
+=== http Request
+include::{snippets}/SamlConfigControllerApiDocumentation/get-s-s-o-config/http-request.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/get-s-s-o-config/path-parameters.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/get-s-s-o-config/request-headers.adoc[]
+
+=== http Response
+include::{snippets}/SamlConfigControllerApiDocumentation/get-s-s-o-config/http-response.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/get-s-s-o-config/response-fields.adoc[]
+
+=== curl
+include::{snippets}/SamlConfigControllerApiDocumentation/get-s-s-o-config/curl-request.adoc[]
+
+
+== Persist Portal SSO Config based for portal id
+
+=== http Request
+include::{snippets}/SamlConfigControllerApiDocumentation/persist-s-s-o-config/http-request.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/persist-s-s-o-config/path-parameters.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/persist-s-s-o-config/request-headers.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/persist-s-s-o-config/request-fields.adoc[]
+
+=== http Response
+include::{snippets}/SamlConfigControllerApiDocumentation/persist-s-s-o-config/http-response.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/persist-s-s-o-config/response-fields.adoc[]
+
+=== curl
+include::{snippets}/SamlConfigControllerApiDocumentation/persist-s-s-o-config/curl-request.adoc[]
+
+== Upload IDP metadata xml for SAML Config
+
+=== http Request
+include::{snippets}/SamlConfigControllerApiDocumentation/upload-idp-x-m-l-file/http-request.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/upload-idp-x-m-l-file/path-parameters.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/upload-idp-x-m-l-file/request-headers.adoc[]
+
+=== http Response
+include::{snippets}/SamlConfigControllerApiDocumentation/upload-idp-x-m-l-file/http-response.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/upload-idp-x-m-l-file/response-fields.adoc[]
+
+=== curl
+include::{snippets}/SamlConfigControllerApiDocumentation/upload-idp-x-m-l-file/curl-request.adoc[]
+
+== Download SP metadata xml for portal id
+
+=== http Request
+include::{snippets}/SamlConfigControllerApiDocumentation/download-s-p-x-m-l-file/http-request.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/download-s-p-x-m-l-file/path-parameters.adoc[]
+include::{snippets}/SamlConfigControllerApiDocumentation/download-s-p-x-m-l-file/request-headers.adoc[]
+
+=== http Response
+include::{snippets}/SamlConfigControllerApiDocumentation/download-s-p-x-m-l-file/http-response.adoc[]
+
+=== curl
+include::{snippets}/SamlConfigControllerApiDocumentation/download-s-p-x-m-l-file/curl-request.adoc[]
+

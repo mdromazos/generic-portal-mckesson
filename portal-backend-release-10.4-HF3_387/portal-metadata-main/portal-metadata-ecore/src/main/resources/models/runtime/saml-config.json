@@ -1,0 +1,124 @@
+{
+  "SP_METADATA":{
+    "name":"SAML Service provider metadata properties",
+    "desc":"SAML Service provider metadata properties",
+    "configuration":{
+      "EntityID":{
+        "key":"EntityID",
+        "desc":"Used to communicate with SP and IDP",
+        "value":"GENERIC_PORTAL_<ORS_ID>_<PORTAL_ID>",
+        "type":"String",
+        "isMandatory":true
+      },
+      "SignAuthRequest":{
+        "key":"SignAuthRequest",
+        "desc":"Boolean attribute",
+        "value":true,
+        "type":"boolean",
+        "isMandatory":true
+      },
+      "SignLogoutRequest":{
+        "key":"SignLogoutRequest",
+        "desc":"Boolean attribute",
+        "label":"SignLogoutRequest",
+        "value":true,
+        "type":"boolean",
+        "isMandatory":true
+      },
+      "AssertionConsumerServiceURL":{
+        "key":"AssertionConsumerServiceURL",
+        "desc":"End point to which SAML responses are to be sent by the IdP",
+        "value":"https://<host>:<port>/infa-portal/portals/login/saml/ORS_ID/PORTAL_ID",
+        "type":"String",
+        "isMandatory":true
+      }
+    }
+  },
+  "IDP_METADATA":{
+    "name":"SAML Identity provider metadata properties",
+    "desc":"SAML Identity provider metadata properties",
+    "configuration":{
+      "EntityID":{
+        "key":"EntityID",
+        "desc":"Used to communicate with SP and IDP",
+        "value":"",
+        "type":"String",
+        "isMandatory":false
+      },
+      "SingleSignOnServiceURLRedirect":{
+        "key":"SingleSignOnServiceURLRedirect",
+        "desc":"Single SignOn Service URL Redirect",
+        "value":"",
+        "type":"String",
+        "isMandatory":false
+      },
+      "SingleSignOnServiceURLPOST":{
+        "key":"SingleSignOnServiceURLPOST",
+        "desc":"Single SignOn Service URL POST",
+        "value":"",
+        "type":"String",
+        "isMandatory":false
+      },
+      "SingleLogoutServiceURLRedirect":{
+        "key":"SingleLogoutServiceURLRedirect",
+        "desc":"Single Logout Service URL Redirect",
+        "value":"",
+        "type":"String",
+        "isMandatory":false
+      },
+      "SingleLogoutServiceURLPOST":{
+        "key":"SingleLogoutServiceURLPOST",
+        "desc":"Single Logout Service URL POST",
+        "value":"",
+        "type":"String",
+        "isMandatory":false
+      },
+      "Certificate":{
+        "key":"Certificate",
+        "desc":"X509Certificate for IdP",
+        "value":"",
+        "type":"String",
+        "isMandatory":false
+      },
+      "BindingType":{
+        "key":"BindingType",
+        "desc":"Single SignOn Service URL Binding Type",
+        "value":"urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect",
+        "type":"String",
+        "isMandatory":false
+      }
+    }
+  },
+  "GENERAL_PROPERTIES":{
+    "name":"SAML General properties",
+    "desc":"SAML General properties",
+    "configuration":{
+      "UserNameMapping":{
+        "key":"UserNameMapping",
+        "desc":"Portal UserName Mapping With IDP Attribute",
+        "value":"NameID",
+        "type":"String",
+        "isMandatory":false
+      },
+      "QuickSetupGuide": {
+        "desc":"Portal SSO Quick Setup Guide flag",
+        "value": true,
+        "type":"boolean"
+      },
+      "NameIDPolicy":{
+        "key":"NameIDPolicy",
+        "desc":"NameIDPolicy Format",
+        "value":"urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+        "type":"String",
+        "isMandatory":false
+      },
+      "SAMLRedirectURL":{
+        "key":"SAMLRedirectURL",
+        "desc":"SAML Redirect URL Host and Port",
+        "value":"https://<host>:<port>",
+        "type":"String",
+        "isMandatory":false
+      }
+    }
+  }
+}

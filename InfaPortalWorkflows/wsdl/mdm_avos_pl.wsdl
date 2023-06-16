@@ -1,0 +1,11 @@
+<wsdl:definitions xmlns:av="urn:informatica.mdm.av" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="mdm_avos_pl"
+xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"  targetNamespace="http://www.informatica.com/activevos/mdmworkflow/wsdl/mdmavospl">
+<plnk:partnerLinkType name="IDDWorkflowPLT">
+   <plnk:role name="Provider" portType="av:startProcess"/>
+</plnk:partnerLinkType>
+<plnk:partnerLinkType name="IDDTaskPLT">
+   <plnk:role name="Provider" portType="av:processTask"/>
+</plnk:partnerLinkType>
+  <wsdl:import location="mdm_avos.wsdl" namespace="urn:informatica.mdm.av">
+    </wsdl:import>
+</wsdl:definitions>

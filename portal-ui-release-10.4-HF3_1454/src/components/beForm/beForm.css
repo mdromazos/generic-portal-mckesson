@@ -1,0 +1,720 @@
+.be-form-component-container {
+    width: 100%;
+}
+
+.be-form-component-container input:disabled, .be-form-component-container textarea:disabled {
+    background-color: #ffffff;
+    border: none;
+}
+
+.be-form-component-container .form .d-form__label {
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-size: 12px;
+}
+
+.be-form-component-container .be-form-group-data .d-form__field input, .be-form-component-container textarea {
+    color: #000000;
+}
+
+.be-form-component-container .section-body {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px 20px 20px;
+}
+
+.be-form-component-container .d-section__header {
+    margin: 0px 10px 0 10px;
+    border-bottom: 1px solid #dddddd;
+    min-height: 50px;
+}
+
+.be-form-component-container .be-form-group-data .one-to-many-child-section .d-section__header {
+    margin: 0px;
+}
+
+.be-form-component-container button.be-form-save {
+    margin-right: 0;
+}
+
+.be-form-component-container .button--secondary:focus {
+    border: 1px solid #9c9c9c;
+    box-shadow: none;
+}
+
+.be-form-component-container .be-form-title {
+    float: left;
+    margin-left: 20px;
+}
+
+.be-form-component-container .be-form-edit,
+.be-form-component-container .be-form-cancel,
+.be-form-component-container .be-form-save {
+    float: right;
+    margin: 0 20px 0 10px;
+    font-family: Roboto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.be-form-component-container .be-form-header {
+    display: flow-root;
+}
+/* .be-form-component-container .be-form-group-data label {
+    display: inline-block !important;
+} */
+
+.be-form-component-container .be-form-group-data .d-input.d-form__field, .be-form-group-data .d-dropdown.d-form__field {
+    display: inline-flex;
+}
+
+.be-form-component-container .be-form-group-data .pretty.p-icon {
+    white-space: normal;
+    line-height: 1.2;
+    margin-right: 0px;
+}
+
+.be-form-component-container .be-form-group-data .section-body {
+    padding: 0 10px 10px 10px;
+}
+
+.be-form-component-container .be-form-group-data .d-form__field input[type="radio"] {
+    width: auto;
+}
+
+.be-form-component-container .be-form-group-data [data-testid="pcr-state"] {
+    display: inline-block;
+}
+
+.be-form-component-container .be-form-group-data [data-testid="pcr-wrapper"] {
+    display: inline-block;
+    margin-top: 7px;
+}
+
+.be-form-component-container .be-form-group-data [data-testid="pcr-wrapper"]:not(:first-child) {
+    margin-left: 3px;
+}
+
+.be-form-component-container .be-form-group-data div.rw-datetime-picker.rw-widget {
+    display: inline-block;
+    font-size: 0.9em;
+}
+
+.be-form-component-container .be-form-group-data .rw-state-disabled .rw-widget-container {
+    border: none;
+}
+
+.be-form-component-container .be-form-group-data .rw-state-disabled .rw-select-bordered {
+    display: none;
+}
+
+.be-form-component-container .be-form-group-data .rw-state-disabled .rw-input {
+    color: #ddd;
+}
+
+.be-form-component-container .be-form-group-data .d-form .d-form__text, .be-form-component-container .d-form__label__text {
+    position: relative;
+}
+
+.be-form-component-container .be-form-field-image-container {
+    display: inline-flex;
+    justify-content: flex-start;
+}
+
+.be-form-component-container .be-form-field-image-display {
+    width: inherit;
+    height: inherit;
+    max-width: 250px;
+    max-height: 200px;
+}
+
+.be-form-component-container .be-form-field-image-label {
+    float: left;
+}
+
+.be-form-component-container .be-form-display-value {
+    display: inline-flex;
+    min-height: 24px;
+    margin-bottom: .625em;
+    padding-top: .125em;
+    line-height: 1.5;
+    max-width: 250px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #000;
+    width: 250px;
+    position: relative;
+    word-break: break-all;
+}
+
+.be-form-component-container .tree-container {
+    padding: 15px 20px 0 0;
+    min-height: 500px;
+}
+
+.be-form-component-container .one-to-many-container {
+    display: flex;
+    display: inline-table;
+}
+
+.be-form-component-container .one-to-many-header {
+    font-weight: bold;
+    border-bottom: 1px solid #dddddd;
+    font-size: 15px;
+    height: 40px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.be-form-component-container .one-to-many-row-header {
+    font-weight: bold;
+    font-size: 15px;
+    height: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.be-form-component-container .one-to-many-container .one-to-many-row-header .field-controls .icon-button .aicon__delete {
+    font-size: 16px;
+}
+
+.be-form-component-container .one-to-many-header-title {
+    display: flex;
+    flex: 50%;
+    align-items: center;
+}
+
+.be-form-component-container .one-to-many-row-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.be-form-component-container .one-to-many-child-section {
+    width: 100%;
+}
+
+.be-form-component-container .one-to-many-header .field-controls, .be-form-component-container .one-to-many-row-header .field-controls {
+    float: right;
+    display: inline-flex;
+}
+
+.be-form-component-container .one-to-many-header .field-controls, .be-form-component-container .one-to-many-row-header .field-controls-child {
+    float: right;
+    display: inline-flex;
+}
+
+.be-form-component-container .one-to-many-grid-row-child .field-controls {
+    float: right;
+    display: inline-flex;
+    min-height: 23px;
+    min-width: 23px;
+}
+
+.field-validation-message {
+    float: left !important;
+    min-height: 23px;
+    min-width: 23px;
+    margin: 10px 5px 0 -8px;
+}
+
+.field-validation-message-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.be-form-component-container .one-to-many-grid-row-child .one-to-many-row-header {
+    border-bottom: none;
+}
+
+.be-form-component-container .be-field-group {
+    display: inline-flex;
+    flex: 50%;
+}
+
+.be-form-component-container .one-to-many-container {
+    flex: 100%;
+    width: 100%;
+}
+
+.be-form-component-container .one-to-many-container .one-to-many-grid-row-parent {
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 0px 20px 10px 20px;
+    margin-bottom: 10px;
+}
+
+.be-form-component-container .one-to-many-container .one-to-many-grid-row-child {
+    margin: 0px;
+    padding-top: 0px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.be-form-component-container .one-to-many-no-items-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Roboto;
+    font-size: 12px;
+    color: #595959;
+}
+
+.be-form-component-container .one-to-many-child-section .one-to-many-no-items-message {
+    padding-top: 20px;
+}
+
+.be-form-component-container .formik-group-2-column-layout {
+    flex-basis: 50%;
+}
+
+.be-form-component-container .formik-group-3-column-layout {
+    flex: 0 0 33.3%;
+}
+
+.be-form-component-container .formik-group-1-column-layout {
+    flex: 100%;
+}
+
+.be-form-component-container .hierarchy-input {
+    width: 250px !important;
+}
+
+.be-form-component-container .hierarchy-option {
+    background-color: #d0d0d0;
+    margin-left: -25px;
+    height: 25px;
+    top: 1px;
+    position: relative;
+    border-radius: 0 0.1875rem 0.1875rem 0;
+}
+
+.be-form-component-container .hierarchy-option-icon {
+    width: 12px;
+}
+
+.be-form-component-container .one-to-many-container .one-to-many-row-header .field-controls .beform__ctrl__icon__delete {
+    font-size: 16px;
+}
+
+.be-form-component-container .one-to-many-container .one-to-many-row-header .field-controls .beform__ctrl__icon__validation {
+    font-size: 16px;
+}
+
+.be-form-component-container .be-form-group-data div.rw-datetime-picker .rw-widget-picker {
+    width: 250px;
+    height: 24px;
+}
+
+.be-form-component-container .be-form-group-data div.rw-datetime-picker .rw-widget-input {
+    box-shadow: none;
+}
+
+.be-form-component-container .rw-state-focus > .rw-datetime-picker:hover {
+    box-shadow: none !important;
+}
+
+.be-form-component-container .rw-state-focus > .rw-widget-container:hover {
+    box-shadow: none !important;
+}
+
+.be-form-component-container .rw-widget-container.rw-state-focus,
+.be-form-component-container .rw-state-focus > .rw-widget-container,
+.be-form-component-container .rw-widget-container.rw-state-focus:hover,
+.be-form-component-container .rw-state-focus > .rw-widget-container:hover {
+    box-shadow: none !important;
+}
+
+.be-form-component-container .d-section__header__container {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.be-form-component-container .one-to-many-header-title {
+    display: flex;
+    flex: 50%;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Roboto;
+}
+
+.be-form-component-container .one-to-many-child-section .d-section__header__container {
+    font-weight: normal;
+    font-size: 14px;
+    font-family: Roboto;
+}
+
+.be-form-component-container .d-button--secondary, .be-form-component-container button--secondary {
+    height: 24px;
+    color: #000000;
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #DDDDDD;
+    border: 1px solid #DDDDDD
+}
+
+.be-form-component-container .d-button--secondary:hover, .be-form-component-container button--secondary:hover {
+    box-shadow: none;
+    border: 1px solid #3399FF
+}
+
+.be-form-component-container .d-button--primary:hover, .be-form-component-container .button--primary:hover {
+    box-shadow: none;
+    background-color: #3399FF;
+}
+
+.be-form-component-container .d-button--primary, .be-form-component-container .button--primary {
+    height: 24px;
+    color: #FFFFFF;
+    font-family: Roboto;
+    Font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #0A4FC7;
+    border: 1px solid #0A4FC7;
+}
+
+.be-form-component-container .d-icon-button:hover, .be-form-component-container .icon-button:hover {
+    color: #3399ff;
+}
+
+.be-form-component-container .one-to-many-header .field-controls .aicon__grid-view,
+.be-form-component-container .one-to-many-header .field-controls .aicon__add-v1,
+.be-form-component-container .one-to-many-header .field-controls .aicon__card-view,
+.be-form-component-container .one-to-many-header .field-controls .aicon__sort,
+.be-form-component-container .one-to-many-header .field-controls .d-filter__icon,
+.be-form-component-container .one-to-many-child-section .aicon__add-v1 {
+    font-size: 20px !important;
+}
+
+.be-form-component-container .one-to-many-body {
+    overflow-x: auto;
+    max-width: calc(100vw - 260px);
+}
+
+.be-form-component-container .one-to-many-body table .d-table__header__cell {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    min-width: 120px;
+}
+
+.be-form-component-container .one-to-many-row-body .rw-datetime-picker .rw-widget-picker {
+    border-collapse: unset;
+    border: 1px solid #ccc;
+}
+
+.be-form-component-container .one-to-many-body table .be-form-display-value {
+    padding-top: 0px;
+    margin-bottom: 0px;
+}
+
+.be-form-component-container .one-to-many-body table .rw-datetime-picker .rw-widget-picker {
+    background: #ccc;
+}
+
+.be-form-component-container .one-to-many-body table .rw-datetime-picker .rw-widget-picker {
+    border-collapse: unset;
+    border: 1px solid #ccc;
+}
+
+.be-form-component-container .one-to-many-body table tbody td {
+    min-width: 150px;
+    padding: 7px 0;
+}
+
+.be-form-component-container .one-to-many-body .one-to-many-no-items-message-table {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.be-form-component-container .form .formik-group-3-column-layout .d-form__label {
+    width: 120px;
+}
+
+.be-form-component-container .one-to-many-body table .be-form-display-value {
+    font-family: Roboto !important;
+}
+
+.be-form-component-container .d-form__group .form__error,
+.be-form-component-container .d-form__group .d-form__error {
+    margin-left: 150px;
+    padding-left: .625em;
+}
+
+.be-form-component-container .formik-group-3-column-layout .d-form__group .form__error,
+.be-form-component-container .formik-group-3-column-layout .d-form__group .d-form__error {
+    margin-left: 120px;
+    padding-left: .625em;
+}
+
+.be-form-component-container .one-to-many-body table .d-form__field {
+    margin-bottom: 0px;
+}
+
+.be-form-component-container .one-to-many-container .one-to-many-header .one-to-many-section-mandatory,
+.one-to-many-child-section .one-to-many-section-mandatory,
+.be-form-component-container .one-to-many-body table .column__required__indicator {
+    color: #ec1c24;
+    padding-left: 5px;
+}
+
+.be-form-component-container .one-to-many-container .one__to__many__section__error{
+    margin: 15px 0;
+}
+
+.one-to-many-child-section .tree-container .one__to__many__section__error,
+.be-form-component-container .one-to-many-container .one__to__many__section__error,
+.be-form-component-container .one-to-many-body table .column__validation__error {
+    color: #ec1c24;
+}
+
+.be-form-component-container .one-to-many-body table .column__validation__error i {
+    color: #ec1c24;
+}
+
+.be-form-component-container .one-to-many-body table .column__validation__error__td {
+    min-width: 30px !important;
+    width: 30px !important;
+}
+
+.be-form-component-container .one-to-many-body table .column__validation__error__item__td {
+    min-width: 30px !important;
+    width: 30px !important;
+    border-left: 5px solid #ec1c24;
+}
+
+.be-form-component-container .one-to-many-body table .column__validation__error__th {
+    min-width: 30px !important;
+    width: 30px !important;
+}
+
+.d-form__error {
+    height: auto !important;
+}
+
+.be-form-root-error .d-form__error {
+    margin-left: 0 !important;
+}
+
+.be-form-many-root-error .d-form__error {
+    margin-left: -30px !important;
+}
+
+.beform__column__error {
+    background-color: #fbd2d3;
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,.2);
+    color: #000000;
+}
+
+.beform__column__error:after {
+    border-bottom: 6px solid #fbd2d3!important;
+}
+
+.beform__column__error i{
+    color: #ec1c24;
+}
+.one-to-many-child-section .d-section__content {
+    padding-top: 0 !important;
+}
+
+.be-form-component-container .be-form-group-data div.datepicker__field__error .rw-widget-picker {
+    border-color: #ec1c24;
+}
+
+.dropdown__field__error .d-dropdown__bar {
+    border: 1px solid #ec1c24;
+}
+
+/* cancel confirmation message box starts */
+.d-dialog{
+    background-color: #fff;
+}
+
+.d-dialog__header{
+    background-color: #f5f5f5;
+    padding: 15px 30px;
+    border-bottom: 1px solid #CCC;
+    font-size: 16px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.d-dialog__header .d-dialog__header__title {
+    font-weight: 400;
+}
+
+.beform__content__header{
+    margin-top: 30px;
+    padding: 0px 10px;
+}
+
+.d-dialog__content{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.beform__cancel__message__body,
+.beform__cancel__message__title{
+    font-family: Roboto;
+    line-height: 14px;
+    font-size: 14px;
+    color: #000;
+}
+
+ .beform__cancel__message__title{
+    font-weight: bold;
+    margin: 30px 0 0 15px;
+}
+
+.beform__cancel__message__body{
+    margin-bottom: 0px;
+    font-weight: 500;
+    margin-left: 45px;
+    margin-top: 20px;
+}
+
+.d-dialog__content, .d-dialog__footer {
+    background-color: #fff;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.beform__cancel__alert__icon {
+    height: 20px!important;
+    width: 20px!important;
+    vertical-align: middle!important;
+}
+
+.d-dialog__footer__buttons{
+    margin-right: 10px;
+}
+.section-container .hide-section-header > .d-section__header {
+    display: none !important;
+}
+.hide-section-header .d-section__content {
+    padding-top: 0 !important;
+}
+.section-container .d-section__content {
+     padding-top: 10px !important;
+     overflow-y: visible !important;
+}
+.be-form-component-container .d-form__label__text {
+    white-space: pre-wrap;
+}
+/* cancel confirmation message box ends */
+
+.be-form-component-container .one-to-many-body .d-table__body__empty-message {
+    display: none;
+}
+
+.input__error__box .d-input input,
+.input__error__box input.file__input,
+.input__error__box .d-input textarea,
+.input__error__box .d-dropdown__bar,
+.input__error__box .rw-datetime-picker .rw-widget-picker  {
+    border-color: #ec1c24 !important;
+}
+.be-form-component-container .tree-container .d-tree__node .rc-tree-checkbox{
+   background-image: url('./icons/checkbox.svg') !important;
+   margin: 6px 3px !important;
+}
+.be-form-component-container .tree-container .rc-tree-treenode-checkbox-checked .rc-tree-checkbox-checked{
+   background-image: url('./icons/checkbox_selected.svg') !important;
+   background-position: 0px 0 !important;
+}
+
+.be-form-component-container .tree-container .rc-tree-treenode-checkbox-indeterminate .rc-tree-checkbox-indeterminate{
+   background-image: url('./icons/checkbox_intermediate.svg') !important;
+   background-position: 0px 0 !important;
+}
+.be-form-component-container .tree-container span.rc-tree-checkbox.rc-tree-checkbox-checked.rc-tree-checkbox-disabled{
+   background-image: url('./icons/checkbox_selected_disabled.svg') !important;
+   background-position: 0px 0 !important;
+}
+
+.be-form-component-container .tree-container span.rc-tree-checkbox.rc-tree-checkbox-disabled{
+    background-image: url('./icons/checkbox_disabled.svg') !important;
+    background-position: 0px 0 !important;
+}
+.be-form-component-container .tree-container span.rc-tree-checkbox.rc-tree-checkbox-indeterminate.rc-tree-checkbox-disabled{
+   background-image: url('./icons/checkbox_indeterminate_disabled.svg') !important;
+   background-position: 0px 0 !important;
+}
+.be-form-component-container .tree-container span.rc-tree-checkbox.rc-tree-checkbox-indeterminate.rc-tree-checkbox-disabled:after{
+    content: none !important;
+}
+.d-version-2.d-table-container .d-table__body__cell--row-actions {
+    position: static;
+}
+.form__control.d-dropdown {
+    padding: initial;
+}
+
+.beForm_field {
+    width: 250px;
+    position: relative;
+    display: inline-flex;
+    margin-bottom: .625em;
+}
+
+.beForm_label {
+    font-size: 13px;
+    line-height: 1.5;
+    padding-top: 0.125em;
+    padding-right: .625em;
+    width: 150px;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.beform__checkbox__linebreak>:first-child {
+    width: 400px;
+    word-break: break-all;
+}
+
+.beform__textarea textarea {
+    flex: 1 !important;
+    font-family: inherit;
+}
+
+.beForm_error {
+    vertical-align: middle;
+    height: auto;
+    margin-bottom: .9375em;
+    line-height: 1.5;   
+}
+
+.beForm_group {
+    display: table-row;
+}
+
+.one-to-many-container .d-table {
+    width: initial!important;
+    min-width: 100%;
+}
+
+.one-to-many-container .d-table__cell--indicator {
+    display: none!important;
+}
+
+.beForm__radio__group {
+    display: flex;
+}
+
+.rw-popup-transition .rw-widget:hover {
+    box-shadow: 0 5px 6px rgb(0 0 0 / 20%);
+}
+
+/* Fix : color picker input container displays light color*/
+.rw-widget-picker.rw-widget-container input {
+    color: #000;
+}
+
+
+

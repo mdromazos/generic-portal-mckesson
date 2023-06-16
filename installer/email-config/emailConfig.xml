@@ -1,0 +1,41 @@
+<!--configuration for emails sent using ActiveVOS email service-->
+<email-configs>
+<!--configuration for email sent on supplier onboarding-->
+<email-config emailTemplate ="OnboardingRegistration">
+<replyTo></replyTo>
+<sendFrom></sendFrom>
+<subject>Welcome to the [organization_name] Portal</subject>
+<template>OnboardingRegistration_en</template>
+<type>text/html</type>
+</email-config>
+<!--configuration for email sent for password reset-->
+<email-config emailTemplate ="resetPassword">
+<replyTo></replyTo>
+<sendFrom></sendFrom>
+<subject>Password reset request</subject>
+<template>ResetPasswordInvitation_en</template>
+<type>text/html</type>
+</email-config>
+<!--configuration for email sent for password reset-->
+<email-config emailTemplate ="resetPasswordSuccessful">
+<replyTo></replyTo>
+<sendFrom></sendFrom>
+<subject>Password reset successfully</subject>
+<template>ResetPasswordSuccessful_en</template>
+<type>text/html</type>
+</email-config>
+<email-config emailTemplate ="setPassword">
+<replyTo></replyTo>
+<sendFrom></sendFrom>
+<subject>Portal user invitation</subject>
+<template>SetPasswordInvitation_en</template>
+<type>text/html</type>
+</email-config>
+<email-config emailTemplate ="setPasswordSuccessful">
+<replyTo></replyTo>
+<sendFrom></sendFrom>
+<subject>Password set successfully</subject>
+<template>SetPasswordSuccessful_en</template>
+<type>text/html</type>
+</email-config>
+</email-configs>

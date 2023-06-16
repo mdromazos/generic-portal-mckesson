@@ -1,0 +1,3 @@
+com\informatica\mdm\portal\metadata\ecore\validator\EcoreValidatorTest.class
+com\informatica\mdm\portal\metadata\service\impl\EcoreMapperServiceImplTest.class
+com\informatica\mdm\portal\metadata\service\impl\EcorePortalServiceImplTest.class
