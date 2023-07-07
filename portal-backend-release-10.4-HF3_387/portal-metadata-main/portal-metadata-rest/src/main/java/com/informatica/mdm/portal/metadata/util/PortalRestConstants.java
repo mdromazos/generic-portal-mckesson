@@ -59,6 +59,7 @@ public class PortalRestConstants {
 	public final static String DOT = "\\.";
 	public final static String ROWID_OBJECT = "rowidObject";
 	public final static String RECORD_ID= "recordId";
+	public final static String RECORD_IDS= "recordIds";
 	public final static String CMX_CS_URL = "/cmx/cs/";
 	public final static String COLON = ":";
 	public final static String PROTOCOL_SEPARATOR = "://";
@@ -128,6 +129,7 @@ public class PortalRestConstants {
 	public static final String PORTAL_UI_COOKIE_USERNAME = "username";
 	public static final String PORTAL_UI_COOKIE_STATE = "state";
 	public static final String PORTAL_UI_COOKIE_ROWID = "rowId";
+	public static final String PORTAL_UI_COOKIE_ROWIDS = "rowIds";
 	public static final String PORTAL_UI_COOKIE_ROLE = "role";
 	public static final String PORTAL_UI_COOKIE_ORS = "orsId";
     public static final String PORTAL_SHELL_URL = "%s/portal-ui/%s/%s/shell";

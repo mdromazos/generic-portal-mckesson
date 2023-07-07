@@ -48,6 +48,7 @@ import org.springframework.web.client.RestTemplate;
 import org.apache.commons.lang3.StringUtils;
 import com.informatica.mdm.portal.metadata.util.ExternalConfigConstants;
 import org.springframework.http.server.ServletServerHttpRequest;
+import org.springframework.http.server.ServletServerHttpResponse;
 import javax.servlet.http.Cookie;
 
 import com.informatica.mdm.portal.metadata.model.LoginData;
@@ -70,6 +71,9 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import com.siperian.sif.client.CertificateHelper;
 import com.informatica.mdm.portal.metadata.service.PortalUIService;
+
+import org.springframework.http.ResponseCookie;
+import java.net.URLEncoder;
 
 
 @RestControllerAdvice
@@ -154,6 +158,7 @@ public class PortalLogoAdvice implements ResponseBodyAdvice<Object> {
         try {
             initialize();
             ServletServerHttpRequest servletRequest = ((ServletServerHttpRequest) request);
+			ServletServerHttpResponse servletResponse = ((ServletServerHttpResponse) response);
 
             String portalId = request.getHeaders().getFirst(PortalRestConstants.HEADER_ATTRIBUTE_PORTAL_ID);
             String orsId = request.getHeaders().getFirst(PortalRestConstants.HEADER_ATTRIBUTE_ORS_ID);
@@ -171,6 +176,13 @@ public class PortalLogoAdvice implements ResponseBodyAdvice<Object> {
             String responsebody = readBEResponse.getBody();
             
 			JsonNode responseNode = mapper.readTree(responsebody);
+
+			List<String> recordIds = getRecordIds(responseNode, beName);
+
+			String pathUI = PortalRestConstants.PORTAL_UI_PATH + PortalRestConstants.PORTAL_UI_CONTEXT
+				+ PortalRestConstants.PORTAL_UI_PATH+ portalId + PortalRestConstants.PORTAL_UI_PATH + orsId;
+				servletResponse.getServletResponse().addCookie(PortalRestUtil.createCookie(PortalRestConstants.PORTAL_UI_COOKIE_ROWIDS, String.join(",", recordIds).trim(),
+                pathUI, true, false, StandardCharsets.UTF_8.toString()));
     
             if (responseNode != null) {
 
@@ -188,6 +200,28 @@ public class PortalLogoAdvice implements ResponseBodyAdvice<Object> {
         
         return body;
     }
+
+	private List<String> getRecordIds(JsonNode responseNode, String beName) {
+		if (responseNode.get(PortalRestConstants.ITEM) == null)
+			return null;
+		
+		List<String> recordIds = new ArrayList<String>();
+
+		log.info("BE NODE ITEM: " + responseNode.get(PortalRestConstants.ITEM));
+
+		for (JsonNode beNode : responseNode.get(PortalRestConstants.ITEM)) {
+			if (beNode.get(beName) == null)
+				continue;
+
+				log.info("BE NODE ENTITY: " + beNode.get(beName));
+			log.info("BE NODE ENTITY ROWID: " + beNode.get(beName).get(PortalRestConstants.ROWID_OBJECT).asText());
+			String recordId = beNode.get(beName).get(PortalRestConstants.ROWID_OBJECT).asText();
+
+			if (recordId != null)
+				recordIds.add(recordId);
+		}
+		return recordIds;
+	}
 
     private ResponseEntity<String> searchSupplier(String orsId, String portalId, String userName, JsonNode portalConfigNode) throws Exception {
         LoginData loginData = getLoginData(orsId, portalId, userName, portalConfigNode);

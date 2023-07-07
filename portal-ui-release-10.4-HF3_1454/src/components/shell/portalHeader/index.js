@@ -28,6 +28,14 @@ const PortalHeader = ({ match, history }) => {
         }
     },[!editStatus, type]);
 
+    const getRowId = () => {
+        return decodeURIComponent(document.cookie.match(/rowId=([^;]*)/) ? document.cookie.match(/rowId=([^;]*)/)[1]:'');
+    };
+
+    const getRowIds = () => {
+        return decodeURIComponent(document.cookie.match(/rowIds=([^;]*)/) ? document.cookie.match(/rowIds=([^;]*)/)[1]:'');
+    };
+
     const logOut = () => {
         const successCallback = (response) => {
             localStorage.removeItem(SESSION_TIMEOUT_VALUE +"_"+ match.params.id);
@@ -86,6 +94,64 @@ const PortalHeader = ({ match, history }) => {
         }
     }
 
+    function setMainRowid(event, rowid){
+
+        const successCallback = (response) => {
+            document.cookie = "rowId=" + rowid;
+            editStatusAction(false, null, false, null);
+            window.location.reload(false);
+            // navigate(`/${match.params.id}/${match.params.orsId}/shell`)
+            // history.push(`/${match.params.id}/${match.params.orsId}/shell/${match.params.pageId}`);
+        };
+
+        const failureCallback = ({response:{data:{errorCode}}}) => {
+            if (errorCode) {
+                dispatchAppNotification(translate(errorCode), CONSTANTS.NOTIFICATION_ERROR);
+            }
+            else {
+                dispatchAppNotification(translate('GENERIC__ERROR__MESSAGE'), CONSTANTS.NOTIFICATION_ERROR);
+            }
+        };
+
+        APIService.postRequest(
+            "/infa-portal/portals/active/supplier/" + match.params.id + "/" + rowid,
+            {},
+            successCallback,
+            failureCallback,
+            { [CONFIG.PORTAL_ID_HEADER]: match.params.id, [CONFIG.ORS_ID]: match.params.orsId }
+        );
+        return true;
+    }
+
+    const getMenuRowids = () => {
+        let menuRowids = [];
+        var rowids = getRowIds() && getRowIds().split(',');
+        rowids.forEach(rowid => {
+            rowid = rowid.trim();
+            if (rowid === getRowId()) {
+                menuRowids.push(
+                    <div>
+                        <Menu.Separator />
+                        <Menu.Item disabled data-testid="header__menu__item">
+                            {translate("ACTIVE")} - {rowid}
+                        </Menu.Item>
+                    </div>
+                );
+            } else {
+                menuRowids.push(
+                    <div>
+                        <Menu.Separator />
+                        <Menu.Item data-testid="header__menu__item" onClick={(event) => setMainRowid(event, rowid)}>
+                            {rowid}
+                        </Menu.Item>
+                    </div>
+                );
+            }
+        });
+
+        return menuRowids;
+    }
+
     return (
         <>
             {
@@ -99,6 +165,25 @@ const PortalHeader = ({ match, history }) => {
                     <span className="portal__header__name" style={{ color: header.fontColor }} data-testid="portal__header__title">
                         { portalTitle }
                     </span>
+                    <div className="rowids__section">
+                        <div className="user__icon__div">
+                            <Menu 
+                                trigger={
+                                    <IconButton className="button button__icon portal__header__user__icon"
+                                        style={{ color: header.fontColor }} data-testid="portal__header__menu"
+                                    >
+                                        {/* <i className="aicon aicon__user user-icon" /> */}
+                                        Accounts
+                                    </IconButton>
+                                }
+                            >
+                                <Menu.Item disabled data-testid="header__menu__item">
+                                    {translate("ACCOUNTS")}
+                                </Menu.Item>
+                                { getMenuRowids() }
+                            </Menu>
+                        </div>
+                    </div>
                     <div className="profile__section">
                         <div className="user__icon__div">
                             <Menu 

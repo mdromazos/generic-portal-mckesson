@@ -13,7 +13,6 @@ C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\util\PortalRestUtil.java
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\rest\ChangePasswordController.java
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\rest\PortalProxyController.java
-C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\auth\config\PortalLogoInterceptor.java
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\app\PortalApplication.java
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\rest\PortalConfigLoginController.java
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\auth\config\PortalLogoAdvice.java
@@ -22,6 +21,7 @@ C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\auth\service\impl\PortalProxyServiceImpl.java
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\auth\service\AuthService.java
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\model\LoginData.java
+C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\rest\CustomPortalUIController.java
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\auth\service\PortalProxyService.java
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\rest\PortalLoginController.java
 C:\Users\mdromazo\Perforce\generic-portal-release\portal-backend-release-10.4-HF3_387\portal-metadata-main\portal-metadata-rest\src\main\java\com\informatica\mdm\portal\metadata\auth\config\WebMvcConfig.java

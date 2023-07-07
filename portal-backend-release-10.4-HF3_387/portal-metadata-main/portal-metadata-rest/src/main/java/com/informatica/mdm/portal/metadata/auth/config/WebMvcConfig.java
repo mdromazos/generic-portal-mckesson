@@ -28,9 +28,6 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 	 
 	 @Autowired
 	 AuthorizationInterceptor authorizationInterceptor;
-
-	 @Autowired
-	 PortalLogoInterceptor portalLogoInterceptor;
 	 
 	 @Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -62,15 +59,6 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 				.excludePathPatterns(PortalRestConstants.CONFIG_SESSION_MAPPING_URL)
 				.excludePathPatterns(PortalRestConstants.GLOBAL_CONFIG_MAPPING_URL)
 				.excludePathPatterns(PortalRestConstants.PORTAL_PROXY_URL);
-		registry.addInterceptor(portalLogoInterceptor).excludePathPatterns(PortalRestConstants.CONFIG_UI)
-				.excludePathPatterns(PortalRestConstants.ERROR_MAPPING_URL)
-				.excludePathPatterns(PortalRestConstants.REST_DOC_MAPPING_URL)
-				.excludePathPatterns(PortalRestConstants.PORTAL_SESSION_MAPPING_URL)
-				.excludePathPatterns(PortalRestConstants.PORTAL_LOGIN_MAPPING_URL)
-				.excludePathPatterns(PortalRestConstants.PORTAL_LOGOUT_MAPPING_URL)
-				.excludePathPatterns(PortalRestConstants.PORTAL_PROXY_URL)
-				.excludePathPatterns(PortalRestConstants.RUNTIME_URI)
-                .excludePathPatterns(PortalRestConstants.SAML_URI);
 	}
 
 	@Override

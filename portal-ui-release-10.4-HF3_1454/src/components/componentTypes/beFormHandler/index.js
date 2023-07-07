@@ -29,6 +29,10 @@ const BEFormHandler = ({match, beMeta, mode, maxColumns, activePageName, history
         return decodeURIComponent(document.cookie.match(/rowId=([^;]*)/) ? document.cookie.match(/rowId=([^;]*)/)[1]:'');
     };
 
+    // const getRowIds = () => {
+    //     return decodeURIComponent(document.cookie.match(/rowIds=([^;]*)/) ? document.cookie.match(/rowIds=([^;]*)/)[1]:'');
+    // };
+
     const handleBeFormSave = (values, actions, onSaveSuccess, onSaveFailure) => {
         actions.setSubmitting(true);
 
