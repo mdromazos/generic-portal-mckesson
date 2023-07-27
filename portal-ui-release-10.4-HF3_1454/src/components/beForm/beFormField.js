@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Form, Tooltip, IconButton, Input, Dropdown, Checkbox, Radio, Textarea, DateTimePicker } from "@informatica/droplets-core";
 import moment from "moment";
 import momentLocalizer from "react-widgets-moment";
@@ -155,7 +155,7 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
                     />;
 
                 case DATA_TYPES.HYPERLINKTEXT: // ADDED
-                    return <div className={fieldClassName}><a href={fieldVal}>{fieldVal}</a></div>;
+                    return <div className={fieldClassName}><a href={fieldVal} target="_blank" rel="noopener noreferrer">{fieldVal}</a></div>;
 
                 default:
                     if (beField.fieldType === FIELD_TYPES.CHECKBOX || beField.fieldType === FIELD_TYPES.RADIO_BUTTON) {
@@ -179,6 +179,36 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
         }
     };
 
+    const onBlurUpdateFieldValue = useCallback(
+        (props, fieldName, isRequired) => {
+            if(isRequired) {
+                formikProps.setFieldTouched(fieldName, true);
+            } else {
+                formikProps.setFieldTouched(fieldName, true, false);
+            }
+          if (props.target.value) {
+            formikProps.setFieldValue(fieldName, props.target.value, !!isRequired);
+          } else {
+            formikProps.setFieldValue(fieldName, undefined, !!isRequired);
+          }
+        },
+        [formikProps],
+      );
+    
+    const onBlurUpdateDropDownFieldValue = useCallback((props, fieldName, isRequired) => {
+        if(isRequired) {
+            formikProps.setFieldTouched(fieldName, true);
+        } else {
+            formikProps.setFieldTouched(fieldName, true, false);
+        }
+        if (props && props.length > 0 && props[0].value) {
+            lookupChangeHandler(props[0]);
+            formikProps.setFieldValue(fieldName, props[0].value, !!isRequired);
+        } else {
+            formikProps.setFieldValue(fieldName, undefined, !!isRequired);
+        }
+    }, [formikProps, lookupChangeHandler])  
+
     const getFieldInEditMode = (fieldName) => {
 
         let fieldErrorMsg = getFieldValue(formikProps.errors, fieldName);
@@ -189,9 +219,8 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
                     data-testid={fieldName+"_input"}
                     className='beForm_field'
                     variant={fieldErrorMsg ? "error" : ""}
-                    value={getFieldValue(formikProps.values, fieldName)}
-                    onChange={formikProps.handleChange}
-                    onBlur={formikProps.handleBlur}
+                    defaultValue={getFieldValue(formikProps.values, fieldName)}
+                    onBlur={(props) => onBlurUpdateFieldValue(props, fieldName, beField.required)}
                     name={fieldName}
                 />;
 
@@ -201,9 +230,8 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
                     data-testid={fieldName+"_input"}
                     className="beForm_field beform__textarea"
                     variant={fieldErrorMsg ? "error" : ""}
-                    value={getFieldValue(formikProps.values, fieldName)}
-                    onChange={formikProps.handleChange}
-                    onBlur={formikProps.handleBlur}
+                    defaultValue={getFieldValue(formikProps.values, fieldName)}
+                    onBlur={(props) => onBlurUpdateFieldValue(props, fieldName, beField.required)}
                     name={fieldName}
                     rows={6}
                 />;
@@ -256,7 +284,7 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
                     data-testid={fieldName+"_input"}
                     options={getLookupOptions()}
                     name={fieldName}
-                    onBlur={() => formikProps.setFieldTouched(fieldName, true)}
+                    onBlur={(props) => onBlurUpdateDropDownFieldValue(props, fieldName, beField.required)}
                     value={getFieldValue(formikProps.values, fieldName)}
                     search
                 />;
@@ -273,8 +301,7 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
                     value={getFieldValue(formikProps.values, fieldName)}
                     disabled={formDisabled}
                     name={fieldName}
-                    onChange={formikProps.handleChange}
-                    onBlur={formikProps.handleBlur}
+                    onBlur={(props) => onBlurUpdateDropDownFieldValue(props, fieldName, beField.required)}
                 />;
 
             case DATA_TYPES.INTEGER:
@@ -287,8 +314,7 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
                     value={getFieldValue(formikProps.values, fieldName)}
                     disabled={formDisabled}
                     name={fieldName}
-                    onChange={formikProps.handleChange}
-                    onBlur={formikProps.handleBlur}
+                    onBlur={(props) => onBlurUpdateDropDownFieldValue(props, fieldName, beField.required)}
                 />;
 
             case DATA_TYPES.DATE:
@@ -330,8 +356,7 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
                     value={getFieldValue(formikProps.values, fieldName)}
                     maxLength={beField.length}
                     name={fieldName}
-                    onChange={formikProps.handleChange}
-                    onBlur={formikProps.handleBlur}
+                    onBlur={(props) => onBlurUpdateDropDownFieldValue(props, fieldName, beField.required)}
                 />;
         }
     };

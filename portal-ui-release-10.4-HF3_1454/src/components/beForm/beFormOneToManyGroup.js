@@ -175,7 +175,7 @@ export const BEFormOneToManyGroup = ({
                 && beField.beFormFields.map((beManyChild, childIndex) => {
                     if (!beManyChild.many) {
                         if (!beManyChild.isHidden) {
-                            beManyChild.isReadOnly = pendingProtected;
+                            if (!beManyChild.isReadOnly) beManyChild.isReadOnly = pendingProtected;
                             let manyDt = { parentName: fieldName, row: i };
                             return <BEFormField
                                 key={`formField_${oneToManyRowId}_${childIndex}`}
@@ -204,10 +204,10 @@ export const BEFormOneToManyGroup = ({
                             if (oneToManyData.item && oneToManyData.item[i] && oneToManyData.item[i].rowidObject) {
                                 parentDataPathName = beField.name + "/" + oneToManyData.item[i].rowidObject;
                             }
-                            // parentDataPathName = (parentDataPath !== "") ? parentDataPath + "/" + parentDataPathName : parentDataPathName;
+                            parentDataPathName = (parentDataPath !== "") ? parentDataPath + "/" + parentDataPathName : parentDataPathName;
 
                             return <BEFormOneToManyGroup
-                                key={`formOneToManyGroup_${childIndex}_${index}`}
+                                key={`formOneToManyGroup_${childIndex}_${index}_${oneToManyRowId}`}
                                 beField={beManyChild}
                                 index={`${childIndex}_${index}`}
                                 sectionMetaData={sectionMetaData}
@@ -224,7 +224,7 @@ export const BEFormOneToManyGroup = ({
                                 updateBEData={updateBEData}
                                 view={viewMode}
                                 getOneToManyBEDataHandler={getOneToManyBEDataHandler}
-                                parentDataPath={parentDataPathName !== "" ? parentDataPathName : null}
+                                parentDataPath={parentDataPathName}
                                 manyLevel={manyLevel + 1}
                             />
                         }
@@ -243,6 +243,7 @@ export const BEFormOneToManyGroup = ({
                     groupValidationErrors={groupValidationErrors}
                     rowIndex={i}
                     pendingProtected={pendingProtected}
+                    key={`beFormOnetoManyRowItem__${i}`}
                 >
                     {itemRow}
                 </BEFormOneToManyRowItem>

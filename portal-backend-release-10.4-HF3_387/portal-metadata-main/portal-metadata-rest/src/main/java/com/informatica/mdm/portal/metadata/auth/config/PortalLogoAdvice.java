@@ -141,7 +141,7 @@ public class PortalLogoAdvice implements ResponseBodyAdvice<Object> {
         // log.info("CONTAINS CLASS: " + className.contains("GlobalConfigController"));
         // log.info("CONTAINS METHOD: " + methodName.contains("getGlobalConfiguration"));
         if (className.contains("GlobalConfigController") && methodName.contains("getGlobalConfiguration")) {
-            log.info("CLASS CONTAINS NAME and METHOD");
+            // log.info("CLASS CONTAINS NAME and METHOD");
             return true;
         }
         return false;
@@ -223,45 +223,6 @@ public class PortalLogoAdvice implements ResponseBodyAdvice<Object> {
         return response;
 	}
 
-
-	public ResponseEntity<String> searchBERecord( String beName, String orsId,
-			String baseURL, String securityPayload, String selectedLocale, String filterKey, String filterVlaue, String ICT)
-			throws PortalConfigException {
-
-		ResponseEntity<String> response = null;
-		try {
-			StringBuilder children = new StringBuilder("");
-			String[] filterKeyPath = filterKey.split(PortalServiceConstants.DOT);
-			if(filterKeyPath.length>1) {
-			children = children.append(PortalServiceConstants.AND).append(PortalServiceConstants.CHILDREN).append(PortalServiceConstants.EQUALS)
-			.append(filterKeyPath[0]).append(".").append(PortalServiceConstants.DEPTH).append(PortalServiceConstants.EQUALS).append(filterKeyPath.length-1);
-			}
-			String url = String.format(PortalServiceConstants.SEARCH_BE_URL, baseURL, orsId, beName, filterKey,
-					filterVlaue,children.toString());
-			log.info("Search Entity api url {}", url);
-			HttpHeaders headers = new HttpHeaders();
-			String authCookie = ExternalConfigConstants.AUTH_MDM_ATTRIBUTE + "=" + securityPayload;
-			if (StringUtils.isNotEmpty(selectedLocale)) {
-				authCookie = StringUtils.join(authCookie, ";selectedLocale=", selectedLocale);
-			}
-			headers.add(PortalServiceConstants.MDM_CSRF_TOKEN_HEADER, ICT);
-			headers.add(HttpHeaders.COOKIE, authCookie);
-			headers.add(PortalServiceConstants.CONTENT_TYPE, PortalServiceConstants.APPLICATION_JSON);
-			response = PortalConfigUtil.executeRest(url, HttpMethod.GET, null, headers, restTemplate);
-		
-		}  catch (Exception e) {
-			throw new PortalConfigException(ErrorCodeContants.CONFIG615,
-					errorCodeProperties.getProperty(ErrorCodeContants.CONFIG615), e.getMessage());
-		}
-		if (response.getStatusCode() == HttpStatus.OK) {
-			return response;
-		} else {
-			throw new PortalConfigException(ErrorCodeContants.CONFIG604,
-					errorCodeProperties.getProperty(ErrorCodeContants.CONFIG604), "Failed to search business entity record\"");
-		}
-
-	}
-
     private List<String> getBusinessUnits(JsonNode supplierRecord) {
         List<String> businessUnits = new ArrayList<String>();
         JsonNode companyCodeNode = supplierRecord.get("CompanyCode");
@@ -273,7 +234,7 @@ public class PortalLogoAdvice implements ResponseBodyAdvice<Object> {
             return businessUnits;
         }
         for (JsonNode companyCdItem : companyCdsNode) {
-            log.info("COMPANY CODE ITEM:  " + companyCdItem);
+            // log.info("COMPANY CODE ITEM:  " + companyCdItem);
             JsonNode buLookupNode = companyCdItem.get("bsnsUnit");
             if (buLookupNode == null) {
                 log.error("BU LOOKUP NODE IS NULL");
@@ -285,7 +246,7 @@ public class PortalLogoAdvice implements ResponseBodyAdvice<Object> {
                 break;
             }
             String buValue = buNode.asText();
-            log.info("BU VALUE: " + buValue);
+            // log.info("BU VALUE: " + buValue);
             if (buValue != null) {
                 businessUnits.add(buValue);
             }

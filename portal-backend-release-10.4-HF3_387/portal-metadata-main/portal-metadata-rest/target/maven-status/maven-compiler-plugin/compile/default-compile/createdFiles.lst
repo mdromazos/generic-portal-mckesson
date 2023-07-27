@@ -6,7 +6,6 @@ com\informatica\mdm\portal\metadata\rest\PortalUIController.class
 com\informatica\mdm\portal\metadata\util\PortalRestConstants.class
 com\informatica\mdm\portal\metadata\auth\service\AuthService.class
 com\informatica\mdm\portal\metadata\rest\PortalConfigLoginController.class
-com\informatica\mdm\portal\metadata\auth\config\PortalLogoInterceptor.class
 com\informatica\mdm\portal\metadata\rest\SamlConfigController.class
 com\informatica\mdm\portal\metadata\auth\config\PortalUIInterceptor.class
 com\informatica\mdm\portal\metadata\rest\PortalProxyController.class

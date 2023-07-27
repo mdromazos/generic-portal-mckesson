@@ -191,8 +191,10 @@ public class PortalUIServiceImpl implements PortalUIService {
 				PortalServiceConstants.TRUSTED_APP + "/" + trustedUser, orsId, "getObjectMetadataUsingGET");
 
 		credentials = new Credentials(PortalServiceConstants.TRUSTED_APP, securityPayload);
+		log.info("BEFORE INVOKE EXTERNAL CONFIG SERVICE");
 		externalConfigFactory.invokeExternalConfigService(portalConfigNode, credentials, orsId, securityPayload, true,
 				initialUrl, selectedLocale,ict);
+		log.info("AFTER INVOKE EXTERNAL CONFIG SERVICE");
 
 		try {
 			if (null != portalConfigNode) {
