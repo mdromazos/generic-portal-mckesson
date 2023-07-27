@@ -48,6 +48,7 @@ public class PortalMetadataContants {
     public static final String STATE_ATTRIBUTE = "states";
     public static final String PORTAL_ATTRIBUTE = "portals";
     public static final String TITLE_ATTRIBUTE = "title";
+    public static final String DESCRIPTION_ATTRIBUTE = "description";
     public static final String CONTAINER_ATTRIBUTE = "containers";
     public static final String SECTION_ATTRIBUTE = "sections";
     public static final String COMPONENT_ATTRIBUTE = "components";

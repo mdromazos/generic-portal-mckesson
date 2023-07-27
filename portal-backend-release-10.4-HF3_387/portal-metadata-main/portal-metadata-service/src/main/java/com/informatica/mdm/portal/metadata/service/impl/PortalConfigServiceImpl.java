@@ -1793,7 +1793,8 @@ public class PortalConfigServiceImpl implements PortalConfigService {
 						|| fieldName.equalsIgnoreCase(PortalMetadataContants.OVERVIEW_HEADING)
 						|| fieldName.equalsIgnoreCase(PortalMetadataContants.SECTION_HEADING)
 						|| fieldName.equalsIgnoreCase(PortalMetadataContants.HEADING)
-						|| fieldName.equalsIgnoreCase(PortalMetadataContants.BODY))) {
+						|| fieldName.equalsIgnoreCase(PortalMetadataContants.BODY))
+						|| fieldName.equalsIgnoreCase(PortalMetadataContants.DESCRIPTION_ATTRIBUTE)) {
 					props.setProperty(prefix + "." + fieldName, iterNode.asText());
 				}
 			}
