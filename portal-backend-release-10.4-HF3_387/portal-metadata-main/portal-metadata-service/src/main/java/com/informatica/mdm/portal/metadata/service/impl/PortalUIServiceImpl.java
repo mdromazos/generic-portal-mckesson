@@ -89,6 +89,8 @@ import com.siperian.sam.PkiUtilProvider;
 import com.siperian.sam.security.certificate.PKIUtil;
 import com.siperian.sif.client.CertificateHelper;
 
+import java.util.Arrays;
+
 @Service
 public class PortalUIServiceImpl implements PortalUIService {
 
@@ -174,15 +176,25 @@ public class PortalUIServiceImpl implements PortalUIService {
 			String selectedLocale,String ict) throws PortalConfigException {
 
 		ObjectNode portalNode = null;
-		JsonNode portalConfigNode = portalPersistenceService.getPublishedPortalConfig(credentials, portalId, orsId);
+		JsonNode publishedPortalConfig = portalPersistenceService.getPublishedPortalConfig(credentials, portalId, orsId);
 
+		log.info("STATUS: " + publishedPortalConfig.get(PortalMetadataContants.PORTAL_STATUS_ATTRIBUTE).asText());
 		Properties externalBundleProperty = null != externalBundleProperties.get(portalId) ? externalBundleProperties
 				.get(portalId).get(null != selectedLocale ? selectedLocale : PortalServiceConstants.DEFAULT_LOCALE)
 				: null;
 
 		if (null != externalBundleProperty) {
-			enrichBundles(portalConfigNode, externalBundleProperty);
+			enrichBundles(publishedPortalConfig, externalBundleProperty);
 		}
+
+		// NEW
+		JsonNode portalConfigNode = mapper.createObjectNode();
+		((ObjectNode) portalConfigNode)
+			.set(PortalMetadataContants.GENERAL_SETTINGS, publishedPortalConfig.get(PortalMetadataContants.GENERAL_SETTINGS));
+		((ObjectNode) portalConfigNode)
+			.put(PortalMetadataContants.PORTAL_STATUS_ATTRIBUTE, publishedPortalConfig.get(PortalMetadataContants.PORTAL_STATUS_ATTRIBUTE).asText());
+		String prettyPrint = portalConfigNode.toPrettyString();
+		log.info("PRETTY PRINT: " + prettyPrint);
 
 		String trustedUser = getTrustedAppUser(portalId, orsId);
 		log.info("Global Api BE Trusted user name is {}", trustedUser);
@@ -212,7 +224,7 @@ public class PortalUIServiceImpl implements PortalUIService {
 						portalNode.putArray(processNode.getKey()).addAll((ArrayNode) processNode.getValue());
 					}
 				}
-
+				log.info("AFTER SET GENERAL");
 				portalNode.put(PortalMetadataContants.PORTAL_STATUS_ATTRIBUTE,
 						portalConfigNode.get(PortalMetadataContants.PORTAL_STATUS_ATTRIBUTE).asText());
 			}
