@@ -19,26 +19,65 @@ const Shell = ({ match, history }) => {
         globalActions: { setPortalConfiguration },
         pageMetadata: { loadPortalPages, pages },
         notificationActions : {dispatchAppNotification},
-        userPreferenceActions : { updateUserPreference }
+        userPreferenceActions : { updateUserPreference },
+        runtimeConfigurationActions: { setRuntimeConfigurationAction },
     }] = useContext(StateContext);
     const { t: translate } = useTranslation();
-    const { CONSTANTS, SESSION_POLICY:{SESSION_TIMEOUT_VALUE, SESSION_TIMEOUT_WARNING_VALUE}, USER_NAME } = CONFIG;
-    let portalSessionTimeOut = SESSION_TIMEOUT_VALUE +"_"+ match.params.id;
+    const { CONSTANTS, 
+        SESSION_POLICY: { SESSION_TIMEOUT_VALUE, SESSION_SECTION, SESSION_TIMEOUT_WARNING_VALUE, SESSION_TIMEOUT, SESSION_WARNING, SESSION_TIMEOUT_INITIAL_VALUE },
+        USER_NAME } = CONFIG;    let portalSessionTimeOut = SESSION_TIMEOUT_VALUE +"_"+ match.params.id;
     let portalSessionWarningTimeOut = SESSION_TIMEOUT_WARNING_VALUE+"_"+ match.params.id;
 
     const [sessionTimeout, setSessionTimeout] = useState(localStorage.getItem(portalSessionTimeOut));
     const [sessionTimeoutWarning, setSessionTimeoutWarning] = useState(localStorage.getItem(portalSessionWarningTimeOut));
 
-    useEffect(() => {
-        validateAndLoadPortalMetadata();
-        startSessionTimeout();
-    }, []);
-
+    
     const startSessionTimeout = () => {
         const timeoutValue = localStorage.getItem(portalSessionTimeOut);
         const warningValue = localStorage.getItem(portalSessionWarningTimeOut);
         setSessionTimeout(timeoutValue);
         setSessionTimeoutWarning(warningValue);
+    };
+
+    useEffect(() => {
+        const samlCookie = getCookie(`portalprovider-${match.params.orsId}-${match.params.id}`)
+        if(samlCookie === 'SAML') {
+            fetchRuntimeConfigurationData()
+        } else {
+            tartSessionTimeout();
+        }
+        validateAndLoadPortalMetadata();
+    }, []);
+
+
+    const fetchRuntimeConfigurationData = () => {
+        const successCallback = (resp) => {
+            const runtimeTransformedData = {};
+            for (let section = 0; section < resp.length; section += 1) {
+                runtimeTransformedData[resp[section].name] = {};
+    
+                for (let configIndex = 0; configIndex < resp[section].configuration.length; configIndex += 1) {
+                    runtimeTransformedData[resp[section].name][resp[section].configuration[configIndex].key] = resp[section].configuration[configIndex];
+                }
+            }
+            const sessionConfig = runtimeTransformedData[SESSION_SECTION];
+            localStorage.setItem(`${SESSION_TIMEOUT_VALUE}_${match.params.id}`, sessionConfig[SESSION_TIMEOUT].value * 60);
+            localStorage.setItem(`${SESSION_TIMEOUT_WARNING_VALUE}_${match.params.id}`, sessionConfig[SESSION_WARNING].value * 60);
+            localStorage.setItem(`${SESSION_TIMEOUT_INITIAL_VALUE}_${match.params.id}`, sessionConfig[SESSION_TIMEOUT].value * 60);
+    
+            setSessionTimeout(sessionConfig[SESSION_TIMEOUT].value * 60);
+            setSessionTimeoutWarning(sessionConfig[SESSION_WARNING].value * 60);      
+            setRuntimeConfigurationAction(runtimeTransformedData);
+        };
+        const failureCallback = ({ response }) => {
+        const { data } = response || {}
+            if (data && data.errorCode) {
+                dispatchAppNotification(translate(data.errorCode), CONSTANTS.NOTIFICATION_ERROR);
+            } else {
+                dispatchAppNotification(translate('GENERIC__ERROR__MESSAGE'), CONSTANTS.NOTIFICATION_ERROR);
+            }
+        };
+        APIService.getRequest(URLMap.getRuntimeConfigurationData(match.params.id), successCallback, failureCallback, URLMap.generateHeader(match.params.orsId));
     };
 
     const validateAndLoadPortalMetadata = () => {
@@ -155,12 +194,12 @@ const Shell = ({ match, history }) => {
 
     return (
         <>
-            <SessionTimeout
+            {sessionTimeout && sessionTimeoutWarning && <SessionTimeout
                 timeout = { parseInt(sessionTimeout) }
                 sessionTimeoutWarning = { parseInt(sessionTimeoutWarning) }
                 match = {match}
                 history = {history}
-            />
+            />}
             <PortalHeader match={match} history={history} />
             <PortalBody match={match} history={history} />
         </>
