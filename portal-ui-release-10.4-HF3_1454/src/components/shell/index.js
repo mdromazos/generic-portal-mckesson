@@ -44,7 +44,7 @@ const Shell = ({ match, history }) => {
         if(samlCookie === 'SAML') {
             fetchRuntimeConfigurationData()
         } else {
-            tartSessionTimeout();
+            startSessionTimeout();
         }
         validateAndLoadPortalMetadata();
     }, []);
