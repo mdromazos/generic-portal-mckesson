@@ -51,11 +51,11 @@ export const BEFormSection = ({
                 </Form.Group>	
             </div>}
             {/* ADDED */}
-            {beData && beData.pendingProtected && <div className="be-form-root-error" data-testid={section.name+"rootError"}>	
+            {/* {beData && beData.pendingProtected && <div className="be-form-root-error" data-testid={section.name+"rootError"}>	
                 <Form.Group name={"rootError"} key={"root"}>	
-                    <Form.Error>Root fields are currently pending under review by supplier liaison</Form.Error>	
+                    <Form.Warning>Root fields are currently pending under review by supplier liaison</Form.Warning>	
                 </Form.Group>	
-            </div>}
+            </div>} */}
             <Section title={section.name} collapsible className={section.hideName ? "hide-section-header" : ""} data-testid={section.name}>
                 <div className="section-body">
                     {

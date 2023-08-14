@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext, forwardRef, useImperativeHandle, useRef } from "react";
-import { Button, MessageBox, useMessageBoxState } from "@informatica/droplets-core";
+import { Button, MessageBox, useMessageBoxState, Form } from "@informatica/droplets-core";
 import { Formik } from 'formik';
 import PropTypes from "prop-types";
 import moment from "moment";
@@ -1009,6 +1009,12 @@ export const BEForm = forwardRef(({
                         />
                     }
                 </div>
+                {/* ADDED */}
+                {updatedBEData && updatedBEData.pendingProtected && <div className="beForm_error" data-testid={"rootError"}>	
+                    <Form.Group name={"rootError"} key={"root"}>	
+                        <Form.Warning>{translate("BE_FORM_ROOT_PENDING")}</Form.Warning>	
+                    </Form.Group>	
+                </div>}
                 <div className="be-form-group-data">
                     {
                         getSectionDetails(beMeta, formikProps)
