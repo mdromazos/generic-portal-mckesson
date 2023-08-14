@@ -225,5 +225,7 @@
   "CONFIG1110": "ID 공급자 로그인 페이지를 열 수 없습니다. 나중에 다시 시도하십시오.",
   "CONFIG1112": "로그인 후 포털 페이지로 리디렉션하는 중 SAML 응답에서 몇 가지 오류를 발견했습니다.",
   "CONFIG1113": "포털에 잘못된 SAML 구성이 있습니다. 관리자에게 문의하십시오.",
-  "CONFIG1201": "ID 공급자 로그아웃 페이지를 열 수 없습니다. 나중에 다시 시도하십시오."
+  "CONFIG1201": "ID 공급자 로그아웃 페이지를 열 수 없습니다. 나중에 다시 시도하십시오.",
+  "BE_FORM_ROOT_PENDING": "Root fields are currently pending under review by supplier liaison",
+  "BE_FORM_ONE_TO_MANY_ITEM_PENDING": "Item is currently pending under review by supplier liaison"
 }

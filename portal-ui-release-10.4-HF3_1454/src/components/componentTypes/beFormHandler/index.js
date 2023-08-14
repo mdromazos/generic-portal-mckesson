@@ -143,7 +143,7 @@ const BEFormHandler = ({match, beMeta, mode, maxColumns, activePageName, history
             rowId,
             fieldName,
             paramString,
-            ACTIVE
+            `${ACTIVE},${PENDING}`
         );
         payLoad[HTTP_METHOD] = GET;
         payLoad[PROXY_ATTRIBUTE] = rowId;
@@ -260,11 +260,6 @@ const BEFormHandler = ({match, beMeta, mode, maxColumns, activePageName, history
     };
 
     return  <>
-        {/* {
-            initialData && initialData.pendingProtected && <Text
-                component ={{heading: "Record Currently Pending Workflow", body: "Changes on the record are being approved by the liaison. No changes can occur until approval."}}
-            />
-        } */}
         {
             initialData && <BEForm
                 beData={initialData}

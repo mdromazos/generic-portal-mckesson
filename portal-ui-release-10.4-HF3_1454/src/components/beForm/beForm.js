@@ -1012,7 +1012,7 @@ export const BEForm = forwardRef(({
                 {/* ADDED */}
                 {updatedBEData && updatedBEData.pendingProtected && <div className="beForm_error" data-testid={"rootError"}>	
                     <Form.Group name={"rootError"} key={"root"}>	
-                        <Form.Warning>{translate("BE_FORM_ROOT_PENDING")}</Form.Warning>	
+                        <Form.Error>{translate("BE_FORM_ROOT_PENDING")}</Form.Error>	
                     </Form.Group>	
                 </div>}
                 <div className="be-form-group-data">

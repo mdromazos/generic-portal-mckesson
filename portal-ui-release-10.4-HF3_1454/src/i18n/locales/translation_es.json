@@ -225,5 +225,7 @@
   "CONFIG1110": "No se puede abrir la página de inicio de sesión del proveedor de identidades. Inténtelo de nuevo más tarde",
   "CONFIG1112": "La respuesta SAML presenta algunos errores al redirigirse a la página del portal tras iniciar sesión",
   "CONFIG1113": "El portal tiene una configuración de SAML no válida. Póngase en contacto con el administrador",
-  "CONFIG1201": "No se puede abrir la página de cierre de sesión del proveedor de identidades. Inténtelo de nuevo más tarde"
+  "CONFIG1201": "No se puede abrir la página de cierre de sesión del proveedor de identidades. Inténtelo de nuevo más tarde",
+  "BE_FORM_ROOT_PENDING": "Root fields are currently pending under review by supplier liaison",
+  "BE_FORM_ONE_TO_MANY_ITEM_PENDING": "Item is currently pending under review by supplier liaison"
 }

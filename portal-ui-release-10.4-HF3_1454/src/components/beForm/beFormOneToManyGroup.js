@@ -175,7 +175,7 @@ export const BEFormOneToManyGroup = ({
                 && beField.beFormFields.map((beManyChild, childIndex) => {
                     if (!beManyChild.many) {
                         if (!beManyChild.isHidden) {
-                            if (!beManyChild.isReadOnly) beManyChild.isReadOnly = pendingProtected;
+                            // if (!beManyChild.isReadOnly) beManyChild.isReadOnly = pendingProtected;
                             let manyDt = { parentName: fieldName, row: i };
                             return <BEFormField
                                 key={`formField_${oneToManyRowId}_${childIndex}`}
@@ -192,6 +192,7 @@ export const BEFormOneToManyGroup = ({
                                 lookupValueChangeHandler={lookupValueChangeHandler}
                                 view={viewMode}
                                 fileHandler={fileHandler}
+                                pendingProtected={pendingProtected}
                             />
                         }
                     } else {

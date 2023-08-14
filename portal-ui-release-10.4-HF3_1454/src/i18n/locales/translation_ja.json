@@ -225,5 +225,7 @@
   "CONFIG1110": "IDプロバイダログインページを開けません。後でもう一度やり直してください",
   "CONFIG1112": "ログイン後のポータルログインページへのリダイレクト中のSAML応答にエラーがいくつか含まれています",
   "CONFIG1113": "ポータルに無効なSAML設定が含まれています。管理者に連絡してください",
-  "CONFIG1201": "IDプロバイダログアウトページを開けません。後でもう一度やり直してください"
+  "CONFIG1201": "IDプロバイダログアウトページを開けません。後でもう一度やり直してください",
+  "BE_FORM_ROOT_PENDING": "Root fields are currently pending under review by supplier liaison",
+  "BE_FORM_ONE_TO_MANY_ITEM_PENDING": "Item is currently pending under review by supplier liaison"
 }
