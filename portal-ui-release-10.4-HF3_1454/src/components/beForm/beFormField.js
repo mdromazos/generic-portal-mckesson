@@ -19,7 +19,7 @@ import {
 
 export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookupValueChangeHandler,
     fileHandler, dateFormat, maxColumns, lookupOptionsHandler, index,
-    manyDt, locale, view}) => {
+    manyDt, locale, view, pendingProtected}) => {
 
     const { t: translate } = useTranslation();
     const { DATA_TYPES, FIELD_TYPES, VIEW_TYPE, META_KEYS, OPERATIONS } = BEFORM_CONFIG;
@@ -362,7 +362,7 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
     };
 
     const getFormikField = (fieldName) => {
-        return (formDisabled || beField.isReadOnly) ? getFieldInViewMode() : getFieldInEditMode(fieldName);
+        return (formDisabled || beField.isReadOnly || pendingProtected) ? getFieldInViewMode() : getFieldInEditMode(fieldName);
     };
 
     return (getFieldMeta());

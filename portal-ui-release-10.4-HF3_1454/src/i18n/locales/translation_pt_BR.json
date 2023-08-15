@@ -225,5 +225,7 @@
   "CONFIG1110": "Não é possível abrir a página de login do provedor de identidade. Tente novamente mais tarde",
   "CONFIG1112": "A resposta SAML contém alguns erros ao redirecionar para a página do portal após o login",
   "CONFIG1113": "O portal tem uma configuração SAML inválida. Entre em contato com o administrador",
-  "CONFIG1201": "Não é possível abrir a página de logout do provedor de identidade. Tente novamente mais tarde"
+  "CONFIG1201": "Não é possível abrir a página de logout do provedor de identidade. Tente novamente mais tarde",
+  "BE_FORM_ROOT_PENDING": "Root fields are currently pending under review by supplier liaison",
+  "BE_FORM_ONE_TO_MANY_ITEM_PENDING": "Item is currently pending under review by supplier liaison"
 }

@@ -141,7 +141,7 @@ export const BEFormOneToManyRowItem = ({
                 { pendingProtected &&
                     <div className="be-form-many-root-error" data-testid='be-form-many-root-error'>
                         <Form.Group name={`${fieldName}.item[${rowIndex}].rootError`} key={`${fieldName}.item[${rowIndex}].rootError`}>
-                            <Form.Error>Item is currently pending under review by supplier liaison</Form.Error>
+                            <Form.Error>{translate("BE_FORM_ONE_TO_MANY_ITEM_PENDING")}</Form.Error>
                         </Form.Group>
                     </div>
                 }

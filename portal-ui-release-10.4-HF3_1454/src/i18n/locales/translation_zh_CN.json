@@ -225,5 +225,7 @@
   "CONFIG1110": "无法打开身份提供程序登录页面。请稍后重试",
   "CONFIG1112": "在登录后重定向到门户页面时 SAML 响应出现一些错误",
   "CONFIG1113": "门户的 SAML 配置无效。请联系管理员",
-  "CONFIG1201": "无法打开身份提供程序注销页面。请稍后重试"
+  "CONFIG1201": "无法打开身份提供程序注销页面。请稍后重试",
+  "BE_FORM_ROOT_PENDING": "Root fields are currently pending under review by supplier liaison",
+  "BE_FORM_ONE_TO_MANY_ITEM_PENDING": "Item is currently pending under review by supplier liaison"
 }

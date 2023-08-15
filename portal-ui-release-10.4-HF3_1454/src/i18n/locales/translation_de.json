@@ -225,5 +225,7 @@
   "CONFIG1110": "Die Anmeldeseite des Identitätsanbieters kann nicht geöffnet werden. Versuchen Sie es später erneut.",
   "CONFIG1112": "Die SAML-Antwort enthält Fehler beim Weiterleiten an die Portal-Seite nach der Anmeldung.",
   "CONFIG1113": "Das Portal enthält eine ungültige SAML-Konfiguration. Wenden Sie sich an den Administrator.",
-  "CONFIG1201": "Die Abmeldeseite des Identitätsanbieters kann nicht geöffnet werden. Versuchen Sie es später erneut."
+  "CONFIG1201": "Die Abmeldeseite des Identitätsanbieters kann nicht geöffnet werden. Versuchen Sie es später erneut.",
+  "BE_FORM_ROOT_PENDING": "Root fields are currently pending under review by supplier liaison",
+  "BE_FORM_ONE_TO_MANY_ITEM_PENDING": "Item is currently pending under review by supplier liaison"
 }

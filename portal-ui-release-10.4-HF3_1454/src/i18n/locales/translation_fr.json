@@ -225,5 +225,7 @@
   "CONFIG1110": "Impossible d’ouvrir la page de connexion du fournisseur d’identité. Réessayer ultérieurement",
   "CONFIG1112": "La réponse SAML comporte des erreurs lors de la redirection vers la page du portail après la connexion",
   "CONFIG1113": "Le portail comporte une configuration SAML non valide. Contacter votre administrateur",
-  "CONFIG1201": "Impossible d’ouvrir la page de déconnexion du fournisseur d’identité. Réessayer ultérieurement"
+  "CONFIG1201": "Impossible d’ouvrir la page de déconnexion du fournisseur d’identité. Réessayer ultérieurement",
+  "BE_FORM_ROOT_PENDING": "Les champs racines sont actuellement en attente d’examen par la liaison avec les fournisseurs",
+  "BE_FORM_ONE_TO_MANY_ITEM_PENDING": "L’article est actuellement en attente d’examen par l’agent de liaison avec les fournisseurs"
 }
