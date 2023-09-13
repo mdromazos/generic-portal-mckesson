@@ -225,7 +225,7 @@ export const BEFormOneToManyGroup = ({
                                 updateBEData={updateBEData}
                                 view={viewMode}
                                 getOneToManyBEDataHandler={getOneToManyBEDataHandler}
-                                parentDataPath={parentDataPathName}
+                                parentDataPath={parentDataPathName !== "" ? parentDataPathName : null}
                                 manyLevel={manyLevel + 1}
                             />
                         }

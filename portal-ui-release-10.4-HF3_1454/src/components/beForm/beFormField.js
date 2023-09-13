@@ -301,7 +301,7 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
                     value={getFieldValue(formikProps.values, fieldName)}
                     disabled={formDisabled}
                     name={fieldName}
-                    onBlur={(props) => onBlurUpdateDropDownFieldValue(props, fieldName, beField.required)}
+                    onBlur={(props) => onBlurUpdateFieldValue(props, fieldName, beField.required)}
                 />;
 
             case DATA_TYPES.INTEGER:
@@ -311,10 +311,10 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
                     data-testid={fieldName+"_input"}
                     className='beForm_field'
                     variant={fieldErrorMsg ? "error" : ""}
-                    value={getFieldValue(formikProps.values, fieldName)}
+                    defaultValue={getFieldValue(formikProps.values, fieldName)}
                     disabled={formDisabled}
                     name={fieldName}
-                    onBlur={(props) => onBlurUpdateDropDownFieldValue(props, fieldName, beField.required)}
+                    onBlur={(props) => onBlurUpdateFieldValue(props, fieldName, beField.required)}
                 />;
 
             case DATA_TYPES.DATE:
@@ -353,10 +353,10 @@ export const BEFormField = ({ beField, beData, formDisabled, formikProps, lookup
                     data-testid={fieldName+"_input"}
                     className='beForm_field'
                     variant={fieldErrorMsg ? "error" : ""}
-                    value={getFieldValue(formikProps.values, fieldName)}
+                    defaultValue={getFieldValue(formikProps.values, fieldName)}
                     maxLength={beField.length}
                     name={fieldName}
-                    onBlur={(props) => onBlurUpdateDropDownFieldValue(props, fieldName, beField.required)}
+                    onBlur={(props) => onBlurUpdateFieldValue(props, fieldName, beField.required)}
                 />;
         }
     };

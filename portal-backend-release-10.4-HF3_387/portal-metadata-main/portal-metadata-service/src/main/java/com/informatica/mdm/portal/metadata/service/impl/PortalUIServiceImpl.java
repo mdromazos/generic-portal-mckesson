@@ -174,53 +174,33 @@ public class PortalUIServiceImpl implements PortalUIService {
 			String selectedLocale,String ict) throws PortalConfigException {
 
 		ObjectNode portalNode = null;
-		JsonNode portalConfigNode = portalPersistenceService.getPublishedPortalConfig(credentials, portalId, orsId);
+        JsonNode publishPortalConfigNode = portalPersistenceService.getPublishedPortalConfig(credentials, portalId, orsId);
 
-		Properties externalBundleProperty = null != externalBundleProperties.get(portalId) ? externalBundleProperties
-				.get(portalId).get(null != selectedLocale ? selectedLocale : PortalServiceConstants.DEFAULT_LOCALE)
-				: null;
+        Properties externalBundleProperty = null != externalBundleProperties.get(portalId) ? externalBundleProperties
+                .get(portalId).get(null != selectedLocale ? selectedLocale : PortalServiceConstants.DEFAULT_LOCALE)
+                : null;
 
-		if (null != externalBundleProperty) {
-			enrichBundles(portalConfigNode, externalBundleProperty);
-		}
+        if (null != externalBundleProperty) {
+            enrichBundles(publishPortalConfigNode, externalBundleProperty);
+        }
 
-		String trustedUser = getTrustedAppUser(portalId, orsId);
-		log.info("Global Api BE Trusted user name is {}", trustedUser);
+        if(null != publishPortalConfigNode && publishPortalConfigNode.has(PortalMetadataContants.GENERAL_SETTINGS)) {
+            JsonNode portalConfigNode = mapper.createObjectNode();
+            ((ObjectNode)portalConfigNode).set(PortalMetadataContants.GENERAL_SETTINGS,publishPortalConfigNode.get(PortalMetadataContants.GENERAL_SETTINGS));
+            ((ObjectNode)portalConfigNode.get(PortalMetadataContants.GENERAL_SETTINGS)).put(PortalMetadataContants.PORTAL_STATUS_ATTRIBUTE,
+                    publishPortalConfigNode.get(PortalMetadataContants.PORTAL_STATUS_ATTRIBUTE).asText());
+            portalNode = (ObjectNode) portalConfigNode.get(PortalMetadataContants.GENERAL_SETTINGS);
 
-		String securityPayload = PortalConfigUtil.getSecurityPayloadForRest(
-				PortalServiceConstants.TRUSTED_APP + "/" + trustedUser, orsId, "getObjectMetadataUsingGET");
+            String trustedUser = getTrustedAppUser(portalId, orsId);
+            log.info("Global Api BE Trusted user name is {}", trustedUser);
+            String securityPayload = PortalConfigUtil.getSecurityPayloadForRest(
+                    PortalServiceConstants.TRUSTED_APP + "/" + trustedUser, orsId, "getObjectMetadataUsingGET");
 
-		credentials = new Credentials(PortalServiceConstants.TRUSTED_APP, securityPayload);
-		log.info("BEFORE INVOKE EXTERNAL CONFIG SERVICE");
-		externalConfigFactory.invokeExternalConfigService(portalConfigNode, credentials, orsId, securityPayload, true,
-				initialUrl, selectedLocale,ict);
-		log.info("AFTER INVOKE EXTERNAL CONFIG SERVICE");
-
-		try {
-			if (null != portalConfigNode) {
-				portalNode = mapper.createObjectNode();
-
-				Iterator<Entry<String, JsonNode>> fields = portalConfigNode.get(PortalMetadataContants.GENERAL_SETTINGS)
-						.fields();
-				while (fields.hasNext()) {
-					Entry<String, JsonNode> processNode = fields.next();
-					if (processNode.getValue().isObject()) {
-						portalNode.putObject(processNode.getKey()).setAll((ObjectNode) processNode.getValue());
-					} else if (processNode.getValue().isValueNode()) {
-						populateValueNode(portalNode, processNode.getKey(), processNode.getValue());
-					} else if (processNode.getValue().isArray()) {
-						portalNode.putArray(processNode.getKey()).addAll((ArrayNode) processNode.getValue());
-					}
-				}
-
-				portalNode.put(PortalMetadataContants.PORTAL_STATUS_ATTRIBUTE,
-						portalConfigNode.get(PortalMetadataContants.PORTAL_STATUS_ATTRIBUTE).asText());
-			}
-			return portalNode;
-		} catch (Exception e) {
-			log.error("Error on get Portal Config for portal id {}", portalId);
-			throw new PortalConfigException(e);
-		}
+            credentials = new Credentials(PortalServiceConstants.TRUSTED_APP, securityPayload);
+            externalConfigFactory.invokeExternalConfigService(portalNode, credentials, orsId, securityPayload, true,
+                    initialUrl, selectedLocale,ict);
+        }
+        return portalNode;
 	}
 
 	private static void populateValueNode(JsonNode responseNode, String key, JsonNode value) {
@@ -1094,16 +1074,16 @@ public class PortalUIServiceImpl implements PortalUIService {
 			headers.add(HttpHeaders.COOKIE, cookie);
 
 			HttpEntity<?> request = new HttpEntity<Object>(payloadNode, headers);
-			ResponseEntity<String> response = restTemplate.exchange(beViewUrl, HttpMethod.POST, request,
-                    String.class);
+			ResponseEntity<JsonNode> response = restTemplate.exchange(beViewUrl, HttpMethod.POST, request,
+					JsonNode.class);
 			if (response.getStatusCode().series() == Series.SUCCESSFUL) {
 				updateFlag = true;
 			} else if(response.getStatusCode().series() == Series.SERVER_ERROR || response.getStatusCode().series() == Series.CLIENT_ERROR) {
 				log.error("Error on invoking AddUser update BE api for payload {}, for apiUrl {}, with exception {}, {}, ",
-						payloadNode, beViewUrl, response.getStatusCode().getReasonPhrase(), response.getBody());
+						payloadNode, beViewUrl, response.getStatusCode().getReasonPhrase(), response.getBody().asText());
 				throw new RecordRegistrationException(ErrorCodeContants.PORTAL625,
 						errorCodeProperties.getProperty(ErrorCodeContants.PORTAL625), response.getStatusCode().getReasonPhrase(),
-						response.getBody(), externalErrorProperty);
+						response.getBody().asText(), externalErrorProperty);
 			}
 
 		} catch (RecordRegistrationException e) {
