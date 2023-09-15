@@ -5,29 +5,22 @@ import CONFIG from '../../../config/config';
 import './index.css';
 import { useTranslation } from "react-i18next";
 import { getCookie } from "../../../common/helperUtils";
-import APIService from "../../../utils/apiService";
-import { URLMap } from "../../../utils/urlMappings";
 
 const PortalNavigator = ({match}) => {
 
-    const [{ globalSettings: {userManagement}, pageMetadata: { pages },
-             notificationActions : { editStatusAction }, confirmDialog:{ editStatus },dispatchAppNotification }] = useContext(StateContext);
+    const [{ globalSettings, pageMetadata: { pages },
+             notificationActions : { editStatusAction }, confirmDialog:{ editStatus } }] = useContext(StateContext);
     const { t: translate } = useTranslation();
     let existingURL = match.url.split('/');
     existingURL.pop();
     let newURL = existingURL.join('/');
-    const { USER_ROLE, PORTAL_STATE,CONSTANTS} = CONFIG;
+    const { USER_ROLE, PORTAL_STATE} = CONFIG;
     const [userAuth, setUserAuth] = useState(false);
     const loggedInUserRole = getCookie(USER_ROLE);
     const loggedInUserState = getCookie(PORTAL_STATE);
     if (!newURL.includes('shell')) {
             newURL = `${newURL}/shell`;
     }
-
-    useEffect(() => {
-            getUserManagementData();
-    }, []);
-
 
     const getUserAuth = (userManagement,isStateEnabled) => {
         let userRole = [...userManagement.userRoles];
@@ -57,27 +50,6 @@ const PortalNavigator = ({match}) => {
 
     }
 
-    const getUserManagementData=()=>{
-        const successCallback = (response) => {
-            if (response.userManagement && response.userManagement.createAdditionalUsers)
-                getUserAuth(response.userManagement,response.isStateEnabled)
-        };
-        const failureCallback = ({ response: { data: { errorCode } } }) => {
-            if (errorCode) {
-                dispatchAppNotification(translate(errorCode), CONSTANTS.NOTIFICATION_ERROR);
-            }
-            else {
-                dispatchAppNotification(translate('GENERIC__ERROR__MESSAGE'), CONSTANTS.NOTIFICATION_ERROR);
-            }
-        }
-        APIService.getRequest(
-            URLMap.getPortalData(match.params.id),
-            successCallback,
-            failureCallback,
-            URLMap.generateHeader(match.params.orsId)
-        );
-    }
-
     const checkForEdit = (event, id) => {
         if(editStatus){
             event.preventDefault();
@@ -88,6 +60,12 @@ const PortalNavigator = ({match}) => {
         }
         return true;
      }
+
+     useEffect(() => {
+        if (globalSettings.userManagement && globalSettings.userManagement.createAdditionalUsers) {
+            getUserAuth(globalSettings.userManagement, globalSettings.isStateEnabled);
+        }
+     }, [globalSettings.userManagement, globalSettings.isStateEnabled]);
 
      return (
         <div className="portal-navigator" data-testid="portal-navigator">
@@ -102,7 +80,7 @@ const PortalNavigator = ({match}) => {
                 })
             }
 
-            {userAuth&&userManagement && userManagement.createAdditionalUsers &&
+            {userAuth && globalSettings.userManagement && globalSettings.userManagement.createAdditionalUsers &&
                 < Link to={`${newURL}/users`} onClick={(e)=>checkForEdit(e, `${newURL}/users`)} key="user" 
                     className={CONFIG.USER_MANAGEMENT_PATH=== match.params.pageId ? 'selected' : ''}
                 >
