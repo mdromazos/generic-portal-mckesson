@@ -49,7 +49,7 @@ public class PortalAppConfig {
     private static final int REQUEST_TIMEOUT = 10000;
      
     // The timeout for waiting for data
-    private static final int SOCKET_TIMEOUT = 60000;
+    private static final int SOCKET_TIMEOUT = 300000;
  
     private static final int MAX_TOTAL_CONNECTIONS = Integer.parseInt(System.getProperty("portal.max.conn", "100"));
     private static final int DEFAULT_KEEP_ALIVE_TIME_MILLIS = 2 * 1000;
