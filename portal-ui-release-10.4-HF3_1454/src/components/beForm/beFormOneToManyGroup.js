@@ -342,7 +342,7 @@ export const BEFormOneToManyGroup = ({
         beField && beField.beFormFields && Array.isArray(beField.beFormFields)
             && beField.beFormFields.forEach(beManyChild => {
                 if (beManyChild.required) {
-                    if (beManyChild.dataType === DATA_TYPES.LOOKUP) {
+                    if (beManyChild.dataType === DATA_TYPES.LOOKUP || beManyChild.many) {
                         obj[beManyChild.name] = {};
                     } else {
                         obj[beManyChild.name] = "";
