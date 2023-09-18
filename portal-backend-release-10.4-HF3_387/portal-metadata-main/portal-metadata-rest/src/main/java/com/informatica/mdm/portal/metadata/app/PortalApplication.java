@@ -16,10 +16,12 @@ import com.informatica.mdm.portal.metadata.auth.config.WebMvcConfig;
 import com.informatica.mdm.portal.metadata.config.EmfServiceConfig;
 import com.informatica.mdm.portal.metadata.config.PortalAppConfig;
 import com.informatica.mdm.portal.metadata.config.PropertyLoader;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @EntityScan("com.informatica.mdm.portal.metadata.domain")
 @ComponentScan("com.informatica.mdm.portal")
 @SpringBootApplication
+@EnableAsync
 @Import({ PropertyLoader.class, PortalAppConfig.class, EmfServiceConfig.class, WebMvcConfig.class })
 @EnableAutoConfiguration(exclude = JmxAutoConfiguration.class)
 public class PortalApplication extends SpringBootServletInitializer {

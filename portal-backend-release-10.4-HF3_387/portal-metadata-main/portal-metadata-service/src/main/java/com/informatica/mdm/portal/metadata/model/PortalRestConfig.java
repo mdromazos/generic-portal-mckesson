@@ -23,6 +23,7 @@ public class PortalRestConfig {
     private String mdmSessionId;
     private String initialApiUrl;
     private String locale;
+    private String role;
 
     public PortalRestConfig(String ors, Integer version, List<String> portalNodes) {
         this.portalNodes = portalNodes;
@@ -187,5 +188,11 @@ public class PortalRestConfig {
 		this.locale = locale;
 	}
 
+    public String getRole() {
+        return role;
+    }
 
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

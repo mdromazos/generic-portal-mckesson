@@ -67,9 +67,10 @@ public class PortalUIController {
         List<String> portalNodes = PortalRestUtil.parsePortalUrl(request.getRequestURI());
         String orsId = request.getHeader(PortalRestConstants.HEADER_ATTRIBUTE_ORS_ID);
         String portalId = request.getHeader(PortalRestConstants.HEADER_ATTRIBUTE_PORTAL_ID);
+		String role = request.getHeader(PortalRestConstants.HEADER_ATTRIBUTE_ROLE);
         PortalRestConfig restConfig = PortalRestConfig.generatePortalRestConfig(orsId, null,
                 portalNodes, filter, sort, sortOrder, depth, currentPage, pageSize, projections, resolveExtConfig);
-
+		restConfig.setRole(role);
         log.info("Portal Nodes to fetch: {}, Ors: {}", portalNodes, orsId);
         restConfig.setInitialApiUrl(portalCmxUrl);
         restConfig.setLocale(PortalRestUtil.getCookieValue(request, "selectedLocale"));

@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
 
+import com.informatica.mdm.portal.metadata.model.PortalModelCache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class CacheServiceImpl implements CacheService {
 
 	@Autowired
 	Map<CacheModel, JsonNode> externalConfigCache;
+	@Autowired
+	Map<PortalModelCache, JsonNode> portalModelCache;
 	
 	@Autowired
 	@Qualifier(value = "errorCodeProperties")
@@ -65,5 +68,37 @@ public class CacheServiceImpl implements CacheService {
 		return externalConfigCache;
 	}
 
+	@Override
+	public Map<PortalModelCache, JsonNode> clearPortalCache(PortalModelCache cacheModel) throws PortalConfigException {
+
+		log.info("Refresh metadata cache for model {}", cacheModel);
+		try {
+
+			Iterator<PortalModelCache> cacheIterator = portalModelCache.keySet().iterator();
+			while(cacheIterator.hasNext()) {
+				PortalModelCache systemCache = cacheIterator.next();
+				if(!cacheModel.getOrsId().isEmpty() && cacheModel.getOrsId().equals(systemCache.getOrsId())) {
+					cacheIterator.remove();
+					continue;
+				}
+				else if(!cacheModel.getRole().isEmpty() && cacheModel.getRole().equals(systemCache.getRole())) {
+					cacheIterator.remove();
+					continue;
+				}
+				else if(!cacheModel.getPortalId().isEmpty() && cacheModel.getPortalId().equals(systemCache.getPortalId())) {
+					cacheIterator.remove();
+					continue;
+				}
+			}
+
+		} catch (Exception e) {
+			log.error("Error on clearing cache for model {}, with error {}", cacheModel, e.getMessage());
+			throw new PortalConfigServiceException(ErrorCodeContants.PORTAL614,
+					errorCodeProperties.getProperty(ErrorCodeContants.PORTAL614), e.getMessage());
+		}
+
+		return portalModelCache;
+	}
+	
 
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.informatica.mdm.cs.server.rest.Credentials;
 import com.informatica.mdm.portal.metadata.exception.PortalConfigException;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -124,6 +125,11 @@ public interface PortalPersistenceService {
 
     JsonNode savePreference(String appId, String userId, String orsId,
 							String id, JsonNode payloadNode) throws PortalConfigException;
+
+	Timestamp getDBChangeTimestamp(String orsId) throws PortalConfigException;
+
+	int getPublishedPortalVersion(Credentials credentials, String portalId, String orsID)
+			throws PortalConfigException;
 
 	JsonNode getPreference(String appId, String userId, String orsId,  String id)
 			throws PortalConfigException;

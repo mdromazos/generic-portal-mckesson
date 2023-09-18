@@ -8,6 +8,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.cert.Certificate;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -29,6 +30,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.DatatypeConverter;
 
+import com.informatica.mdm.portal.metadata.model.*;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -123,6 +125,8 @@ public class PortalUIServiceImpl implements PortalUIService {
 
 	@Autowired
 	private ExternalConfigFactory externalConfigFactory;
+	@Autowired
+	AsyncServiceImpl asyncService;
 
 	@Autowired
 	RestTemplate restTemplate;
@@ -168,6 +172,9 @@ public class PortalUIServiceImpl implements PortalUIService {
 
 	@Autowired
 	private ExternalConfigService externalConfigService;
+
+	@Autowired
+	Map<PortalModelCache, JsonNode> portalModelCache;
 
 	@Override
 	public JsonNode getGlobalPortal(Credentials credentials, String portalId, String orsId, String initialUrl,
@@ -315,9 +322,8 @@ public class PortalUIServiceImpl implements PortalUIService {
 
 				String portalId = pathNodes.get(1);
 				log.info("Portal UI Get Portal for portal Id {} ", portalId);
-
-				portalConfigNode = portalPersistenceService.getPublishedPortalConfig(credentials, portalId,
-						restConfig.getOrs());
+				PortalUIModel model = collectPortalConfigForPortalUI( credentials, portalId, restConfig ,ict);
+				portalConfigNode = model.getPortalConfig();
 
 				Properties externalBundleProperty = null != externalBundleProperties.get(portalId)
 						? externalBundleProperties.get(portalId)
@@ -383,7 +389,7 @@ public class PortalUIServiceImpl implements PortalUIService {
 					portalConfigNode = JsonUtil.applyProjections(portalConfigNode, restConfig.getProjections());
 				}
 
-				if (restConfig.getResolveExtConfig()) {
+				if (restConfig.getResolveExtConfig() && model.isRawModel() ) {
 					externalConfigFactory.invokeExternalConfigService(portalConfigNode, credentials,
 							restConfig.getOrs(), restConfig.getMdmSessionId(), true, restConfig.getInitialApiUrl(),
 							restConfig.getLocale(),ict);
@@ -399,6 +405,67 @@ public class PortalUIServiceImpl implements PortalUIService {
 					errorCodeProperties.getProperty(ErrorCodeContants.CONFIG716));
 		}
 		return portalConfigNode;
+	}
+
+		
+	private  PortalUIModel collectPortalConfigForPortalUI( Credentials credentials, String portalId, PortalRestConfig restConfig , String ict)
+			throws PortalConfigException {
+		PortalUIModel model = new PortalUIModel();
+		model.setRawModel(false);
+		JsonNode portalConfig = null;
+		int prefVersion = 0;
+		long prefDBChange = 0;
+		String prefLocale = null;
+		PortalModelCache cacheModel = null;
+
+		long lastDBChange = portalPersistenceService.getDBChangeTimestamp(restConfig.getOrs()).getTime();
+		if(null != restConfig.getRole()) {
+			cacheModel = new PortalModelCache(restConfig.getOrs(), restConfig.getRole(), Long.toString(lastDBChange),
+					portalId, restConfig.getLocale());
+			portalConfig = portalModelCache.get(cacheModel);
+		}
+		if (null == portalConfig) {
+			JsonNode finalPreferenceNode = portalPersistenceService.getPreference(portalId, credentials.getUsername(), restConfig.getOrs(), null);
+			try {
+				if(!finalPreferenceNode.isEmpty(null)) {
+					Iterator<String> keys = finalPreferenceNode.fieldNames();
+					String key;
+					JsonNode node;
+					while (keys.hasNext()) {
+						key= keys.next();
+						node = finalPreferenceNode.get(key);
+						if (node.has(PortalServiceConstants.PREFERENCE_TYPE)
+								&& node.get(PortalServiceConstants.PREFERENCE_TYPE).asText().equals(PortalServiceConstants.PREFERENCE_TYPE_VALUE_MODEL)
+								&&	node.get(PortalServiceConstants.USER_PREFERENCE).has(PortalServiceConstants.PREFERENCE_PORTAL_CONFIG) ) {
+							portalConfig = node.get(PortalServiceConstants.USER_PREFERENCE).get(PortalServiceConstants.PREFERENCE_PORTAL_CONFIG);
+							prefVersion = node.get(PortalServiceConstants.USER_PREFERENCE).get(PortalServiceConstants.PREFERENCE_PORTAL_VERSION).asInt();
+							prefDBChange = node.get(PortalServiceConstants.USER_PREFERENCE).get(PortalServiceConstants.PREFERENCE_PORTAL_DB_CHANGE).asLong();
+							prefLocale = node.get(PortalServiceConstants.USER_PREFERENCE).get(PortalServiceConstants.PREFERENCE_PORTAL_LOCALE).asText();
+							portalModelCache.put(cacheModel, portalConfig);
+							break;
+						}
+
+					}
+				}
+				long currentVersion = portalPersistenceService.getPublishedPortalVersion(credentials, portalId, restConfig.getOrs());
+				if ( (currentVersion != prefVersion) || ( lastDBChange > prefDBChange ) || !restConfig.getLocale().equals(prefLocale) ) {
+					portalConfig = portalPersistenceService.getPublishedPortalConfig(credentials, portalId,
+							restConfig.getOrs());
+					model.setRawModel(true);
+					asyncService.processPortalModel(credentials, portalId, restConfig, ict);
+				}
+			} catch (Exception e) {
+				log.error( "Error while loading portal model from {} preference table for portal id {}",credentials.getUsername(),portalId );
+				portalConfig = portalPersistenceService.getPublishedPortalConfig(credentials, portalId,
+						restConfig.getOrs());
+				model.setRawModel(true);
+				asyncService.processPortalModel(credentials, portalId, restConfig, ict);
+			}
+
+		}
+		model.setPortalConfig(portalConfig);
+		model.setLocale(restConfig.getLocale());
+		return model;
 	}
 
 	private void enrichBundles(JsonNode portalConfigNode, Properties externalBundleProperty) {

@@ -103,6 +103,13 @@ public class PortalServiceConstants {
 	public static final String SP_METADAT_PREFIX = "GENERIC_PORTAL";
 	public static final String SP_METADAT_DELIM = "_";
 	public static final String SSO_CONFIG_SP_FILTER = "{\"name\": [\"%s\"]}";
+	public static final String  PREFERENCE_TYPE = "PREFERENCE_TYPE";
+    public static final String  PREFERENCE_TYPE_VALUE_MODEL = "ModelPreference";
+    public static final String  PREFERENCE_PORTAL_CONFIG = "portalConfig";
+	public static final String  PREFERENCE_PORTAL_VERSION = "version";
+	public static final String  PREFERENCE_PORTAL_DB_CHANGE = "timeStamp";
+	public static final String  PREFERENCE_PORTAL_LOCALE = "locale";
+    public static final String  USER_PREFERENCE = "USER_PREFERENCE";
 	
 	
 }

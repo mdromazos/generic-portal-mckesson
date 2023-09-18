@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Comparator;
@@ -16,6 +17,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.stream.StreamSupport;
 
+import com.informatica.mdm.portal.metadata.exception.*;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -2384,6 +2386,116 @@ public class PortalPersistenceServiceImpl implements PortalPersistenceService {
 
         return payloadNode;
     }
+
+
+	@Override
+	public Timestamp getDBChangeTimestamp(String orsId) throws PortalConfigException {
+		Timestamp timestamp = null ;
+        DataSourceModel dataSourceModel = new DataSourceModel(orsId, null);
+        JdbcTemplate jdbcTemplate = null;
+        try {
+            jdbcTemplate = multiDataSource.getCurrentJdbcTemplate(dataSourceModel);
+            portalRepo.setJdbcTemplate(jdbcTemplate);
+            Boolean isTableExists = portalRepo.isTableExist(DatabaseConstants.TABLE_REPOS_DB_RELEASE);
+            if (isTableExists) {
+				List<String> projections = new ArrayList<String>();
+				projections.add(DatabaseConstants.COLUMN_LAST_CHANGE_DATE);
+				QueryWrapper queryWrapper = new QueryWrapper();
+				queryWrapper.setTableName(DatabaseConstants.TABLE_REPOS_DB_RELEASE);
+				queryWrapper.setProjections(projections);
+				queryWrapper.setQueryType(DatabaseConstants.SELECT_QUERY_TYPE);
+
+				List<Map<String, Object>> response = portalRepo.getPortalDetails(queryWrapper);
+				if (!response.isEmpty() && !response.get(0).isEmpty()
+						&& null != response.get(0).get(DatabaseConstants.COLUMN_LAST_CHANGE_DATE)) {
+					timestamp = PortalConfigUtil.toTimestamp(
+							response.get(0).get(DatabaseConstants.COLUMN_LAST_CHANGE_DATE));
+				} else {
+					log.error("Resource Not found for table {}  and  column {} in for {}", DatabaseConstants.TABLE_REPOS_DB_RELEASE,
+							DatabaseConstants.COLUMN_LAST_CHANGE_DATE , orsId);
+				}
+			}
+
+        }catch (SQLException e) {
+            throw new PortalConfigServiceException(ErrorCodeContants.CONFIG401,
+                    errorCodeProperties.getProperty(ErrorCodeContants.CONFIG401), e.getMessage());
+        } catch(Exception e) {
+            throw new PortalConfigServiceException(ErrorCodeContants.CONFIG602,
+                    errorCodeProperties.getProperty(ErrorCodeContants.CONFIG602), e.getMessage());
+        }
+		finally {
+			try {
+				if(null != jdbcTemplate)
+					jdbcTemplate.getDataSource().getConnection().close();
+			} catch (SQLException throwables) {
+				log.error("Error while closing jdbc connection");
+			}
+		}
+
+		return timestamp;
+	}
+
+	@Override
+	public int getPublishedPortalVersion(Credentials credentials, String portalId, String orsID)
+			throws PortalConfigException {
+
+		int portalVersion = 0;
+		JdbcTemplate jdbcTemplate = null;
+
+		try {
+
+			log.info("Retrieve Portal Status for portal id {}, for databaseID {} ", portalId, orsID);
+			DataSourceModel dataSourceModel = new DataSourceModel(orsID, credentials);
+			jdbcTemplate = multiDataSource.getCurrentJdbcTemplate(dataSourceModel);
+			portalRepo.setJdbcTemplate(jdbcTemplate);
+
+			if (portalRepo.isTableExist(DatabaseConstants.TABLE_PORTAL_CONFIG)) {
+
+				tableDefinition(DatabaseConstants.TABLE_PORTAL_CONFIG, orsID, credentials);
+
+				QueryComponent portalIdFilter = new QueryComponent(DatabaseConstants.COLUMN_PORTAL_ID,
+						portalId);
+
+				List<QueryComponent> filter = new ArrayList<QueryComponent>();
+				filter.add(portalIdFilter);
+
+				log.info("Retrieve Portal Status for table {}, with filter {} ", DatabaseConstants.TABLE_PORTAL_CONFIG, filter);
+				List<String> projections = new ArrayList<String>();
+				projections.add(DatabaseConstants.COLUMN_VERSION);
+				QueryWrapper queryWrapper = new QueryWrapper();
+				queryWrapper.setTableName(DatabaseConstants.TABLE_PORTAL_CONFIG);
+				queryWrapper.setProjections(projections);
+				queryWrapper.setFilter(filter);
+
+				List<Map<String, Object>> response = portalRepo.getPortalDetails(queryWrapper);
+				if (null != response && !response.isEmpty()) {
+					log.error("Portal Status found for portal Id {} ", portalId);
+					portalVersion = Integer.parseInt( response.get(0).get(DatabaseConstants.COLUMN_VERSION).toString());
+				}
+			}
+
+		} catch (ResourceNotFoundException e) {
+			throw e;
+		} catch (PortalConfigException e) {
+			log.error("Error on fetching published portal status for portal id {} with user {} for database id {} ",
+					portalId, credentials.getUsername(), orsID);
+			throw e;
+		} catch (Exception e) {
+			log.error("Error on fetching published portal status for portal id {} with user {} for database id {} ",
+					portalId, credentials.getUsername(), orsID);
+			throw new PortalConfigServiceException(ErrorCodeContants.CONFIG501,
+					errorCodeProperties.getProperty(ErrorCodeContants.CONFIG501), e.getMessage());
+		}
+		finally {
+			try {
+				if(null != jdbcTemplate)
+					jdbcTemplate.getDataSource().getConnection().close();
+			} catch (SQLException throwables) {
+				log.error("Error while closing jdbc connection");
+			}
+		}
+		return portalVersion;
+	}
 
 	@Override
 	public JsonNode getPreference(String appId,  String userId, String orsId, String id) throws PortalConfigException {

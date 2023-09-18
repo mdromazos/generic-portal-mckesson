@@ -242,5 +242,7 @@ public class DatabaseConstants {
 	public static final String COLUMN_USERS_LAST_NAME = "LAST_NAME";
 	public static final String COLUMN_USERS_EMAIL = "EMAIL";
 	public static final String TABLE_REPOS_USERS = "C_REPOS_USER";
+    public static final String TABLE_REPOS_DB_RELEASE = "C_REPOS_DB_RELEASE";
+	public static final String COLUMN_LAST_CHANGE_DATE= "LAST_CHANGE_DATE";
 	
 }

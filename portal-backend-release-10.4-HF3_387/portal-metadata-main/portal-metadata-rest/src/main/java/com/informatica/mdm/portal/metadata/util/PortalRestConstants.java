@@ -54,6 +54,7 @@ public class PortalRestConstants {
 	public static final String HEADER_ATTRIBUTE_ORS_ID = "X-INFA-ORS";
 	public static final String HEADER_ATTRIBUTE_PORTAL_VERSION = "X-INFA-VERSION";
 	public static final String HEADER_ATTRIBUTE_PORTAL_ID = "X-INFA-PORTALID";
+	public static final String HEADER_ATTRIBUTE_ROLE = "X-INFA-ROLE";
 	
 	public final static String ITEM = "item";
 	public final static String DOT = "\\.";

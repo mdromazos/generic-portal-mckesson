@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import com.informatica.mdm.portal.metadata.model.PortalModelCache;
 import org.apache.http.HeaderElement;
 import org.apache.http.HeaderElementIterator;
 import org.apache.http.HttpResponse;
@@ -67,6 +68,10 @@ public class PortalAppConfig {
 	public Map<CacheModel, JsonNode> externalConfigCache() {
 		return new LinkedHashMap<CacheModel, JsonNode>();
 	}
+	@Bean
+    public Map<PortalModelCache, JsonNode> portalModelCache() {
+        return new LinkedHashMap<PortalModelCache, JsonNode>();
+    }
 	
 	@Bean
 	public SiperianClient getSifclient()

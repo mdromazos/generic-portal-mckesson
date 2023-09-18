@@ -24,6 +24,7 @@ import java.util.zip.ZipOutputStream;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.informatica.mdm.portal.metadata.model.PortalModelCache;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
@@ -1399,6 +1400,8 @@ public class PortalConfigServiceImpl implements PortalConfigService {
 		} else if (PortalMetadataContants.PORTAL_STATUS_STOP.equalsIgnoreCase(portalState)) {
 			CacheModel cacheParam = new CacheModel(orsId, null, null, null, null);
 			cacheService.clearCache(cacheParam);
+			PortalModelCache removeModel = new PortalModelCache(orsId, null,null,null,null);
+            cacheService.clearPortalCache(removeModel);
 			externalErrorProperties.remove(portalId);
 			externalBundleProperties.remove(portalId);
 		}
@@ -1633,15 +1636,6 @@ public class PortalConfigServiceImpl implements PortalConfigService {
 				((ObjectNode) configurationNode.get(PortalMetadataContants.SSO_SP_KEY_ACSURL))
 						.put(PortalMetadataContants.VALUE_ATTRIBUTE, acsURL);
 			}
-        }
-        if(node.has(PortalMetadataContants.GENERAL_PROPERTIES_METADATA_PROPERTIES)) {
-            JsonNode generalProps = node.get(PortalMetadataContants.GENERAL_PROPERTIES_METADATA_PROPERTIES);
-            JsonNode configurationNode = generalProps.get(PortalMetadataContants.CONFIGURATION);
-            if(configurationNode.has(PortalMetadataContants.SSO_GP_KEY_SAMLREDIRECTURL)) {
-                ((ObjectNode) configurationNode.get(PortalMetadataContants.SSO_GP_KEY_SAMLREDIRECTURL))
-                        .put(PortalMetadataContants.VALUE_ATTRIBUTE, portalCmxUrl);
-            }
-
         }
 
         return node;
