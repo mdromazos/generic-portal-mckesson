@@ -496,6 +496,7 @@ export const BEForm = forwardRef(({
                                             emptyField = true;
                                             sectionErrorStatus = false;
                                             field.sectionError = null;
+                                            isRequiredSectionMissing = false; // NEW - FIXES BUG WHERE IT WILL NOT SAVE IF THE USER DOES NOT INPUT THE FIRST FIELD IN THE SECTION
                                         }else if(!emptyField){
                                             sectionErrorStatus = true;
                                             isRequiredSectionMissing = true;
@@ -1010,7 +1011,8 @@ export const BEForm = forwardRef(({
                     }
                 </div>
                 {/* ADDED */}
-                {updatedBEData && updatedBEData.pendingProtected && <div className="beForm_error" data-testid={"rootError"}>	
+                {updatedBEData && updatedBEData.hubStateInd === 1 && 
+                    updatedBEData.pendingProtected && <div className="beForm_error" data-testid={"rootError"}>	
                     <Form.Group name={"rootError"} key={"root"}>	
                         <Form.Error>{translate("BE_FORM_ROOT_PENDING")}</Form.Error>	
                     </Form.Group>	

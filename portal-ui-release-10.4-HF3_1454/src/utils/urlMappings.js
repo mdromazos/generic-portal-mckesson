@@ -1,3 +1,6 @@
+import { getCookie } from "../common/helperUtils";
+import CONFIG from '../config/config';
+
 const PORTAL_ROOT = '/infa-portal';
 const PIM_ROOT = '/pimservice';
 export const URLMap = {
@@ -110,18 +113,21 @@ export const URLMap = {
         return `${this.PORTAL_SIGNUP}/${supplierView}?systemName=${systemName}`;
     },
     generateHeader: function (orsId, portalId) {
+        const userRole = getCookie(CONFIG.USER_ROLE); 
         if (portalId) {
             return {
                 headers: {
                     'X-INFA-ORS': orsId,
-                    'X-INFA-PORTALID': portalId
+                    'X-INFA-PORTALID': portalId,
+                    'X-INFA-ROLE': userRole
                 }
             }
         }
         else {
             return {
                 headers: {
-                    'X-INFA-ORS': orsId
+                    'X-INFA-ORS': orsId,
+                    'X-INFA-ROLE': userRole
                 }
             }
         }
